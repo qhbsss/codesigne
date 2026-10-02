@@ -1,0 +1,22 @@
+{
+  "version": "challenge-workload-v0.6",
+  "status": "two-case release candidate; not yet frozen",
+  "active_cases": ["M1_P1", "M1_D1"],
+  "dtype": "float32",
+  "layernorm_epsilon": 0.00001,
+  "gelu": "tanh-approximation",
+  "fixture_contract": {
+    "source": "reference.make_inputs",
+    "seed_domain": "nonnegative-integer",
+    "decode_history": "reference.build_history",
+    "scored_weight_override": false,
+    "additional_qk_stress_scales": [0, 4]
+  },
+  "models": {
+    "M1": {"layers": 4, "width": 384, "heads": 8, "ffn": 1536}
+  },
+  "scenarios": {
+    "P1": {"kind": "prefill", "batch": 1, "context_tokens": 128, "new_positions": 1},
+    "D1": {"kind": "decode", "batch": 1, "context_tokens": 256, "new_positions": 16}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "segment": 5,
+  "stage": "w2",
+  "elapsed_seconds": 10.036804864999965,
+  "cycles": 25601,
+  "peak_window_power_w": 13.190863104702062,
+  "hbm_read_bytes": 1466944,
+  "hbm_write_bytes": 262144,
+  "cache_hits": 1143,
+  "cache_misses": 22921,
+  "instruction_count": 608
+}

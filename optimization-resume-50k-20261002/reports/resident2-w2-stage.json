@@ -1,0 +1,12 @@
+{
+  "segment": 7,
+  "stage": "qkv_attn",
+  "elapsed_seconds": 108.16199250400001,
+  "cycles": 31808,
+  "peak_window_power_w": 19.234681483143667,
+  "hbm_read_bytes": 2434496,
+  "hbm_write_bytes": 524288,
+  "cache_hits": 23017,
+  "cache_misses": 38039,
+  "instruction_count": 1472
+}

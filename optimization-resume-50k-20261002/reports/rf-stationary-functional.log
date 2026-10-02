@@ -1,0 +1,14 @@
+{
+  "cases": {
+    "M1_P1": {
+      "checks": [],
+      "elapsed_seconds": 0.007902962000116531,
+      "error": "Invalid or oversized program text",
+      "hbm_races_validated": false,
+      "passed": false
+    }
+  },
+  "kind": "functional-only-v1",
+  "passed": false,
+  "race_only": false
+}

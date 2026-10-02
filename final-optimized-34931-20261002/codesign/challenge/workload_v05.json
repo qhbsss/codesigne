@@ -1,0 +1,18 @@
+{
+  "version": "challenge-workload-v0.5",
+  "status": "pilot; not frozen for leaderboard",
+  "active_cases": ["M1_P1"],
+  "dtype": "float32",
+  "layernorm_epsilon": 0.00001,
+  "gelu": "tanh-approximation",
+  "models": {
+    "M1": {"layers": 4, "width": 384, "heads": 8, "ffn": 1536},
+    "M2": {"layers": 4, "width": 768, "heads": 12, "ffn": 3072}
+  },
+  "scenarios": {
+    "P1": {"kind": "prefill", "batch": 1, "context_tokens": 128, "new_positions": 1},
+    "P2": {"kind": "prefill", "batch": 4, "context_tokens": 128, "new_positions": 1},
+    "D1": {"kind": "decode", "batch": 1, "context_tokens": 256, "new_positions": 16},
+    "D2": {"kind": "decode", "batch": 4, "context_tokens": 256, "new_positions": 16}
+  }
+}
