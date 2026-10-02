@@ -1,0 +1,76 @@
+{
+  "cases": {
+    "M2_D1": {
+      "checks": [
+        {
+          "checks": {
+            "layer0/new_k": {
+              "all_elements_written": true,
+              "allclose_1e-3_1e-3": true,
+              "max_absolute_error": 9.5367431640625e-07
+            },
+            "layer0/new_v": {
+              "all_elements_written": true,
+              "allclose_1e-3_1e-3": true,
+              "max_absolute_error": 9.5367431640625e-07
+            },
+            "layer1/new_k": {
+              "all_elements_written": true,
+              "allclose_1e-3_1e-3": true,
+              "max_absolute_error": 1.0728836059570312e-06
+            },
+            "layer1/new_v": {
+              "all_elements_written": true,
+              "allclose_1e-3_1e-3": true,
+              "max_absolute_error": 1.0728836059570312e-06
+            },
+            "output/hidden": {
+              "all_elements_written": true,
+              "allclose_1e-3_1e-3": true,
+              "max_absolute_error": 1.6192546090643134e-06
+            }
+          },
+          "passed": true,
+          "seed_sha256": "b465a7466dca949603f2187d66e647fa2b95f7e27bf2f5fc497059de598f32eb"
+        },
+        {
+          "checks": {
+            "layer0/new_k": {
+              "all_elements_written": true,
+              "allclose_1e-3_1e-3": true,
+              "max_absolute_error": 7.152557373046875e-07
+            },
+            "layer0/new_v": {
+              "all_elements_written": true,
+              "allclose_1e-3_1e-3": true,
+              "max_absolute_error": 9.5367431640625e-07
+            },
+            "layer1/new_k": {
+              "all_elements_written": true,
+              "allclose_1e-3_1e-3": true,
+              "max_absolute_error": 1.3113021850585938e-06
+            },
+            "layer1/new_v": {
+              "all_elements_written": true,
+              "allclose_1e-3_1e-3": true,
+              "max_absolute_error": 1.430511474609375e-06
+            },
+            "output/hidden": {
+              "all_elements_written": true,
+              "allclose_1e-3_1e-3": true,
+              "max_absolute_error": 1.269344031995523e-06
+            }
+          },
+          "passed": true,
+          "seed_sha256": "c44d2632397c0d21d58178054d12fc7d109228d11fb5596b3bfae460f578c2a2"
+        }
+      ],
+      "elapsed_seconds": 9.224107899994124,
+      "hbm_races_validated": true,
+      "passed": true
+    }
+  },
+  "kind": "functional-only-v1",
+  "passed": true,
+  "race_only": false
+}

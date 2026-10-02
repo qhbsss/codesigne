@@ -1,0 +1,669 @@
+{
+  "area_mm2": 22.051787356160006,
+  "cases": {
+    "M1_P1": {
+      "calibration_factor": 1.9428415014716833,
+      "calibration_profile": {
+        "exact_cycles": 1753158,
+        "raw_bottleneck": "sm0:rf_write",
+        "raw_cycles": 902368
+      },
+      "central_cycles": 1058317,
+      "conservative_cycles": 1322897,
+      "estimated_hbm_read_misses": 416295,
+      "estimated_peak_power_w": 16.095118218517143,
+      "profile": {
+        "dynamic_energy_pj": 603703237.9844087,
+        "hbm_read_line_requests": 1234144,
+        "hbm_write_line_requests": 89440,
+        "instruction_count": 215005,
+        "opcode_counts": {
+          "BARRIER": 72,
+          "LD": 52244,
+          "MMA.ACC": 22176,
+          "REDUCE": 7800,
+          "SFU": 10140,
+          "ST": 24956,
+          "STEP.COMMIT": 1,
+          "VEC": 97584,
+          "WG.BEGIN": 16,
+          "WG.END": 16
+        },
+        "raw_bottleneck": "sm8:rf_read",
+        "raw_cycles": 544726,
+        "shared_demands": {
+          "hbm_channel_0_gross": 331384,
+          "hbm_channel_1_gross": 331384,
+          "hbm_channel_2_gross": 331384,
+          "hbm_channel_3_gross": 331384,
+          "hbm_channel_4_gross": 330408,
+          "hbm_channel_5_gross": 330408,
+          "hbm_channel_6_gross": 330408,
+          "hbm_channel_7_gross": 330408,
+          "noc_line_slices": 1323584,
+          "noc_multicast_line_slices": 554000,
+          "synchronization_points": 73
+        },
+        "sm_demands": {
+          "0": {
+            "dma": 83060,
+            "issue": 13512,
+            "noc_in": 77386,
+            "noc_out": 5674,
+            "rf_read": 544726,
+            "rf_write": 262328,
+            "sfu": 17538,
+            "tc": 324666,
+            "vec": 71454
+          },
+          "1": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "10": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "11": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "12": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "13": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "14": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "15": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "2": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "3": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "4": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "5": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "6": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "7": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          },
+          "8": {
+            "dma": 83060,
+            "issue": 13512,
+            "noc_in": 77386,
+            "noc_out": 5674,
+            "rf_read": 544726,
+            "rf_write": 262328,
+            "sfu": 17538,
+            "tc": 324666,
+            "vec": 71454
+          },
+          "9": {
+            "dma": 82676,
+            "issue": 13422,
+            "noc_in": 77098,
+            "noc_out": 5578,
+            "rf_read": 543634,
+            "rf_write": 260756,
+            "sfu": 17502,
+            "tc": 324666,
+            "vec": 69876
+          }
+        }
+      }
+    },
+    "M2_D1": {
+      "calibration_factor": 1.8313902830057158,
+      "calibration_profile": {
+        "exact_cycles": 210185,
+        "raw_bottleneck": "sm0:rf_write",
+        "raw_cycles": 114768
+      },
+      "central_cycles": 26666,
+      "conservative_cycles": 33333,
+      "estimated_hbm_read_misses": 24734,
+      "estimated_peak_power_w": 23.888002029207584,
+      "profile": {
+        "dynamic_energy_pj": 30905174.528005846,
+        "hbm_read_line_requests": 89664,
+        "hbm_write_line_requests": 4224,
+        "instruction_count": 24376,
+        "opcode_counts": {
+          "BARRIER": 128,
+          "LD": 6640,
+          "MMA.ACC": 2816,
+          "REDUCE": 1152,
+          "SFU": 1312,
+          "ST": 3168,
+          "STEP.COMMIT": 8,
+          "VEC": 9088,
+          "WG.BEGIN": 32,
+          "WG.END": 32
+        },
+        "raw_bottleneck": "sm0:rf_read",
+        "raw_cycles": 14560,
+        "shared_demands": {
+          "hbm_channel_0_gross": 23728,
+          "hbm_channel_1_gross": 23600,
+          "hbm_channel_2_gross": 23472,
+          "hbm_channel_3_gross": 23344,
+          "hbm_channel_4_gross": 23600,
+          "hbm_channel_5_gross": 23472,
+          "hbm_channel_6_gross": 23344,
+          "hbm_channel_7_gross": 23216,
+          "noc_line_slices": 93888,
+          "noc_multicast_line_slices": 70497,
+          "synchronization_points": 136
+        },
+        "sm_demands": {
+          "0": {
+            "dma": 5408,
+            "issue": 2394,
+            "noc_in": 5000,
+            "noc_out": 408,
+            "rf_read": 14560,
+            "rf_write": 13496,
+            "sfu": 1184,
+            "tc": 14224,
+            "vec": 8784
+          },
+          "1": {
+            "dma": 3536,
+            "issue": 586,
+            "noc_in": 3416,
+            "noc_out": 120,
+            "rf_read": 9592,
+            "rf_write": 6008,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "10": {
+            "dma": 3568,
+            "issue": 618,
+            "noc_in": 3432,
+            "noc_out": 136,
+            "rf_read": 9608,
+            "rf_write": 6040,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "11": {
+            "dma": 3568,
+            "issue": 618,
+            "noc_in": 3432,
+            "noc_out": 136,
+            "rf_read": 9608,
+            "rf_write": 6040,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "12": {
+            "dma": 3568,
+            "issue": 618,
+            "noc_in": 3432,
+            "noc_out": 136,
+            "rf_read": 9608,
+            "rf_write": 6040,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "13": {
+            "dma": 3568,
+            "issue": 618,
+            "noc_in": 3432,
+            "noc_out": 136,
+            "rf_read": 9608,
+            "rf_write": 6040,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "14": {
+            "dma": 3568,
+            "issue": 618,
+            "noc_in": 3432,
+            "noc_out": 136,
+            "rf_read": 9608,
+            "rf_write": 6040,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "15": {
+            "dma": 3568,
+            "issue": 618,
+            "noc_in": 3432,
+            "noc_out": 136,
+            "rf_read": 9608,
+            "rf_write": 6040,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "16": {
+            "dma": 2672,
+            "issue": 1830,
+            "noc_in": 2544,
+            "noc_out": 128,
+            "rf_read": 8472,
+            "rf_write": 7744,
+            "sfu": 1280,
+            "tc": 5968,
+            "vec": 4576
+          },
+          "17": {
+            "dma": 2256,
+            "issue": 600,
+            "noc_in": 2128,
+            "noc_out": 128,
+            "rf_read": 8864,
+            "rf_write": 5408,
+            "sfu": 448,
+            "tc": 7328,
+            "vec": 1472
+          },
+          "18": {
+            "dma": 2256,
+            "issue": 600,
+            "noc_in": 2128,
+            "noc_out": 128,
+            "rf_read": 8864,
+            "rf_write": 5408,
+            "sfu": 448,
+            "tc": 7328,
+            "vec": 1472
+          },
+          "19": {
+            "dma": 2256,
+            "issue": 600,
+            "noc_in": 2128,
+            "noc_out": 128,
+            "rf_read": 8864,
+            "rf_write": 5408,
+            "sfu": 448,
+            "tc": 7328,
+            "vec": 1472
+          },
+          "2": {
+            "dma": 3536,
+            "issue": 586,
+            "noc_in": 3416,
+            "noc_out": 120,
+            "rf_read": 9592,
+            "rf_write": 6008,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "20": {
+            "dma": 2256,
+            "issue": 600,
+            "noc_in": 2128,
+            "noc_out": 128,
+            "rf_read": 8864,
+            "rf_write": 5408,
+            "sfu": 448,
+            "tc": 7328,
+            "vec": 1472
+          },
+          "21": {
+            "dma": 2256,
+            "issue": 600,
+            "noc_in": 2128,
+            "noc_out": 128,
+            "rf_read": 8864,
+            "rf_write": 5408,
+            "sfu": 448,
+            "tc": 7328,
+            "vec": 1472
+          },
+          "22": {
+            "dma": 2256,
+            "issue": 600,
+            "noc_in": 2128,
+            "noc_out": 128,
+            "rf_read": 8864,
+            "rf_write": 5408,
+            "sfu": 448,
+            "tc": 7328,
+            "vec": 1472
+          },
+          "23": {
+            "dma": 2256,
+            "issue": 600,
+            "noc_in": 2128,
+            "noc_out": 128,
+            "rf_read": 8864,
+            "rf_write": 5408,
+            "sfu": 448,
+            "tc": 7328,
+            "vec": 1472
+          },
+          "24": {
+            "dma": 2672,
+            "issue": 1830,
+            "noc_in": 2544,
+            "noc_out": 128,
+            "rf_read": 8472,
+            "rf_write": 7744,
+            "sfu": 1280,
+            "tc": 5968,
+            "vec": 4576
+          },
+          "25": {
+            "dma": 2256,
+            "issue": 600,
+            "noc_in": 2128,
+            "noc_out": 128,
+            "rf_read": 8864,
+            "rf_write": 5408,
+            "sfu": 448,
+            "tc": 7328,
+            "vec": 1472
+          },
+          "26": {
+            "dma": 1824,
+            "issue": 502,
+            "noc_in": 1728,
+            "noc_out": 96,
+            "rf_read": 6512,
+            "rf_write": 4544,
+            "sfu": 448,
+            "tc": 5248,
+            "vec": 1408
+          },
+          "27": {
+            "dma": 1824,
+            "issue": 502,
+            "noc_in": 1728,
+            "noc_out": 96,
+            "rf_read": 6512,
+            "rf_write": 4544,
+            "sfu": 448,
+            "tc": 5248,
+            "vec": 1408
+          },
+          "28": {
+            "dma": 1824,
+            "issue": 502,
+            "noc_in": 1728,
+            "noc_out": 96,
+            "rf_read": 6512,
+            "rf_write": 4544,
+            "sfu": 448,
+            "tc": 5248,
+            "vec": 1408
+          },
+          "29": {
+            "dma": 1824,
+            "issue": 502,
+            "noc_in": 1728,
+            "noc_out": 96,
+            "rf_read": 6512,
+            "rf_write": 4544,
+            "sfu": 448,
+            "tc": 5248,
+            "vec": 1408
+          },
+          "3": {
+            "dma": 3536,
+            "issue": 586,
+            "noc_in": 3416,
+            "noc_out": 120,
+            "rf_read": 9592,
+            "rf_write": 6008,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "30": {
+            "dma": 1824,
+            "issue": 502,
+            "noc_in": 1728,
+            "noc_out": 96,
+            "rf_read": 6512,
+            "rf_write": 4544,
+            "sfu": 448,
+            "tc": 5248,
+            "vec": 1408
+          },
+          "31": {
+            "dma": 1824,
+            "issue": 502,
+            "noc_in": 1728,
+            "noc_out": 96,
+            "rf_read": 6512,
+            "rf_write": 4544,
+            "sfu": 448,
+            "tc": 5248,
+            "vec": 1408
+          },
+          "4": {
+            "dma": 3536,
+            "issue": 586,
+            "noc_in": 3416,
+            "noc_out": 120,
+            "rf_read": 9592,
+            "rf_write": 6008,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "5": {
+            "dma": 3536,
+            "issue": 586,
+            "noc_in": 3416,
+            "noc_out": 120,
+            "rf_read": 9592,
+            "rf_write": 6008,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "6": {
+            "dma": 3536,
+            "issue": 586,
+            "noc_in": 3416,
+            "noc_out": 120,
+            "rf_read": 9592,
+            "rf_write": 6008,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "7": {
+            "dma": 3536,
+            "issue": 586,
+            "noc_in": 3416,
+            "noc_out": 120,
+            "rf_read": 9592,
+            "rf_write": 6008,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          },
+          "8": {
+            "dma": 4416,
+            "issue": 1946,
+            "noc_in": 4248,
+            "noc_out": 168,
+            "rf_read": 11568,
+            "rf_write": 9240,
+            "sfu": 992,
+            "tc": 14224,
+            "vec": 4016
+          },
+          "9": {
+            "dma": 3568,
+            "issue": 618,
+            "noc_in": 3432,
+            "noc_out": 136,
+            "rf_read": 9608,
+            "rf_write": 6040,
+            "sfu": 160,
+            "tc": 13504,
+            "vec": 848
+          }
+        }
+      }
+    }
+  },
+  "central_score": 37816.715129641845,
+  "conservative_score": 30253.13662447936,
+  "gate_checks": {
+    "area_at_most_gate": true,
+    "calibration_provenance_matches": true,
+    "conservative_score_at_least_target": false,
+    "estimated_peak_power_at_most_gate": false
+  },
+  "kind": "calibrated-static-screen-v1",
+  "passes_all_gates": false,
+  "settings": {
+    "area_gate_mm2": 23.8,
+    "power_gate_w": 18.0,
+    "target_score": 95000.0,
+    "uncertainty": 0.25
+  },
+  "static_provenance": {
+    "hardware": {
+      "cache_mib": 4,
+      "dma_depth": 2,
+      "dma_engines": 1,
+      "hbm_channels": 8,
+      "multicast": true,
+      "noc_bytes_per_cycle": 512,
+      "reduction_units": 0,
+      "rf_ports": "4R2W",
+      "sfu_lanes": 8,
+      "shared_kib": 0,
+      "sm_count": 32,
+      "sm_noc_bytes_per_cycle": 128,
+      "tc_array": "4x8",
+      "tc_count": 2,
+      "tc_k_parallel": 1,
+      "vector_lanes": 8,
+      "version": "challenge-hardware-v0.4"
+    },
+    "program_sha256": {
+      "M1_P1": "8125a6cec29c2b8ac12af364cebb41eb4f4a9d28e9cc86f31ae57a99c54cd14b",
+      "M2_D1": "407da97430037d6979c1294ef32f7f7de321c4ab7e823c87c9ee38baa9961052"
+    }
+  },
+  "warning": "Screening model only; official estimate/grade remains authoritative."
+}

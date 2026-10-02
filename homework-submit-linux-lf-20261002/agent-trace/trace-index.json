@@ -1,0 +1,55 @@
+{
+  "indexed_at_utc": "2026-10-01T20:01:24.497657+00:00",
+  "sessions": [
+    {
+      "file": "rollout-2026-10-01T15-13-30-01a0f64f-a932-76d0-80dd-d5fafddf3821.jsonl",
+      "records": 13,
+      "sha256": "f24ce9ea056e1398dfcbdd6b885e9aa00e30daf5357241aca5792641d1493b24"
+    },
+    {
+      "file": "rollout-2026-10-01T15-26-12-01a0f65b-49d4-7293-828c-80ba5e38a3cb.jsonl",
+      "records": 6659,
+      "sha256": "6bfb1203bbd8d4715202d9c6c162e131e00ac80c12d07c7ca23a9eb4345ee93b"
+    },
+    {
+      "file": "rollout-2026-10-01T15-28-12-01a0f65d-1c4f-7f63-acb2-c90a7065b92f.jsonl",
+      "records": 63,
+      "sha256": "aefea9e3d694f6f5db14bc5906dcf361a72f795c1b8629793a31b97a835c169b"
+    },
+    {
+      "file": "rollout-2026-10-01T15-28-18-01a0f65d-339c-7011-9b1b-d09f68453c56.jsonl",
+      "records": 168,
+      "sha256": "c0ca1d47085307e847127d49ab63f937431a7d6abf29f6859ec789e672968a8b"
+    },
+    {
+      "file": "rollout-2026-10-01T15-28-27-01a0f65d-58b6-7760-9594-8a7f2a8a69e8.jsonl",
+      "records": 185,
+      "sha256": "fd9080bf7caefc16e7888b72a553036b96d92daf33ff445a41f4eebcfee1b4ff"
+    },
+    {
+      "file": "rollout-2026-10-01T15-44-22-01a0f66b-ea8c-7842-8f4e-b4190d181b17.jsonl",
+      "records": 66,
+      "sha256": "1182c8c8cc330f81db44d73ba20f554ed4550c68295165c207a65b89ef84299f"
+    },
+    {
+      "file": "rollout-2026-10-01T15-44-26-01a0f66b-fb28-7620-9ba7-d1bedc8b75d7.jsonl",
+      "records": 59,
+      "sha256": "a21afb02d691ae08aa1cb4a75d4e76d6e35f8517444ae8ea4631dc51b3b57b5d"
+    },
+    {
+      "file": "rollout-2026-10-01T15-56-31-01a0f677-082d-7303-8216-19cb1044bed3.jsonl",
+      "records": 386,
+      "sha256": "79ac01307024ef756b4dfb809e79ab7df5501f4aca2f1a56cb3d6ad757750bbd"
+    },
+    {
+      "file": "rollout-2026-10-01T15-56-37-01a0f677-2149-7162-804f-6caba04aa708.jsonl",
+      "records": 387,
+      "sha256": "3bf2e42da87473d5e7a1fa3304303c7bb0d7ade2ddef993822a99b627ef7e335"
+    },
+    {
+      "file": "rollout-2026-10-01T15-56-44-01a0f677-3bb0-7ed0-8817-6d106e0bc154.jsonl",
+      "records": 394,
+      "sha256": "bd363c18acb282fbf1750992f295e3050e8b313df13f2d35d1af3d674ae8ed97"
+    }
+  ]
+}

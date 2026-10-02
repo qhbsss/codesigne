@@ -1,0 +1,24 @@
+{
+  "checked_at_utc": "2026-10-01T20:06:57.573339+00:00",
+  "report_unchanged_sha256": "8a2de9d28fc3424fba6fa3e27e07312fcc96f952be12c1c88ff3b3360c449c9b",
+  "hardware_canonical_sha256": "52b9faccc70501a08e78125bc500e86c58e9a61ef16090b8ad8e1cbb9fe50677",
+  "hardware_report_match": true,
+  "raw_zip_program_bytes_match_report": true,
+  "programs": {
+    "M1_P1": {
+      "before_crlf_sha256": "bfbf97887375b5bc5866eae6a3b5a98b2b9c43b9f6fb0e4d7a58ffdd75d9fd6e",
+      "after_lf_sha256": "8125a6cec29c2b8ac12af364cebb41eb4f4a9d28e9cc86f31ae57a99c54cd14b",
+      "report_program_sha256": "8125a6cec29c2b8ac12af364cebb41eb4f4a9d28e9cc86f31ae57a99c54cd14b",
+      "text_content_unchanged": true,
+      "crlf_replacements": 20837
+    },
+    "M2_D1": {
+      "before_crlf_sha256": "4d294ac4c0606cc44d086932a014f65e0c9c4d761cc5cd56e8fdb85632baf89b",
+      "after_lf_sha256": "3b02834535189008e9b717fdb1c862e773ed8a22407c821f11bcb3caa4a1fc66",
+      "report_program_sha256": "3b02834535189008e9b717fdb1c862e773ed8a22407c821f11bcb3caa4a1fc66",
+      "text_content_unchanged": true,
+      "crlf_replacements": 24376
+    }
+  },
+  "server_receipt_verified": false
+}

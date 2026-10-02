@@ -1,0 +1,14 @@
+{
+  "cases": {
+    "M1_P1": {
+      "checks": [],
+      "elapsed_seconds": 41.90798290001112,
+      "error": "Write shape or finite-value violation",
+      "hbm_races_validated": true,
+      "passed": false
+    }
+  },
+  "kind": "functional-only-v1",
+  "passed": false,
+  "race_only": false
+}

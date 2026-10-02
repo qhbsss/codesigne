@@ -1,0 +1,14 @@
+{
+  "cases": {
+    "M1_P1": {
+      "checks": [],
+      "elapsed_seconds": 41.97400380000181,
+      "error": "Write shape or finite-value violation; destination={'space': 'RF', 'offset': 0, 'count': 256, 'wg': 'm0w0', 'lane': 3}; value_count=256; finite_count=0; event=m0w0_e80_0; kind=mul",
+      "hbm_races_validated": true,
+      "passed": false
+    }
+  },
+  "kind": "functional-only-v1",
+  "passed": false,
+  "race_only": false
+}

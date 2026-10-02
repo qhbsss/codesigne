@@ -1,0 +1,25 @@
+{
+  "kind": "combined-exact-timing-summary",
+  "candidate": "H16dma2-smnoc64 + causal-zero-v14",
+  "score": 28885.379353675133,
+  "baseline_score": 10465.4820508606,
+  "absolute_improvement": 18419.897302814534,
+  "relative_improvement_percent": 176.00620031926596,
+  "area_mm2": 23.895888312319997,
+  "functional_seed7": {
+    "M1_P1": true,
+    "M2_D1": true
+  },
+  "cases": {
+    "M1_P1": {
+      "cycles": 680994,
+      "peak_window_power_w": 19.595123013482983,
+      "peak_power_upper_bound_w": 22.308923416764248
+    },
+    "M2_D1": {
+      "cycles": 71030,
+      "peak_window_power_w": 18.073408655806908,
+      "peak_power_upper_bound_w": 22.42565941676324
+    }
+  }
+}

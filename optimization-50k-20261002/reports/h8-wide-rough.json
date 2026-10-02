@@ -1,0 +1,317 @@
+{
+  "area_mm2": 21.951264348160002,
+  "cases": {
+    "M1_P1": {
+      "calibration_factor": 4.0711288066286455,
+      "calibration_profile": {
+        "exact_cycles": 680994,
+        "raw_bottleneck": "shared:hbm_channel_3_gross",
+        "raw_cycles": 167274
+      },
+      "central_cycles": 1344735,
+      "conservative_cycles": 1479209,
+      "estimated_hbm_read_misses": 342978,
+      "estimated_peak_power_w": 11.820995666366855,
+      "profile": {
+        "dynamic_energy_pj": 653414299.7436516,
+        "hbm_read_line_requests": 1034464,
+        "hbm_write_line_requests": 89440,
+        "instruction_count": 199741,
+        "opcode_counts": {
+          "BARRIER": 72,
+          "LD": 47044,
+          "MMA.ACC": 22176,
+          "REDUCE": 7800,
+          "SFU": 10140,
+          "ST": 20668,
+          "STEP.COMMIT": 1,
+          "VEC": 91824,
+          "WG.BEGIN": 8,
+          "WG.END": 8
+        },
+        "raw_bottleneck": "sm4:rf_read",
+        "raw_cycles": 330310,
+        "shared_demands": {
+          "hbm_channel_0_gross": 281656,
+          "hbm_channel_1_gross": 281656,
+          "hbm_channel_2_gross": 281656,
+          "hbm_channel_3_gross": 281656,
+          "hbm_channel_4_gross": 280296,
+          "hbm_channel_5_gross": 280296,
+          "hbm_channel_6_gross": 280296,
+          "hbm_channel_7_gross": 280296,
+          "noc_line_slices": 1123904,
+          "noc_multicast_line_slices": 568208,
+          "synchronization_points": 73
+        },
+        "sm_demands": {
+          "0": {
+            "dma": 140776,
+            "issue": 25026,
+            "noc_in": 129524,
+            "noc_out": 11252,
+            "rf_read": 330310,
+            "rf_write": 262736,
+            "sfu": 35040,
+            "tc": 93858,
+            "vec": 139890
+          },
+          "1": {
+            "dma": 140392,
+            "issue": 24936,
+            "noc_in": 129236,
+            "noc_out": 11156,
+            "rf_read": 329746,
+            "rf_write": 261932,
+            "sfu": 35004,
+            "tc": 93858,
+            "vec": 138312
+          },
+          "2": {
+            "dma": 140392,
+            "issue": 24936,
+            "noc_in": 129236,
+            "noc_out": 11156,
+            "rf_read": 329746,
+            "rf_write": 261932,
+            "sfu": 35004,
+            "tc": 93858,
+            "vec": 138312
+          },
+          "3": {
+            "dma": 140392,
+            "issue": 24936,
+            "noc_in": 129236,
+            "noc_out": 11156,
+            "rf_read": 329746,
+            "rf_write": 261932,
+            "sfu": 35004,
+            "tc": 93858,
+            "vec": 138312
+          },
+          "4": {
+            "dma": 140776,
+            "issue": 25026,
+            "noc_in": 129524,
+            "noc_out": 11252,
+            "rf_read": 330310,
+            "rf_write": 262736,
+            "sfu": 35040,
+            "tc": 93858,
+            "vec": 139890
+          },
+          "5": {
+            "dma": 140392,
+            "issue": 24936,
+            "noc_in": 129236,
+            "noc_out": 11156,
+            "rf_read": 329746,
+            "rf_write": 261932,
+            "sfu": 35004,
+            "tc": 93858,
+            "vec": 138312
+          },
+          "6": {
+            "dma": 140392,
+            "issue": 24936,
+            "noc_in": 129236,
+            "noc_out": 11156,
+            "rf_read": 329746,
+            "rf_write": 261932,
+            "sfu": 35004,
+            "tc": 93858,
+            "vec": 138312
+          },
+          "7": {
+            "dma": 140392,
+            "issue": 24936,
+            "noc_in": 129236,
+            "noc_out": 11156,
+            "rf_read": 329746,
+            "rf_write": 261932,
+            "sfu": 35004,
+            "tc": 93858,
+            "vec": 138312
+          }
+        }
+      }
+    },
+    "M2_D1": {
+      "calibration_factor": 5.416348940064053,
+      "calibration_profile": {
+        "exact_cycles": 71030,
+        "raw_bottleneck": "shared:hbm_channel_0_gross",
+        "raw_cycles": 13114
+      },
+      "central_cycles": 123753,
+      "conservative_cycles": 136129,
+      "estimated_hbm_read_misses": 33704,
+      "estimated_peak_power_w": 13.44719958656535,
+      "profile": {
+        "dynamic_energy_pj": 64985754.36800133,
+        "hbm_read_line_requests": 89664,
+        "hbm_write_line_requests": 4224,
+        "instruction_count": 24376,
+        "opcode_counts": {
+          "BARRIER": 128,
+          "LD": 6640,
+          "MMA.ACC": 2816,
+          "REDUCE": 1152,
+          "SFU": 1312,
+          "ST": 3168,
+          "STEP.COMMIT": 8,
+          "VEC": 9088,
+          "WG.BEGIN": 32,
+          "WG.END": 32
+        },
+        "raw_bottleneck": "sm0:rf_read",
+        "raw_cycles": 22848,
+        "shared_demands": {
+          "hbm_channel_0_gross": 23728,
+          "hbm_channel_1_gross": 23600,
+          "hbm_channel_2_gross": 23472,
+          "hbm_channel_3_gross": 23344,
+          "hbm_channel_4_gross": 23600,
+          "hbm_channel_5_gross": 23472,
+          "hbm_channel_6_gross": 23344,
+          "hbm_channel_7_gross": 23216,
+          "noc_line_slices": 93888,
+          "noc_multicast_line_slices": 70497,
+          "synchronization_points": 136
+        },
+        "sm_demands": {
+          "0": {
+            "dma": 15168,
+            "issue": 8000,
+            "noc_in": 14336,
+            "noc_out": 832,
+            "rf_read": 22848,
+            "rf_write": 21248,
+            "sfu": 4736,
+            "tc": 18400,
+            "vec": 21952
+          },
+          "1": {
+            "dma": 11616,
+            "issue": 2404,
+            "noc_in": 11104,
+            "noc_out": 512,
+            "rf_read": 18272,
+            "rf_write": 11680,
+            "sfu": 1216,
+            "tc": 18976,
+            "vec": 4640
+          },
+          "2": {
+            "dma": 11184,
+            "issue": 2306,
+            "noc_in": 10704,
+            "noc_out": 480,
+            "rf_read": 17136,
+            "rf_write": 11248,
+            "sfu": 1216,
+            "tc": 17904,
+            "vec": 4576
+          },
+          "3": {
+            "dma": 11184,
+            "issue": 2306,
+            "noc_in": 10704,
+            "noc_out": 480,
+            "rf_read": 17136,
+            "rf_write": 11248,
+            "sfu": 1216,
+            "tc": 17904,
+            "vec": 4576
+          },
+          "4": {
+            "dma": 11184,
+            "issue": 2306,
+            "noc_in": 10704,
+            "noc_out": 480,
+            "rf_read": 17136,
+            "rf_write": 11248,
+            "sfu": 1216,
+            "tc": 17904,
+            "vec": 4576
+          },
+          "5": {
+            "dma": 11184,
+            "issue": 2306,
+            "noc_in": 10704,
+            "noc_out": 480,
+            "rf_read": 17136,
+            "rf_write": 11248,
+            "sfu": 1216,
+            "tc": 17904,
+            "vec": 4576
+          },
+          "6": {
+            "dma": 11184,
+            "issue": 2306,
+            "noc_in": 10704,
+            "noc_out": 480,
+            "rf_read": 17136,
+            "rf_write": 11248,
+            "sfu": 1216,
+            "tc": 17904,
+            "vec": 4576
+          },
+          "7": {
+            "dma": 11184,
+            "issue": 2306,
+            "noc_in": 10704,
+            "noc_out": 480,
+            "rf_read": 17136,
+            "rf_write": 11248,
+            "sfu": 1216,
+            "tc": 17904,
+            "vec": 4576
+          }
+        }
+      }
+    }
+  },
+  "central_score": 15573.076012911553,
+  "conservative_score": 14157.303037347758,
+  "gate_checks": {
+    "area_at_most_gate": true,
+    "calibration_provenance_matches": true,
+    "conservative_score_at_least_target": false,
+    "estimated_peak_power_at_most_gate": true
+  },
+  "kind": "calibrated-static-screen-v1",
+  "passes_all_gates": false,
+  "settings": {
+    "area_gate_mm2": 24.0,
+    "power_gate_w": 20.0,
+    "target_score": 50000.0,
+    "uncertainty": 0.1
+  },
+  "static_provenance": {
+    "hardware": {
+      "cache_mib": 8,
+      "dma_depth": 1,
+      "dma_engines": 4,
+      "hbm_channels": 8,
+      "multicast": true,
+      "noc_bytes_per_cycle": 512,
+      "reduction_units": 0,
+      "rf_ports": "8R4W",
+      "sfu_lanes": 8,
+      "shared_kib": 0,
+      "sm_count": 8,
+      "sm_noc_bytes_per_cycle": 128,
+      "tc_array": "8x16",
+      "tc_count": 2,
+      "tc_k_parallel": 2,
+      "vector_lanes": 8,
+      "version": "challenge-hardware-v0.4"
+    },
+    "program_sha256": {
+      "M1_P1": "31f0f995e69e8ddaf47d417c0c2640821594e022234c30d4be91062fd6b0c31c",
+      "M2_D1": "69907bbbc4db77d5b0b10b27ccec340d1f6f35d4a59deddfd3a19912a99ee053"
+    }
+  },
+  "warning": "Screening model only; official estimate/grade remains authoritative."
+}

@@ -1,0 +1,51 @@
+{
+  "grade_report_sha256": "8a2de9d28fc3424fba6fa3e27e07312fcc96f952be12c1c88ff3b3360c449c9b",
+  "local_score": 28885.37935367514,
+  "official_starter_sha256": "90a5ee2b5f5568a0b5b083b00afce1da0e206769d31ca83e68d6994d9fd88994",
+  "official_starter_url": "https://linux-slai.tail6d76d1.ts.net:8443/downloads/transformer-codesign-starter.zip",
+  "official_linux_source_match": true,
+  "server_receipt_verified": false,
+  "gates": {
+    "area_gate_passed": true,
+    "area_mm2": 23.895888312319997,
+    "eligible": true,
+    "scenarios": {
+      "M1_P1": {
+        "cycles": 680994,
+        "first_token_or_average_step_seconds": 0.001361988,
+        "functional_passed": true,
+        "latency_gate_passed": true,
+        "peak_power_w": 19.595123013482983,
+        "power_gate_passed": true,
+        "throughput_ratio_to_baseline": 45.517280622149386,
+        "throughput_tokens_per_second": 93980.27001706329
+      },
+      "M2_D1": {
+        "cycles": 71030,
+        "first_token_or_average_step_seconds": 1.77575e-05,
+        "functional_passed": true,
+        "latency_gate_passed": true,
+        "peak_power_w": 18.073408655806908,
+        "power_gate_passed": true,
+        "throughput_ratio_to_baseline": 18.330733492890328,
+        "throughput_tokens_per_second": 56314.233422497535
+      }
+    },
+    "score": 28885.37935367514
+  },
+  "runtime_environment": {
+    "clock_hz": 500000000,
+    "cpu_count": 16,
+    "cpu_model": "x86_64",
+    "machine": "x86_64",
+    "numpy": "2.3.5",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python": "3.12.3"
+  },
+  "runtime_observation": {
+    "elapsed_seconds": 1722.394357736,
+    "peak_process_rss_bytes": 1330651136
+  },
+  "packaged_at_utc": "2026-10-01T20:01:24.497657+00:00"
+}
