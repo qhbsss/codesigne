@@ -1,0 +1,11 @@
+{
+  "kind": "isolated-attention-phase-exact",
+  "index": 0,
+  "elapsed": 20.98358790200291,
+  "cycles": 12014,
+  "peak_window_power_w": 15.718462992128641,
+  "peak_window_start": 3667,
+  "peak_window_finish": 4667,
+  "hbm_read_bytes": 655360,
+  "instruction_count": 10188
+}
