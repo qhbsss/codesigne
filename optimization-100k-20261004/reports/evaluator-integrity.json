@@ -1,0 +1,165 @@
+{
+  "all_identical": true,
+  "files": [
+    {
+      "path": "challenge.py",
+      "sha256": "206f0a772ab21621f5387ee3816266f48cfb5decc7e36e88ef713bdfa2157ee7",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "baseline_manifest.json",
+      "sha256": "7f188ab3eebb283031ab0d8dd6b7f2f0187e8d94ca48086a1c78e5a6f75def7b",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/__init__.py",
+      "sha256": "83303f7fbfb23cc7d346971b32d9a3029bc26450e4430e41d0ebba4691d82a0a",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/__init__.py",
+      "sha256": "1ac06d632a4ff5d051a3a9ea5d6445045004ae0e33f6b779bb3ddd0d2139e8fa",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/abi.py",
+      "sha256": "8f2c8d583ea2189b1e71b32c5ab6a0782dbece7b2be2ce3b7930efc1ab0aec14",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/address_views.py",
+      "sha256": "60ac4f8e8c36f173b7493c7f59b3feb44c37e5a75a8d89e2ba1da2f52011b469",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/baseline.py",
+      "sha256": "1415f0fbe9e91bbf07e711a54eae14db545d6d7e7fa596d1d6a8dd9fc995f0b1",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/cache.py",
+      "sha256": "38c83009ed9b9575bcb9a6ef4815e36a6d0f5d8d51c5a5ddd43af3094d369e62",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/cli.py",
+      "sha256": "3f4078eea684e632532c425f0aa80b90f2aa30e85a9eee25bf339c2e2bcb40f5",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/cost_v04.json",
+      "sha256": "2d92bc37f2607ca313cba9bef0860e719d0598e4c37f99851bf45aae4466943e",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/hardware.py",
+      "sha256": "80d375437371a28f049f529e8bb380d361dbf6fba6e834c42b1fb3f8dafdf580",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/hbm_race.py",
+      "sha256": "7ebd3d83078007e41cac8edce5c966e47930276bb9ba2276c133ea2db9f45195",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/isa.py",
+      "sha256": "6e5997ac4e4faa9bf373af1e35e07dd184bb48c7372e9b37a83fd397615959b7",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/micro.py",
+      "sha256": "7ee81168a740fc0fc19eaecb6119734efa20f30669ba302e3bd958d5d2233ae4",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/official.py",
+      "sha256": "168f1e858700c86b8fb02aee1669407fe122358c9b9c489c337c31c0113832c1",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/perf.py",
+      "sha256": "4de9efe16184f60042e9356049ad691fe5197357e119c3193463640826324887",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/pipeline.py",
+      "sha256": "1802498f4b139aacc68966e05b164691c5a07993171f986e6e9e719320c851c5",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/pipeline_events.py",
+      "sha256": "f5e3c6e05172e38c270614c48ba14844f6c5512ccaf8c810d98ae8297d59f653",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/power.py",
+      "sha256": "aaa932935dbe164e903446879800ec3ddc289c59d954c3363638de0e145f0647",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/reference.py",
+      "sha256": "57d0bb2d1e7bab9a9ecbf0677574c5b7cf333619d1c817a4f4bfc2a55d64b481",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/release.py",
+      "sha256": "155f0e989658bd27a7d70fdf728ade09566786d875430290e14655f0d661cf95",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/report_view.py",
+      "sha256": "464014e7308db7a9f7e0b8d4b92c522da6a902f447d3090d9d1b99e82df3744b",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/resource_calendar.py",
+      "sha256": "2d9047bfb823ecbfecc04c1ee8252de692722d48953f82a649ef7e9817c13092",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/resource_timeline.py",
+      "sha256": "5dbd0f9859d7034119f1b7afa91453b92f0f0eccbfbef931f6128a96b0f7c70e",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/runner.py",
+      "sha256": "28c8c929db1385dc3bf377e7bab3afc5e7db4dcef5e62db123cb81fe9e8e7577",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/score.py",
+      "sha256": "fef472c5a3b61943d75649cd55be0962db425ec91a45892046c26ae70ece1a85",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/service.py",
+      "sha256": "ebc3a46dba5a625c1c2b81b7b46faee9f53dcc13dda464d3f20e411d314c4835",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/timed_cache.py",
+      "sha256": "8cf9dae511b0d050026a79a15b910c2156d9d1b829038d09aabe83193e65450e",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/workload.py",
+      "sha256": "6327146a6119acd5e3f2baee1b87409a81406b97566190fdffeeed6145967384",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/workload_v05.json",
+      "sha256": "ee44c1557ae5f364cb37eb87ef741d92a0524aab823a92cbb9fa38f088370a51",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/workload_v06.json",
+      "sha256": "e343ae7cbcb41e0dbfb8f236a145eb30e7d6231f331bb6d6ab457bb62985417b",
+      "identical_to_saved_best": true
+    },
+    {
+      "path": "codesign/challenge/workload_v07.json",
+      "sha256": "aac1d767965882f811bb2c176254a1aa724f10703a33d15012cf82016a882689",
+      "identical_to_saved_best": true
+    }
+  ]
+}

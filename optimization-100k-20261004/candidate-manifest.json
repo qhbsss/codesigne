@@ -1,0 +1,969 @@
+{
+  "kind": "experimental-source-and-generated-program-provenance",
+  "candidates": [
+    {
+      "name": "async-ffn16",
+      "files": {
+        "M1_P1.asm": {
+          "bytes": 5494827,
+          "sha256": "7e3af38296c4c1c9f345bd479d7059060a278099f4dff64818117a2033e64fd6"
+        },
+        "M2_D1.asm": {
+          "bytes": 5124566,
+          "sha256": "e39627b2e3a352c1064f21c281814c568603e05872e366662223f12b16b3df73"
+        },
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "d5ca07033dfc5aa332b4a46d05c6aa07fed66a4589d73f88613fcb2d7318ac63"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87311,
+          "sha256": "801c14e36f4e472857fb0f2fcdcd3eabf1bf91906fe4abe5e16b90a3e2d133ef"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1382,
+          "sha256": "65b34999654a272451b2b15c2807f4fcd1ea80ac0d1b7a7560a78d926b91c34f"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 14817,
+          "sha256": "1a9f3c3af521b0a7c5913c9fd48a377f5018ca4b715996e6fb937560e508d84b"
+        },
+        "project/schedule.py": {
+          "bytes": 28772,
+          "sha256": "c96b2bbae97d680ac6eefe5edcf0fe2eb2cc89e057bcea6bec6dd0428feafec3"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2560,
+          "sha256": "3e01ae356caaf116f7cf4959d60b063b634443e63645f65f548df51681f8a0af"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        },
+        "project/wide_qkv.py": {
+          "bytes": 1814,
+          "sha256": "2d5393b5bcd1587520354382dbfb07ef157f85321b53e75852b018aab7159878"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    },
+    {
+      "name": "baseline-50944",
+      "files": {
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "d5ca07033dfc5aa332b4a46d05c6aa07fed66a4589d73f88613fcb2d7318ac63"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87311,
+          "sha256": "801c14e36f4e472857fb0f2fcdcd3eabf1bf91906fe4abe5e16b90a3e2d133ef"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1305,
+          "sha256": "21456e73ec213fc9f2a828bca7f231b59ad4464025af0e20e64cf877269b8430"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 14804,
+          "sha256": "53c678fe744de8c287f2c8de6a7a2180676342a7db4c365ae3da1a3fc8ac281c"
+        },
+        "project/schedule.py": {
+          "bytes": 28565,
+          "sha256": "fb7265998c10d79b46da547db05d006d2a81e735f008fc6e578fefa6bb70c388"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2519,
+          "sha256": "c40d741da069091da2a895d9260b89fc7435b58d56eb991a9319780b0fbabaf3"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    },
+    {
+      "name": "qkv48-async-dense",
+      "files": {
+        "M1_P1.asm": {
+          "bytes": 5494827,
+          "sha256": "7e3af38296c4c1c9f345bd479d7059060a278099f4dff64818117a2033e64fd6"
+        },
+        "M2_D1.asm": {
+          "bytes": 6280902,
+          "sha256": "1800ecbdaf21257f84b882059ba2b171a324f4423793b54a41b869d7156905d5"
+        },
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "d5ca07033dfc5aa332b4a46d05c6aa07fed66a4589d73f88613fcb2d7318ac63"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87311,
+          "sha256": "801c14e36f4e472857fb0f2fcdcd3eabf1bf91906fe4abe5e16b90a3e2d133ef"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1305,
+          "sha256": "21456e73ec213fc9f2a828bca7f231b59ad4464025af0e20e64cf877269b8430"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 14817,
+          "sha256": "1a9f3c3af521b0a7c5913c9fd48a377f5018ca4b715996e6fb937560e508d84b"
+        },
+        "project/schedule.py": {
+          "bytes": 28565,
+          "sha256": "fb7265998c10d79b46da547db05d006d2a81e735f008fc6e578fefa6bb70c388"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2560,
+          "sha256": "3e01ae356caaf116f7cf4959d60b063b634443e63645f65f548df51681f8a0af"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        },
+        "project/wide_qkv.py": {
+          "bytes": 1814,
+          "sha256": "2d5393b5bcd1587520354382dbfb07ef157f85321b53e75852b018aab7159878"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    },
+    {
+      "name": "qkv48-async-qkv",
+      "files": {
+        "M1_P1.asm": {
+          "bytes": 5497527,
+          "sha256": "0b9f174e15aa27e4ee0bcb01732e62de03571028b2d4d387fb6ec903554cb7b8"
+        },
+        "M2_D1.asm": {
+          "bytes": 6280902,
+          "sha256": "1800ecbdaf21257f84b882059ba2b171a324f4423793b54a41b869d7156905d5"
+        },
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "d5ca07033dfc5aa332b4a46d05c6aa07fed66a4589d73f88613fcb2d7318ac63"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87311,
+          "sha256": "801c14e36f4e472857fb0f2fcdcd3eabf1bf91906fe4abe5e16b90a3e2d133ef"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1305,
+          "sha256": "21456e73ec213fc9f2a828bca7f231b59ad4464025af0e20e64cf877269b8430"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 14817,
+          "sha256": "1a9f3c3af521b0a7c5913c9fd48a377f5018ca4b715996e6fb937560e508d84b"
+        },
+        "project/schedule.py": {
+          "bytes": 28565,
+          "sha256": "fb7265998c10d79b46da547db05d006d2a81e735f008fc6e578fefa6bb70c388"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2519,
+          "sha256": "c40d741da069091da2a895d9260b89fc7435b58d56eb991a9319780b0fbabaf3"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        },
+        "project/wide_qkv.py": {
+          "bytes": 1814,
+          "sha256": "2d5393b5bcd1587520354382dbfb07ef157f85321b53e75852b018aab7159878"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    },
+    {
+      "name": "qkv48-hybrid64",
+      "files": {
+        "M1_P1.asm": {
+          "bytes": 5023764,
+          "sha256": "0212e29998b3228a7895e0bc2d735d9d58d841da38a7b7ef70a634024c46d9d1"
+        },
+        "M2_D1.asm": {
+          "bytes": 6280902,
+          "sha256": "1800ecbdaf21257f84b882059ba2b171a324f4423793b54a41b869d7156905d5"
+        },
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "d5ca07033dfc5aa332b4a46d05c6aa07fed66a4589d73f88613fcb2d7318ac63"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87311,
+          "sha256": "801c14e36f4e472857fb0f2fcdcd3eabf1bf91906fe4abe5e16b90a3e2d133ef"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1305,
+          "sha256": "21456e73ec213fc9f2a828bca7f231b59ad4464025af0e20e64cf877269b8430"
+        },
+        "project/hybrid_dense.py": {
+          "bytes": 2595,
+          "sha256": "872355a1d4f834c57195ec1b86598bd9bc89b00c96972ad5179b823a49cc088f"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 16418,
+          "sha256": "fff87e285773c66f06f771b5dcea400a49168a9d64fb197a60af02d101bdcf3b"
+        },
+        "project/schedule.py": {
+          "bytes": 28565,
+          "sha256": "fb7265998c10d79b46da547db05d006d2a81e735f008fc6e578fefa6bb70c388"
+        },
+        "project/sh_wide_dense.py": {
+          "bytes": 2512,
+          "sha256": "2488bdefb60b0ef79b694c0cbf04a0b5923c1c4d302cca218b4f92eba00d389b"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2519,
+          "sha256": "c40d741da069091da2a895d9260b89fc7435b58d56eb991a9319780b0fbabaf3"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        },
+        "project/wide_qkv.py": {
+          "bytes": 1773,
+          "sha256": "a4c43d75f2e2558ee4b0d563cb2e1cd5b7901a35c1cb40ee2c165f8b2c92f449"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    },
+    {
+      "name": "qkv48-m32-scatter4",
+      "files": {
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "d5ca07033dfc5aa332b4a46d05c6aa07fed66a4589d73f88613fcb2d7318ac63"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87311,
+          "sha256": "801c14e36f4e472857fb0f2fcdcd3eabf1bf91906fe4abe5e16b90a3e2d133ef"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1305,
+          "sha256": "21456e73ec213fc9f2a828bca7f231b59ad4464025af0e20e64cf877269b8430"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 14895,
+          "sha256": "32636232da683950956cc47b7909db423e87bd8ea85d185f04065c239353e013"
+        },
+        "project/schedule.py": {
+          "bytes": 28565,
+          "sha256": "fb7265998c10d79b46da547db05d006d2a81e735f008fc6e578fefa6bb70c388"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/stream_m32.py": {
+          "bytes": 2355,
+          "sha256": "03b5c1bf48eefaf2e1f611a2af7ac516c0d53aade1e114813ddb74a2e702aa1e"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2519,
+          "sha256": "c40d741da069091da2a895d9260b89fc7435b58d56eb991a9319780b0fbabaf3"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        },
+        "project/wide_qkv.py": {
+          "bytes": 1773,
+          "sha256": "a4c43d75f2e2558ee4b0d563cb2e1cd5b7901a35c1cb40ee2c165f8b2c92f449"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    },
+    {
+      "name": "qkv48-m32-stream",
+      "files": {
+        "M1_P1.asm": {
+          "bytes": 6655872,
+          "sha256": "72ac1d3deb3190c90c116f62ad3ab819f9fbbb6bba49e944dd016ca21eaffa4c"
+        },
+        "M2_D1.asm": {
+          "bytes": 6280902,
+          "sha256": "1800ecbdaf21257f84b882059ba2b171a324f4423793b54a41b869d7156905d5"
+        },
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "d5ca07033dfc5aa332b4a46d05c6aa07fed66a4589d73f88613fcb2d7318ac63"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87311,
+          "sha256": "801c14e36f4e472857fb0f2fcdcd3eabf1bf91906fe4abe5e16b90a3e2d133ef"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1305,
+          "sha256": "21456e73ec213fc9f2a828bca7f231b59ad4464025af0e20e64cf877269b8430"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 14848,
+          "sha256": "b4290c3f284df53683b12e70affce9c8aad736d6dd3c2dc71403d5a0ac0c6713"
+        },
+        "project/schedule.py": {
+          "bytes": 28565,
+          "sha256": "fb7265998c10d79b46da547db05d006d2a81e735f008fc6e578fefa6bb70c388"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/stream_m32.py": {
+          "bytes": 2355,
+          "sha256": "03b5c1bf48eefaf2e1f611a2af7ac516c0d53aade1e114813ddb74a2e702aa1e"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2519,
+          "sha256": "c40d741da069091da2a895d9260b89fc7435b58d56eb991a9319780b0fbabaf3"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        },
+        "project/wide_qkv.py": {
+          "bytes": 1773,
+          "sha256": "a4c43d75f2e2558ee4b0d563cb2e1cd5b7901a35c1cb40ee2c165f8b2c92f449"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    },
+    {
+      "name": "qkv48-packed-attn",
+      "files": {
+        "M1_P1.asm": {
+          "bytes": 5502027,
+          "sha256": "4a3900c086c59efc669fcb8fd544eee5566e46482fc1244ee23b96c54be38ba1"
+        },
+        "M2_D1.asm": {
+          "bytes": 6292742,
+          "sha256": "ca7208fa9b02c3286f927bfa414668ebfafe89203cb74ff7bcccf2d7c715fb58"
+        },
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "d5ca07033dfc5aa332b4a46d05c6aa07fed66a4589d73f88613fcb2d7318ac63"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87359,
+          "sha256": "f65d349be7fed5842d633cbd5c2f89be3c43988dd2915417fe3bff1ff95d518a"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1305,
+          "sha256": "21456e73ec213fc9f2a828bca7f231b59ad4464025af0e20e64cf877269b8430"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/packed_combine.py": {
+          "bytes": 936,
+          "sha256": "2292850f521ae84875b021b8d36c55c33a9eaa0f44d8c2ecacedffc42e28ba17"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 14770,
+          "sha256": "8a5283e3f3be4bacd06544265d166710c23452e2a16d678c9eda4e4461ed9792"
+        },
+        "project/schedule.py": {
+          "bytes": 28622,
+          "sha256": "24c9c4d140dc86f091d5107752183ab7575bbd508227f439eacc272cb8598c86"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2519,
+          "sha256": "c40d741da069091da2a895d9260b89fc7435b58d56eb991a9319780b0fbabaf3"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        },
+        "project/wide_qkv.py": {
+          "bytes": 1773,
+          "sha256": "a4c43d75f2e2558ee4b0d563cb2e1cd5b7901a35c1cb40ee2c165f8b2c92f449"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    },
+    {
+      "name": "qkv48-row8",
+      "files": {
+        "M1_P1.asm": {
+          "bytes": 5502027,
+          "sha256": "4a3900c086c59efc669fcb8fd544eee5566e46482fc1244ee23b96c54be38ba1"
+        },
+        "M2_D1.asm": {
+          "bytes": 6280902,
+          "sha256": "1800ecbdaf21257f84b882059ba2b171a324f4423793b54a41b869d7156905d5"
+        },
+        "hardware-reduce1.json": {
+          "bytes": 437,
+          "sha256": "4241c4dc8dcb20c5ceb7fdf40b445a7787dd2a50ab1a79b2565c2e7b21773e17"
+        },
+        "hardware-reduce2-sfu8.json": {
+          "bytes": 436,
+          "sha256": "13cf617d7fec77dbf1e41cea502f324c4a537c8311752c63f78a0fd574ffb638"
+        },
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "d5ca07033dfc5aa332b4a46d05c6aa07fed66a4589d73f88613fcb2d7318ac63"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87311,
+          "sha256": "801c14e36f4e472857fb0f2fcdcd3eabf1bf91906fe4abe5e16b90a3e2d133ef"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1305,
+          "sha256": "21456e73ec213fc9f2a828bca7f231b59ad4464025af0e20e64cf877269b8430"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 14770,
+          "sha256": "8a5283e3f3be4bacd06544265d166710c23452e2a16d678c9eda4e4461ed9792"
+        },
+        "project/schedule.py": {
+          "bytes": 28565,
+          "sha256": "fb7265998c10d79b46da547db05d006d2a81e735f008fc6e578fefa6bb70c388"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2519,
+          "sha256": "c40d741da069091da2a895d9260b89fc7435b58d56eb991a9319780b0fbabaf3"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        },
+        "project/wide_qkv.py": {
+          "bytes": 1773,
+          "sha256": "a4c43d75f2e2558ee4b0d563cb2e1cd5b7901a35c1cb40ee2c165f8b2c92f449"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    },
+    {
+      "name": "qkv48-scatter4",
+      "files": {
+        "M1_P1.asm": {
+          "bytes": 5498427,
+          "sha256": "a48c2abf2074a5157098201f506f3e9d69b7fa4027f29a67376f3a12978435d4"
+        },
+        "M2_D1.asm": {
+          "bytes": 6280902,
+          "sha256": "1800ecbdaf21257f84b882059ba2b171a324f4423793b54a41b869d7156905d5"
+        },
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "d5ca07033dfc5aa332b4a46d05c6aa07fed66a4589d73f88613fcb2d7318ac63"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87311,
+          "sha256": "801c14e36f4e472857fb0f2fcdcd3eabf1bf91906fe4abe5e16b90a3e2d133ef"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1305,
+          "sha256": "21456e73ec213fc9f2a828bca7f231b59ad4464025af0e20e64cf877269b8430"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 14817,
+          "sha256": "1a9f3c3af521b0a7c5913c9fd48a377f5018ca4b715996e6fb937560e508d84b"
+        },
+        "project/schedule.py": {
+          "bytes": 28565,
+          "sha256": "fb7265998c10d79b46da547db05d006d2a81e735f008fc6e578fefa6bb70c388"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2519,
+          "sha256": "c40d741da069091da2a895d9260b89fc7435b58d56eb991a9319780b0fbabaf3"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        },
+        "project/wide_qkv.py": {
+          "bytes": 1773,
+          "sha256": "a4c43d75f2e2558ee4b0d563cb2e1cd5b7901a35c1cb40ee2c165f8b2c92f449"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    },
+    {
+      "name": "qkv48-shwide64",
+      "files": {
+        "M1_P1.asm": {
+          "bytes": 5255910,
+          "sha256": "590775c32c4de89364798a25eee0e60b587f2599156e8361c2ea543c93886da7"
+        },
+        "M2_D1.asm": {
+          "bytes": 6280902,
+          "sha256": "1800ecbdaf21257f84b882059ba2b171a324f4423793b54a41b869d7156905d5"
+        },
+        "hardware-fast-sh.json": {
+          "bytes": 435,
+          "sha256": "1d9059b9c5d6d3e98a9aec6fdbba69db701dcfffb0422543a54c480b57854cf0"
+        },
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "20dcdc3b2f13f4722b8c47cc519aa091eccb3582e9933a69bd1ba6829d7796a4"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87311,
+          "sha256": "801c14e36f4e472857fb0f2fcdcd3eabf1bf91906fe4abe5e16b90a3e2d133ef"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1305,
+          "sha256": "21456e73ec213fc9f2a828bca7f231b59ad4464025af0e20e64cf877269b8430"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 16199,
+          "sha256": "1140f010c7d48c2dc9e3a253a0aed40e28fcddc2c726d54c68eb235c05adbffe"
+        },
+        "project/schedule.py": {
+          "bytes": 28565,
+          "sha256": "fb7265998c10d79b46da547db05d006d2a81e735f008fc6e578fefa6bb70c388"
+        },
+        "project/sh_wide_dense.py": {
+          "bytes": 2512,
+          "sha256": "2488bdefb60b0ef79b694c0cbf04a0b5923c1c4d302cca218b4f92eba00d389b"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2519,
+          "sha256": "c40d741da069091da2a895d9260b89fc7435b58d56eb991a9319780b0fbabaf3"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        },
+        "project/wide_qkv.py": {
+          "bytes": 1773,
+          "sha256": "a4c43d75f2e2558ee4b0d563cb2e1cd5b7901a35c1cb40ee2c165f8b2c92f449"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    },
+    {
+      "name": "w2k128-n64",
+      "files": {
+        "M1_P1.asm": {
+          "bytes": 5638272,
+          "sha256": "325ce11d951839c5862f35552efbac9597afc33d47f8af4bded75744b70e608d"
+        },
+        "M2_D1.asm": {
+          "bytes": 6280902,
+          "sha256": "1800ecbdaf21257f84b882059ba2b171a324f4423793b54a41b869d7156905d5"
+        },
+        "hardware.json": {
+          "bytes": 437,
+          "sha256": "d5ca07033dfc5aa332b4a46d05c6aa07fed66a4589d73f88613fcb2d7318ac63"
+        },
+        "project/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "project/block_epilogue.py": {
+          "bytes": 2151,
+          "sha256": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2"
+        },
+        "project/build_programs.py": {
+          "bytes": 795,
+          "sha256": "861ec4cbf93cee2ebf496a8c904b676abf90d5b470ccb36706624bcabfa9c09f"
+        },
+        "project/compact_combine.py": {
+          "bytes": 862,
+          "sha256": "98c2a9fa52d35d80674e1d53fe995e41d52a7fdeac2de758973db4c896eed855"
+        },
+        "project/compact_names.py": {
+          "bytes": 1437,
+          "sha256": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04"
+        },
+        "project/compiler.py": {
+          "bytes": 87311,
+          "sha256": "801c14e36f4e472857fb0f2fcdcd3eabf1bf91906fe4abe5e16b90a3e2d133ef"
+        },
+        "project/fused_d1.py": {
+          "bytes": 1305,
+          "sha256": "21456e73ec213fc9f2a828bca7f231b59ad4464025af0e20e64cf877269b8430"
+        },
+        "project/lazy_weights.py": {
+          "bytes": 698,
+          "sha256": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad"
+        },
+        "project/parallel_step.py": {
+          "bytes": 2096,
+          "sha256": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923"
+        },
+        "project/rf_prompt.py": {
+          "bytes": 15766,
+          "sha256": "03a11d647b5aaf4fca41ab4b33cdab751bdfe051818f8a0e7ae64b9c19755f03"
+        },
+        "project/schedule.py": {
+          "bytes": 28565,
+          "sha256": "fb7265998c10d79b46da547db05d006d2a81e735f008fc6e578fefa6bb70c388"
+        },
+        "project/step_cached.py": {
+          "bytes": 4052,
+          "sha256": "811261fd138279f919579df552aca525bfa19cb5de426f112e4b6fafd5bdd263"
+        },
+        "project/sync_dense.py": {
+          "bytes": 2519,
+          "sha256": "c40d741da069091da2a895d9260b89fc7435b58d56eb991a9319780b0fbabaf3"
+        },
+        "project/verify_artifacts.py": {
+          "bytes": 1296,
+          "sha256": "d503020540d4ef40758fcef4de2f98fbbda64fa67716888c777546c636c67372"
+        },
+        "project/w2_split.py": {
+          "bytes": 1650,
+          "sha256": "a1796602b1981e700395630b4dce0b4a9e4eee637a5ca5248fa9550baf477ce7"
+        }
+      },
+      "programs_regeneration": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --output . (cwd this candidate)",
+      "evaluation_status": "See reports; generation alone does not establish a complete grade."
+    }
+  ]
+}

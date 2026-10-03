@@ -1,0 +1,12 @@
+{
+  "case": "M2_D1",
+  "elapsed_seconds": 47.53639941199799,
+  "cycles": 41658,
+  "peak_window_power_w": 17.464797929270055,
+  "area_mm2": 23.36637760512,
+  "instruction_count": 32720,
+  "hbm_read_bytes": 2501632,
+  "hbm_write_bytes": 401408,
+  "cache_hits": 0,
+  "cache_misses": 0
+}

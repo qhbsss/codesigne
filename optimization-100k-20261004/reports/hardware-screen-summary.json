@@ -1,0 +1,44 @@
+{
+  "dma2-sfu13-d1-exact": {
+    "cycles": 41350,
+    "peak_window_power_w": 20.31871867212741,
+    "area_mm2": 23.97437760512,
+    "power_eligible": false
+  },
+  "packed-attn-d1-exact": {
+    "cycles": 41658,
+    "peak_window_power_w": 17.464797929270055,
+    "area_mm2": 23.36637760512,
+    "power_eligible": true
+  },
+  "reduce1-d1-exact": {
+    "cycles": 42042,
+    "peak_window_power_w": 17.475376854983896,
+    "area_mm2": 23.84637760512,
+    "power_eligible": true
+  },
+  "reduce2-sfu8-d1-exact": {
+    "cycles": 41603,
+    "peak_window_power_w": 17.32569739669871,
+    "area_mm2": 23.81437760512,
+    "power_eligible": true
+  },
+  "tc8x16-k1-dma2-d1-exact": {
+    "cycles": 47580,
+    "peak_window_power_w": 20.131169804248703,
+    "area_mm2": 18.27837760512,
+    "power_eligible": false
+  },
+  "tc8x8-k4-d1-exact": {
+    "cycles": 41972,
+    "peak_window_power_w": 17.481053198733765,
+    "area_mm2": 22.96864192512,
+    "power_eligible": true
+  },
+  "tc8x8-k4-dma2-d1-exact": {
+    "cycles": 41678,
+    "peak_window_power_w": 20.32781168901621,
+    "area_mm2": 23.768641925119997,
+    "power_eligible": false
+  }
+}

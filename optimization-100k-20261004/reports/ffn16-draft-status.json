@@ -1,0 +1,8 @@
+{
+  "status": "superseded_draft",
+  "error": "Invalid transfer spaces or length",
+  "program_d1_sha256": "3a0758d0c9f7f2d3271cb6a10027dcd0a59a7027ec0ac28707c1a8c314de7b13",
+  "corrected_program_sha256": "e39627b2e3a352c1064f21c281814c568603e05872e366662223f12b16b3df73",
+  "corrected_functional_report": "ffn16-functional-seed19.json",
+  "corrected_timing_report": "ffn16-d1-exact.json"
+}

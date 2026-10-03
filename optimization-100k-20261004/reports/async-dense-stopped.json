@@ -1,0 +1,7 @@
+{
+  "status": "stopped_without_complete_grade",
+  "first_layer_cycles": 100333,
+  "first_layer_peak_window_power_w": 21.40148747165039,
+  "reason": "Already exceeds 20W and slower than scatter4 first layer 100031; do not claim a score.",
+  "log": "async-dense-local-grade.log"
+}

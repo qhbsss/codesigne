@@ -1,0 +1,8 @@
+{
+  "estimated_p1_cycles": 362795,
+  "actual_p1_cycles": 362795,
+  "estimated_score": 51742.09547207639,
+  "actual_score": 51742.09547207642,
+  "complete_raw_grade": "async-qkv-local-grade.json",
+  "target_achieved": false
+}

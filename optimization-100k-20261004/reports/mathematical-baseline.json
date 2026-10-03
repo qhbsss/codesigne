@@ -1,0 +1,51 @@
+{
+  "current_score": 50944.15172864169,
+  "target_score": 100000,
+  "target_cycle_product": 4035907939.384,
+  "current_cycle_product": 15550794448,
+  "required_product_ratio": 0.25953065953508664,
+  "equal_speedup_factor": 1.962933852204634,
+  "p1_required_if_d1_unchanged": 97129.08980034656,
+  "M1_P1": {
+    "shared_busy_cycles": {
+      "hbm_channel_0": 146200,
+      "hbm_channel_1": 147832,
+      "hbm_channel_2": 145336,
+      "hbm_channel_3": 145336,
+      "hbm_channel_4": 146160,
+      "hbm_channel_5": 147792,
+      "hbm_channel_6": 145296,
+      "hbm_channel_7": 145296,
+      "noc": 225627
+    },
+    "max_sm_busy_cycles": {
+      "tc": 89706,
+      "rf_read": 153679,
+      "rf_write": 132652,
+      "vec": 33858,
+      "sfu": 9840,
+      "dma": 90890
+    }
+  },
+  "M2_D1": {
+    "shared_busy_cycles": {
+      "hbm_channel_0": 11840,
+      "hbm_channel_1": 11712,
+      "hbm_channel_2": 11608,
+      "hbm_channel_3": 11504,
+      "hbm_channel_4": 11800,
+      "hbm_channel_5": 11648,
+      "hbm_channel_6": 11520,
+      "hbm_channel_7": 11392,
+      "noc": 14637
+    },
+    "max_sm_busy_cycles": {
+      "tc": 8848,
+      "rf_read": 11928,
+      "rf_write": 7576,
+      "vec": 8112,
+      "sfu": 832,
+      "dma": 4176
+    }
+  }
+}

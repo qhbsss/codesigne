@@ -1,0 +1,7 @@
+{
+  "kind": "read_thread_export_snapshot",
+  "turns": 1,
+  "items": 186,
+  "truncated_markers": 0,
+  "scope": "Only the active turn as visible at export time, before final grade completed. Not claimed to be complete raw client event logs."
+}

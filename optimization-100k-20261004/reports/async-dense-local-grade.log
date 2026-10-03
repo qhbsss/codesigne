@@ -1,0 +1,10 @@
+{"progress": "BARRIER", "cycle": 2637, "line": 737, "elapsed": 71.27738500700798}
+{"progress": "BARRIER", "cycle": 18456, "line": 1290, "elapsed": 108.30841272199177}
+{"progress": "BARRIER", "cycle": 30461, "line": 2565, "elapsed": 127.50860378300422}
+{"progress": "BARRIER", "cycle": 41693, "line": 3439, "elapsed": 161.77887999499217}
+{"progress": "BARRIER", "cycle": 69474, "line": 4568, "elapsed": 281.79209120199084}
+{"progress": "BARRIER", "cycle": 95130, "line": 5445, "elapsed": 419.93457787000807}
+{"first_layer_cycles": 100333, "first_layer_peak_window_power_w": 21.40148747165039, "elapsed": 431.6433692119899}
+{"progress": "BARRIER", "cycle": 105574, "line": 6586, "elapsed": 441.2747481580009}
+{"progress": "BARRIER", "cycle": 118786, "line": 6992, "elapsed": 475.93210671498673}
+{"progress": "BARRIER", "cycle": 130791, "line": 8267, "elapsed": 494.94373889200506}

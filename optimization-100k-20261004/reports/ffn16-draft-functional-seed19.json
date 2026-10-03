@@ -1,0 +1,14 @@
+{
+  "cases": {
+    "M2_D1": {
+      "checks": [],
+      "elapsed_seconds": 7.0035830329870805,
+      "error": "Invalid transfer spaces or length",
+      "hbm_races_validated": true,
+      "passed": false
+    }
+  },
+  "kind": "functional-only-v1",
+  "passed": false,
+  "race_only": false
+}

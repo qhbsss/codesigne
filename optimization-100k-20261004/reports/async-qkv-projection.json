@@ -1,0 +1,9 @@
+{
+  "kind": "unverified-cycle-projection",
+  "p1_cycles_estimate": 362795,
+  "d1_cycles_assumed": 41552,
+  "score_estimate": 51742.09547207639,
+  "assumption": "Each of three prompt layers saves first-layer measured 1570 cycles; later position work remains unchanged.",
+  "complete_grade": false,
+  "warning": "Not an achieved score. Must compare with raw complete grade."
+}

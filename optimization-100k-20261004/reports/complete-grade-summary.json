@@ -1,0 +1,84 @@
+{
+  "kind": "complete-public-local-grade-summary",
+  "grades": [
+    {
+      "raw_grade": "../final-optimized-50k-20261002/local-grade.json",
+      "sha256": "f4c3b0530f2ece67cdd1b83c0206a2c85812dcee289b9462e84f063a4b21e081",
+      "eligible": true,
+      "experimental_score": 50944.15172864169,
+      "official_score": null,
+      "cases": {
+        "M1_P1": {
+          "cycles": 374249,
+          "area_mm2": 23.36637760512,
+          "peak_window_power_w": 18.097779682953387
+        },
+        "M2_D1": {
+          "cycles": 41552,
+          "area_mm2": 23.36637760512,
+          "peak_window_power_w": 17.463376854983895
+        }
+      }
+    },
+    {
+      "raw_grade": "reports/async-qkv-local-grade.json",
+      "sha256": "946775bb214eae046c3e222cc6890a6020d45e8b941e97601440d9a179d50c96",
+      "eligible": true,
+      "experimental_score": 51742.09547207642,
+      "official_score": null,
+      "cases": {
+        "M1_P1": {
+          "cycles": 362795,
+          "area_mm2": 23.36637760512,
+          "peak_window_power_w": 18.097779682951362
+        },
+        "M2_D1": {
+          "cycles": 41552,
+          "area_mm2": 23.36637760512,
+          "peak_window_power_w": 17.463376854983895
+        }
+      }
+    },
+    {
+      "raw_grade": "reports/scatter4-local-grade.json",
+      "sha256": "df437e01bf6ce0ee19aebfa7a6e15a716da4b758965cdd9ce0bf523abf75ed87",
+      "eligible": true,
+      "experimental_score": 51409.458970859465,
+      "official_score": null,
+      "cases": {
+        "M1_P1": {
+          "cycles": 367505,
+          "area_mm2": 23.36637760512,
+          "peak_window_power_w": 18.09777968295148
+        },
+        "M2_D1": {
+          "cycles": 41552,
+          "area_mm2": 23.36637760512,
+          "peak_window_power_w": 17.463376854983895
+        }
+      }
+    }
+  ],
+  "best": {
+    "raw_grade": "reports/async-qkv-local-grade.json",
+    "sha256": "946775bb214eae046c3e222cc6890a6020d45e8b941e97601440d9a179d50c96",
+    "eligible": true,
+    "experimental_score": 51742.09547207642,
+    "official_score": null,
+    "cases": {
+      "M1_P1": {
+        "cycles": 362795,
+        "area_mm2": 23.36637760512,
+        "peak_window_power_w": 18.097779682951362
+      },
+      "M2_D1": {
+        "cycles": 41552,
+        "area_mm2": 23.36637760512,
+        "peak_window_power_w": 17.463376854983895
+      }
+    }
+  },
+  "target_score": 100000,
+  "target_achieved": false,
+  "limitations": "Local experimental scores only. Partial probes and stopped grades have no scores."
+}

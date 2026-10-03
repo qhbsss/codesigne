@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+/M1_P1.asm
+/M2_D1.asm
+/candidates/*/*.asm

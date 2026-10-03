@@ -1,0 +1,5 @@
+{
+  "status": "stopped_without_complete_grade",
+  "reason": "First layer 105507 cycles versus baseline 102279; isolated QKV gain was outweighed by cache loading. Preserve log but do not claim a score.",
+  "log": "qkv48-row8-local-grade.log"
+}
