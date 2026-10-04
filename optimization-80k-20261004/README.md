@@ -87,5 +87,8 @@ OPENBLAS_NUM_THREADS=1 PYTHONPATH=../.. python -m project.build_programs --outpu
 
 `p1-sh64-m64-paced-bootwait` 进一步使用 8 个工作组一批加载 SH 权重，
 每次加载等待其真实事件完成，以限制 HBM 突发并减少加载批次数。
-当前运行完整公共 grade；完整报告产生前不据局部 W1 结果更新最高分。
+完整第一层公共精确计时为 **94694 周期、19.296435579650517 W**，
+略慢于最高分版第一层的94557。主动停止剩余完整计时，没有完整分数；
+`reports/p1-sh64-m64-paced-bootwait-stopped.json` 明确记录停止原因。
 该候选还将 LayerNorm 参数放在归一化工作组的 RF14，SH 配额集中给 W1 工作组。
+更大的块在局部算子中的收益被初始化和后续归一化阶段等待抵消，未替换最高分。

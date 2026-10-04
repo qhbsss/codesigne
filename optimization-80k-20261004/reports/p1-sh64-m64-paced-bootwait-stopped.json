@@ -1,0 +1,9 @@
+{
+  "kind": "stopped-incomplete-grade",
+  "complete": false,
+  "score": null,
+  "first_layer_cycles": 94694,
+  "first_layer_peak_window_power_w": 19.296435579650517,
+  "baseline_first_layer_cycles": 94557,
+  "reason": "Complete first layer does not improve the frozen best; weight-loading and later normalization cost offsets isolated W1 improvement. No complete score was produced."
+}
