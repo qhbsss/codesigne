@@ -1,0 +1,9 @@
+{
+  "p1_fixed_graph_lower_bound": 221480,
+  "d1_fixed_graph_lower_bound": 16974,
+  "optimistic_fixed_graph_score_upper_bound": 103612.28925170442,
+  "p1_bound_with_measured_d1_score_upper_bound": 69786.09322016964,
+  "required_d1_at_p1_bound": 28472.5761029777,
+  "required_p1_at_measured_d1": 168535.85683746694,
+  "not_a_global_infeasibility_proof": true
+}

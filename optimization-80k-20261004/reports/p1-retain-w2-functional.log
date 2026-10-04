@@ -1,0 +1,14 @@
+{
+  "cases": {
+    "M1_P1": {
+      "checks": [],
+      "elapsed_seconds": 30.50093481899239,
+      "error": "HBM WR race between lines 24564 and 25249",
+      "hbm_races_validated": false,
+      "passed": false
+    }
+  },
+  "kind": "functional-only-v1",
+  "passed": false,
+  "race_only": false
+}

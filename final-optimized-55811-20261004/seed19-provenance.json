@@ -1,0 +1,12 @@
+{
+  "kind": "additional-functional-provenance-v1",
+  "seed": 19,
+  "passed": true,
+  "program_sha256": {
+    "M1_P1": "3508834af06020807ee6d8462f038366dc9811ab5fa41c191a93db3339aca953",
+    "M2_D1": "bb70ca7fc6290208af1bc9a0188347784d2c1fe87297b2dde1a9134fa88bd243"
+  },
+  "hardware_sha256": "7546870508828938b226f3c5bf87578528f1c010a4981a51b899a4e066d91cf8",
+  "functional_report_sha256": "b5a9ffa960f21e8c95643b7cb48cc1379043e4ed4263f0fd800e6c7f1a8cdce0",
+  "command": "OPENBLAS_NUM_THREADS=1 python -m project.functional_check --hardware hardware.json --program-p1 programs/M1_P1.asm --program-d1 programs/M2_D1.asm --seed 19 --report rerun-seed19-functional.json"
+}

@@ -1,0 +1,5 @@
+{
+  "complete": false,
+  "score": null,
+  "reason": "prefix extraction would include previous WO and weight-cache phases; replaced with explicit A-prefetch boundary"
+}

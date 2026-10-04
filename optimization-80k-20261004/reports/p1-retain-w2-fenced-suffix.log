@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/codesigne/optimization-80k-20261004/project/step_suffix.py", line 18, in <module>
+    r=asdict(estimate_pipeline(h,iter_parse(program),required_hbm_words(program,build_layout(MODELS['M1'],'P1')),None))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline.py", line 180, in estimate_pipeline
+    return estimate_global_events(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 1214, in estimate_global_events
+    return GlobalEventPipeline(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 326, in __init__
+    validate_hbm_races(None, queues=self.queues)
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/hbm_race.py", line 430, in validate_hbm_races
+    raise ValueError(
+ValueError: HBM WR race between lines 9120 and 9222

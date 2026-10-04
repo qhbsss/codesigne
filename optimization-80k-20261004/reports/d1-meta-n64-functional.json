@@ -1,0 +1,14 @@
+{
+  "cases": {
+    "M2_D1": {
+      "checks": [],
+      "elapsed_seconds": 4.667036155005917,
+      "error": "Read before write",
+      "hbm_races_validated": true,
+      "passed": false
+    }
+  },
+  "kind": "functional-only-v1",
+  "passed": false,
+  "race_only": false
+}

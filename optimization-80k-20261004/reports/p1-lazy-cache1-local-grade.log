@@ -1,0 +1,60 @@
+{"progress": "BARRIER", "cycle": 2682, "line": 737, "elapsed": 70.70145711800433}
+{"progress": "BARRIER", "cycle": 21012, "line": 1289, "elapsed": 114.7356859910069}
+{"progress": "BARRIER", "cycle": 34496, "line": 2564, "elapsed": 137.1837875189958}
+{"progress": "BARRIER", "cycle": 46335, "line": 3437, "elapsed": 179.14041566901142}
+{"progress": "BARRIER", "cycle": 83542, "line": 4565, "elapsed": 339.9234265619889}
+{"progress": "BARRIER", "cycle": 130273, "line": 5441, "elapsed": 494.99741106599686}
+{"first_layer_cycles": 135609, "first_layer_peak_window_power_w": 13.117719388928421, "elapsed": 512.0410287140112}
+{"progress": "BARRIER", "cycle": 156618, "line": 6987, "elapsed": 565.1459888549871}
+{"progress": "BARRIER", "cycle": 170102, "line": 8262, "elapsed": 588.9704228529881}
+{"progress": "BARRIER", "cycle": 181941, "line": 9135, "elapsed": 630.6307248229859}
+{"progress": "BARRIER", "cycle": 219148, "line": 10263, "elapsed": 797.9727496670093}
+{"progress": "BARRIER", "cycle": 265879, "line": 11139, "elapsed": 954.8188108000031}
+{"progress": "BARRIER", "cycle": 292224, "line": 12685, "elapsed": 1024.355917834997}
+{"progress": "BARRIER", "cycle": 305708, "line": 13960, "elapsed": 1047.2199086459877}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/codesigne/optimization-80k-20261004/project/power_observed_grade.py", line 22, in <module>
+    sys.argv=['challenge.py']+sys.argv[1:];runpy.run_path('challenge.py',run_name='__main__')
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "challenge.py", line 6, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/cli.py", line 350, in main
+    result = _evaluate(
+             ^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/cli.py", line 240, in _evaluate
+    report = evaluate_submission(mode, hardware, programs, seeds, baseline)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/runner.py", line 358, in evaluate_submission
+    report["cases"][case]["timing"] = estimate_case(
+                                      ^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/runner.py", line 288, in estimate_case
+    timing = estimate_pipeline(
+             ^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline.py", line 180, in estimate_pipeline
+    return estimate_global_events(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 1222, in estimate_global_events
+    ).run()
+      ^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 1082, in run
+    if (candidate := self._preview(tape)) is not None
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 552, in _preview
+    if self._pending_hazard(reads, writes):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 437, in _pending_hazard
+    return self.pending.has_hazard(reads, writes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 252, in has_hazard
+    for transfer in self._destinations.get(_storage_key(operand), ()):
+                                           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 208, in _storage_key
+    def _storage_key(operand: dict) -> tuple:
+    
+KeyboardInterrupt

@@ -1,0 +1,22 @@
+{
+  "peak_start": 6533,
+  "peak_end": 7533,
+  "peak_w": 20.227170440127555,
+  "nearby": [
+    {
+      "op": "BARRIER",
+      "cycle": 7737,
+      "line": 3383
+    },
+    {
+      "op": "BARRIER",
+      "cycle": 7885,
+      "line": 3528
+    },
+    {
+      "op": "BARRIER",
+      "cycle": 7886,
+      "line": 3529
+    }
+  ]
+}

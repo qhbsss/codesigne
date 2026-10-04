@@ -1,0 +1,11 @@
+{
+  "start_score": 51742.09547207642,
+  "start_p1_cycles": 362795,
+  "start_d1_cycles": 41552,
+  "target_score": 80000,
+  "target_cycle_product": 6306106155.2875,
+  "required_product_ratio": 0.41831944435022944,
+  "equal_speedup": 1.5461298826440741,
+  "p1_required_if_d1_fixed": 151764.2028130415,
+  "d1_required_if_p1_230k": 27417.852849076087
+}

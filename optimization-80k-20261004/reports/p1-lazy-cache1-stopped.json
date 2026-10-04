@@ -1,0 +1,8 @@
+{
+  "complete": false,
+  "score": null,
+  "reason": "first-layer dominated by frozen baseline",
+  "first_layer_cycles": 130273,
+  "baseline_first_layer_cycles": 98461,
+  "functional_seed19_passed": true
+}
