@@ -1,0 +1,11 @@
+{
+  "kind": "additional-functional-provenance-v1",
+  "seed": 19,
+  "command": "OPENBLAS_NUM_THREADS=1 python -m project.functional_check --hardware candidates/combined-wo-prefetch-parallel-step/hardware.json --program-p1 candidates/combined-wo-prefetch-parallel-step/M1_P1.asm --program-d1 candidates/combined-wo-prefetch-parallel-step/M2_D1.asm --seed 19 --report reports/combined-wo-prefetch-parallel-step-seed19-functional.json",
+  "files": {
+    "hardware.json": "4241c4dc8dcb20c5ceb7fdf40b445a7787dd2a50ab1a79b2565c2e7b21773e17",
+    "programs/M1_P1.asm": "6e51d885e454c16f19be171e1c9fab06db01f1284289220ca5c77dbc54e7f87a",
+    "programs/M2_D1.asm": "080a6ef2dafdab8ba41a83b4e9868c46bf19759e3c91ab3439b69fe3891e198d",
+    "seed19-functional.json": "36d31368b2ddc61c67758e89379928eba15e1304979be8d679a4a1975baf4260"
+  }
+}
