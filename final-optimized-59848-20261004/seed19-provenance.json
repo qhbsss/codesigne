@@ -1,0 +1,11 @@
+{
+  "kind": "additional-functional-provenance-v1",
+  "seed": 19,
+  "command": "OPENBLAS_NUM_THREADS=1 python -m project.functional_check --hardware candidates/combined-softmax-spill-async-fold/hardware.json --program-p1 candidates/combined-softmax-spill-async-fold/M1_P1.asm --program-d1 candidates/combined-softmax-spill-async-fold/M2_D1.asm --seed 19 --report reports/combined-softmax-spill-async-fold-seed19-functional.json",
+  "files": {
+    "hardware.json": "4241c4dc8dcb20c5ceb7fdf40b445a7787dd2a50ab1a79b2565c2e7b21773e17",
+    "programs/M1_P1.asm": "56d7967ca8e9bb7755de71b3c884ab3ff33445103c9f420145494583472a78a4",
+    "programs/M2_D1.asm": "10424597990ca43ccdb574720cf8ba23cef26fd27b923d7c412f5d888131480f",
+    "seed19-functional.json": "1f2324d2b68768ddb250a18df5b44bd40e570a35d46a1af48953d1a32fe12ce9"
+  }
+}
