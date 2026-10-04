@@ -1,0 +1,10 @@
+{
+  "seed": 19,
+  "command": "OPENBLAS_NUM_THREADS=1 python -m project.functional_check --hardware candidates/combined-tail-prefetch-m3-late/hardware.json --program-p1 candidates/combined-tail-prefetch-m3-late/M1_P1.asm --program-d1 candidates/combined-tail-prefetch-m3-late/M2_D1.asm --seed 19 --report reports/combined-tail-prefetch-m3-late-seed19-functional.json",
+  "sha256": {
+    "hardware.json": "4241c4dc8dcb20c5ceb7fdf40b445a7787dd2a50ab1a79b2565c2e7b21773e17",
+    "programs/M1_P1.asm": "4079937d6969f7e91a9cb38329fcdb76cb16fb2dcf35e792823d73d01cb00c88",
+    "programs/M2_D1.asm": "ff50b244a8f6ba9e25ae2cef265455c5d91ee3af6f086c3260a44f390f73b5bc",
+    "seed19-functional.json": "a15d2ca5ed98bc4ec2f8cab557f395a5bf623cbe9180a5cfe27e64c3c51d6bc9"
+  }
+}

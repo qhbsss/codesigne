@@ -17,6 +17,40 @@
     }
   },
   {
+    "candidate": "combined-rf-norm-cache1",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "9bd6638494935bea253f53e797687480ab28f15c3c6db1c722fc9885898e4b96"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386005,
+        "sha256": "6825df7129c8094756105645e858768234f969c02e05565c47e404b82082bf9d"
+      },
+      "M2_D1.asm": {
+        "bytes": 6738778,
+        "sha256": "9a7f2c1f1d5182ea16b1c57463c7a9a5ed688af17695eb62c72ee8f8fb2900e6"
+      }
+    }
+  },
+  {
+    "candidate": "combined-rf-norm-cache1-dma2",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "e3020e99bcce954338b70ab65e1c5b385f9fca11e5d31ebd3ff57aa7365e704f"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386005,
+        "sha256": "6825df7129c8094756105645e858768234f969c02e05565c47e404b82082bf9d"
+      },
+      "M2_D1.asm": {
+        "bytes": 6738778,
+        "sha256": "9a7f2c1f1d5182ea16b1c57463c7a9a5ed688af17695eb62c72ee8f8fb2900e6"
+      }
+    }
+  },
+  {
     "candidate": "combined-rf-norm-dma2-depth2",
     "artifacts": {
       "hardware.json": {
@@ -51,6 +85,23 @@
     }
   },
   {
+    "candidate": "combined-rf-norm-dma2-norm-fence",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386905,
+        "sha256": "b53401ca4d1b051cabb825b19ed736707f5ef928596a1020fcd8d8da514964e0"
+      },
+      "M2_D1.asm": {
+        "bytes": 6738778,
+        "sha256": "9a7f2c1f1d5182ea16b1c57463c7a9a5ed688af17695eb62c72ee8f8fb2900e6"
+      }
+    }
+  },
+  {
     "candidate": "combined-rf-norm-dma2-parity-waves",
     "artifacts": {
       "hardware.json": {
@@ -64,6 +115,74 @@
       "M2_D1.asm": {
         "bytes": 6738778,
         "sha256": "9a7f2c1f1d5182ea16b1c57463c7a9a5ed688af17695eb62c72ee8f8fb2900e6"
+      }
+    }
+  },
+  {
+    "candidate": "combined-rf-norm-dma2-qkv3",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386305,
+        "sha256": "8727b77e0a386147e7a704f630908bed5abd4b8cb646adf847086355bab6b795"
+      },
+      "M2_D1.asm": {
+        "bytes": 6738778,
+        "sha256": "9a7f2c1f1d5182ea16b1c57463c7a9a5ed688af17695eb62c72ee8f8fb2900e6"
+      }
+    }
+  },
+  {
+    "candidate": "combined-rf-norm-dma2-qkv3-reduce8",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386305,
+        "sha256": "8727b77e0a386147e7a704f630908bed5abd4b8cb646adf847086355bab6b795"
+      },
+      "M2_D1.asm": {
+        "bytes": 6548226,
+        "sha256": "5855c31e64a6ef92691086cac30e2ec7f8698e47e5f136c46b36017b451bdceb"
+      }
+    }
+  },
+  {
+    "candidate": "combined-rf-norm-dma2-qkv3-reduce8-initial",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386305,
+        "sha256": "8727b77e0a386147e7a704f630908bed5abd4b8cb646adf847086355bab6b795"
+      },
+      "M2_D1.asm": {
+        "bytes": 6574090,
+        "sha256": "6a9928893f8074eece3cc99a6300668fef4e62102c346bb3839841793f47a006"
+      }
+    }
+  },
+  {
+    "candidate": "combined-rf-norm-dma2-qkv3-reduce8-overlap",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386305,
+        "sha256": "8727b77e0a386147e7a704f630908bed5abd4b8cb646adf847086355bab6b795"
+      },
+      "M2_D1.asm": {
+        "bytes": 6548226,
+        "sha256": "c77dfd316ba7b24ecf92733311d8eb5f9e23420c84708dea5e23e265f8323045"
       }
     }
   },
