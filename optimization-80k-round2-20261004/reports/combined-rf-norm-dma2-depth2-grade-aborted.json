@@ -1,0 +1,6 @@
+{
+  "status": "aborted",
+  "score": null,
+  "reason": "First-layer exact peak20.11018989586446W violates20W; no complete grade was produced",
+  "progress_log": "combined-rf-norm-dma2-depth2-grade.log"
+}
