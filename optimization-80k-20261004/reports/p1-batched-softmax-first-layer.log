@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/codesigne/optimization-80k-20261004/project/first_layer.py", line 17, in <module>
+    r=asdict(estimate_pipeline(h,iter_parse(program),required_hbm_words(program,layout),None))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline.py", line 180, in estimate_pipeline
+    return estimate_global_events(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 1222, in estimate_global_events
+    ).run()
+      ^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 1082, in run
+    if (candidate := self._preview(tape)) is not None
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 554, in _preview
+    ready = max(
+            ^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline_events.py", line 556, in <genexpr>
+    *(_max_write(group, self.hbm, operand) for operand in reads),
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline.py", line 116, in _max_write
+    return int(_view(group, hbm, operand)[0].max())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-20261004/codesign/challenge/pipeline.py", line 103, in _view
+    raise ValueError("RF lane view out of bounds")
+ValueError: RF lane view out of bounds

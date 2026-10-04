@@ -1,0 +1,12 @@
+{
+  "kind": "target-budget-and-fixed-graph-relaxation",
+  "score_target": 80000,
+  "target_product": 6306106155.2875,
+  "p1_fixed_graph_lower_bound": 206954,
+  "d1_exact_cycles": 35119,
+  "p1_required_with_d1_fixed": 179563.94416946667,
+  "d1_required_at_p1_bound": 30471.052288370847,
+  "optimistic_score_ceiling_with_d1_fixed": 74518.24920863807,
+  "full_grade_completed": false,
+  "limitations": "Lower bound only for these exact instructions and hardware; no global infeasibility claim or predicted achieved score."
+}

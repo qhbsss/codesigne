@@ -1,0 +1,14 @@
+{
+  "cases": {
+    "M1_P1": {
+      "checks": [],
+      "elapsed_seconds": 30.99851285899058,
+      "error": "RF address/scope invalid",
+      "hbm_races_validated": true,
+      "passed": false
+    }
+  },
+  "kind": "functional-only-v1",
+  "passed": false,
+  "race_only": false
+}

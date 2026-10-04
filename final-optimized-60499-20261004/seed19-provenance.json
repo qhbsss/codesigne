@@ -1,0 +1,11 @@
+{
+  "kind": "additional-functional-provenance-v1",
+  "seed": 19,
+  "command": "OPENBLAS_NUM_THREADS=1 python -m project.functional_check --hardware candidates/combined-event-paced-softmax-fold/hardware.json --program-p1 candidates/combined-event-paced-softmax-fold/M1_P1.asm --program-d1 candidates/combined-event-paced-softmax-fold/M2_D1.asm --seed 19 --report reports/combined-event-paced-softmax-fold-seed19-functional.json",
+  "files": {
+    "hardware.json": "4241c4dc8dcb20c5ceb7fdf40b445a7787dd2a50ab1a79b2565c2e7b21773e17",
+    "programs/M1_P1.asm": "b6744ef89d38d191b592653341d2a3a6876ed91d71ffd927d7392b61c89c8aca",
+    "programs/M2_D1.asm": "10424597990ca43ccdb574720cf8ba23cef26fd27b923d7c412f5d888131480f",
+    "seed19-functional.json": "ecc22bbdaa7e10cb323e102344af7fd8a6cd7704db48e5eeaaf7a49cb5ff87e1"
+  }
+}

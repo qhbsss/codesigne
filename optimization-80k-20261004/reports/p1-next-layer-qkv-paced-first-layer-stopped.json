@@ -1,0 +1,6 @@
+{
+  "kind": "stopped-prefix-trial",
+  "complete": false,
+  "reason": "W2 internal all64 barrier prevents background groups from starting prefetch; scope must be owners only",
+  "program_sha256": "6f1e020741cc1ba4ea968ed9b2a599676730dd222defd26026935801a9a03f1b"
+}

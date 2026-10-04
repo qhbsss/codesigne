@@ -1,0 +1,21 @@
+{
+  "cache_mib": 0,
+  "dma_depth": 2,
+  "dma_engines": 1,
+  "hbm_channels": 8,
+  "multicast": true,
+  "noc_bytes_per_cycle": 512,
+  "reduction_units": 1,
+  "rf_ports": "8R4W",
+  "sfu_lanes": 16,
+  "shared_kib": 32,
+  "sm_count": 16,
+  "sm_noc_bytes_per_cycle": 128,
+  "tc_array": "8x16",
+  "tc_count": 1,
+  "tc_k_parallel": 2,
+  "vector_lanes": 16,
+  "version": "challenge-hardware-v0.4",
+  "shared_banks": 4,
+  "shared_ports": "1R1W"
+}

@@ -1,0 +1,8 @@
+{
+  "complete": false,
+  "score": null,
+  "experimental_score": null,
+  "first_layer_cycles": 92138,
+  "first_layer_peak_window_power_w": 19.43134546369209,
+  "reason": "Superseded before completion: WO prefetch first full layer 91227, functional passed; preparing full combined candidate. Original partial log retained."
+}

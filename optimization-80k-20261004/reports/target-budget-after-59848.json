@@ -1,0 +1,36 @@
+{
+  "kind": "target-budget-analysis-v1",
+  "full_grade_completed": false,
+  "target": 80000,
+  "maximum_cycle_product": 6306106155.2875,
+  "current_complete_score": 59848.67432396684,
+  "current_complete_cycles": {
+    "M1_P1": 323160,
+    "M2_D1": 34867
+  },
+  "examples_are_budgets_not_predictions": [
+    {
+      "P1": 200000,
+      "D1": 30000,
+      "formula_score_if_realized": 82015.32315553396
+    },
+    {
+      "P1": 230000,
+      "D1": 27000,
+      "formula_score_if_realized": 80616.6645381864
+    },
+    {
+      "P1": 250000,
+      "D1": 25000,
+      "formula_score_if_realized": 80358.27712821125
+    },
+    {
+      "P1": 300000,
+      "D1": 21000,
+      "formula_score_if_realized": 80038.75985038313
+    }
+  ],
+  "event_paced_fixed_graph_lower_bound": 194234,
+  "unchanged_D1_ideal_score_ceiling": 77197.05056640023,
+  "limitations": "Resource bound applies only to that graph and hardware, not a proof of global infeasibility; neither bound nor example is a completed grade."
+}
