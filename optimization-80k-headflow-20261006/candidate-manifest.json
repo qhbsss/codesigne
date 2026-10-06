@@ -1,0 +1,782 @@
+[
+  {
+    "candidate": "combined-four-rows-headflow",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 8177621,
+        "sha256": "01c0d58137e59fc968c3d110eb6f6f261da0a2c68d89f4a86a6b3d83adc3f31b"
+      },
+      "M2_D1.asm": {
+        "bytes": 6774536,
+        "sha256": "a87468aafcb2ee142f639758aeead12e8858f8730740d5eea8e1fd7863b9b9c2"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "8f327ff97375c09b446c4afd8f38a6fadb94cc25bbb11ea6584abd9e85905700",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/four_rows.py": "a1653dafc5507ed21bc27dfd156b44f2c3eaaf82b14c71f27b0a997662f315cd",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "bbaedd2ce26ac967d03540c3afd31d337476f80927525b11671475045116bd9f",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "d3fcd86525d7233801a3feab755fa266ff2377b63794d6720b2bd9176825559f",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "7ae7eabc60440293321645b6099a72e12cac316a745550954c36af4b0fe18e62",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "combined-w2-double-c",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 8344253,
+        "sha256": "41ed1bba88520dccf391e1229536cc77d99353f3f90fefab7cfccac671186d83"
+      },
+      "M2_D1.asm": {
+        "bytes": 6774536,
+        "sha256": "a87468aafcb2ee142f639758aeead12e8858f8730740d5eea8e1fd7863b9b9c2"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "8f327ff97375c09b446c4afd8f38a6fadb94cc25bbb11ea6584abd9e85905700",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/double_c.py": "eb97fba5aff489c1b78548e152ce79ccbf88c97bab1d3c725bfaca2acd58baaf",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/four_rows.py": "a1653dafc5507ed21bc27dfd156b44f2c3eaaf82b14c71f27b0a997662f315cd",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "bbaedd2ce26ac967d03540c3afd31d337476f80927525b11671475045116bd9f",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "d3fcd86525d7233801a3feab755fa266ff2377b63794d6720b2bd9176825559f",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "31dfb4d8e7147c8e472c70ea2c7f0b5e0c2ac6c1d03fe0050bb81e679ffc53e7",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "d1-bulk32-coeff",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386905,
+        "sha256": "f83c4f17d9edca7cca64489ee54185ccc364ae4d15f971822a13bcfd4eae27c9"
+      },
+      "M2_D1.asm": {
+        "bytes": 6844447,
+        "sha256": "60c2b6c3254dd3bde5044f481d4fe7042ec13c353b099a1c7827886e048e2096"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "8f327ff97375c09b446c4afd8f38a6fadb94cc25bbb11ea6584abd9e85905700",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/boot_coeff.py": "e2c3bd9539505c90b71402274bb45f2d330bb9dc983fa677919a34c95ebf1159",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "b1388d36be266c4a44968c1df4ce6117edddc6c1b938749af34b64d3b27c22be",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "8c968d7877f3df3eb44b35f1985e5c911258e071b584098e73c7b1492a945c1f",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "7ae7eabc60440293321645b6099a72e12cac316a745550954c36af4b0fe18e62",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "d1-headflow",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386905,
+        "sha256": "f83c4f17d9edca7cca64489ee54185ccc364ae4d15f971822a13bcfd4eae27c9"
+      },
+      "M2_D1.asm": {
+        "bytes": 6774536,
+        "sha256": "a87468aafcb2ee142f639758aeead12e8858f8730740d5eea8e1fd7863b9b9c2"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "8f327ff97375c09b446c4afd8f38a6fadb94cc25bbb11ea6584abd9e85905700",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "b1388d36be266c4a44968c1df4ce6117edddc6c1b938749af34b64d3b27c22be",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "d3fcd86525d7233801a3feab755fa266ff2377b63794d6720b2bd9176825559f",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "7ae7eabc60440293321645b6099a72e12cac316a745550954c36af4b0fe18e62",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "d1-headflow-producer-stats",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386905,
+        "sha256": "f83c4f17d9edca7cca64489ee54185ccc364ae4d15f971822a13bcfd4eae27c9"
+      },
+      "M2_D1.asm": {
+        "bytes": 5593108,
+        "sha256": "b5d0317190d093f34c618a0cf248ce8a0ccae3703e263b331b1d045c9559b3dd"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "ee0f438e44ef27a1781064157d258ea8f11e2f37cc41d3869c6d9f9928b10e27",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "b1388d36be266c4a44968c1df4ce6117edddc6c1b938749af34b64d3b27c22be",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "f1de7db11a57acbe63213169e7a1ed68ba761f3e121de6744c9e79edd733841d",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "7ae7eabc60440293321645b6099a72e12cac316a745550954c36af4b0fe18e62",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "d1-layer-ffn32",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386905,
+        "sha256": "f83c4f17d9edca7cca64489ee54185ccc364ae4d15f971822a13bcfd4eae27c9"
+      },
+      "M2_D1.asm": {
+        "bytes": 6419482,
+        "sha256": "5cbdf0c6f2e63a5e5a31672a5a46ca5b229c13f1f6bb990939c6f3e4975e9fed"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "efe4511dafcfe3c3ac4f7cd54b0b287c1296920b105155bcd2c1fe13be312496",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "bd1a4e4a06ee85b9fd5f0a2a511e72b37514aafbe448baaf7a614323fc9872aa",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/layer_ffn.py": "b5e41d935d0d1e8d541a2ee175159e994681e39f4ffa38a3bed0128c0b0b3bcc",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "b1388d36be266c4a44968c1df4ce6117edddc6c1b938749af34b64d3b27c22be",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "fccb48f689fcdb94094b31e963c3f8d1b4f865246a8a08ffda360151829003cf",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "7ae7eabc60440293321645b6099a72e12cac316a745550954c36af4b0fe18e62",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "d1-layer-ffn32-pair",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386905,
+        "sha256": "f83c4f17d9edca7cca64489ee54185ccc364ae4d15f971822a13bcfd4eae27c9"
+      },
+      "M2_D1.asm": {
+        "bytes": 6003668,
+        "sha256": "e090e8d6fce31c9970617908a26b5048676f0e305c67dd63b7a13a1abedd1a62"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "efe4511dafcfe3c3ac4f7cd54b0b287c1296920b105155bcd2c1fe13be312496",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "bd1a4e4a06ee85b9fd5f0a2a511e72b37514aafbe448baaf7a614323fc9872aa",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/layer_ffn.py": "ce4a9442bd0c153339577828a2427582e04b004a4eaf62625885f82856e86eb0",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/paired_affine.py": "50236bb1eb5ef3107319c3079438820f029b851f853396a89bd4be65638ab880",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "b1388d36be266c4a44968c1df4ce6117edddc6c1b938749af34b64d3b27c22be",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "fccb48f689fcdb94094b31e963c3f8d1b4f865246a8a08ffda360151829003cf",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "7ae7eabc60440293321645b6099a72e12cac316a745550954c36af4b0fe18e62",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "d1-layer-ffn32-prefetch",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386905,
+        "sha256": "f83c4f17d9edca7cca64489ee54185ccc364ae4d15f971822a13bcfd4eae27c9"
+      },
+      "M2_D1.asm": {
+        "bytes": 5982262,
+        "sha256": "0bf744f4e9e66d82f4cff260757a1d1e7295e22a66d4f42889f8ba6c6d943eeb"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "efe4511dafcfe3c3ac4f7cd54b0b287c1296920b105155bcd2c1fe13be312496",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "bd1a4e4a06ee85b9fd5f0a2a511e72b37514aafbe448baaf7a614323fc9872aa",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/ffn_prefetch.py": "74a1c9f488f5afd3f644ccc6095748a0cbf4d5adcb4e72e59c74970943271c6a",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/layer_ffn.py": "9d5745dbbf2df01924e1188e998b195d73b888fe8ef6ce3497a45172d44b1037",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/paired_affine.py": "50236bb1eb5ef3107319c3079438820f029b851f853396a89bd4be65638ab880",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "b1388d36be266c4a44968c1df4ce6117edddc6c1b938749af34b64d3b27c22be",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "abfb3d39b98f591ce42f93e3d870da515f78fb32742ddcd3acc3272baebfa150",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "7ae7eabc60440293321645b6099a72e12cac316a745550954c36af4b0fe18e62",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "d1-layer-ffn32-prefetch-seg4",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6386905,
+        "sha256": "f83c4f17d9edca7cca64489ee54185ccc364ae4d15f971822a13bcfd4eae27c9"
+      },
+      "M2_D1.asm": {
+        "bytes": 5389136,
+        "sha256": "6d29f4d70b71b52962435c7280e2a2e4b4c0bd2180ebf9414f7a1a916bea382e"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "efe4511dafcfe3c3ac4f7cd54b0b287c1296920b105155bcd2c1fe13be312496",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "bd1a4e4a06ee85b9fd5f0a2a511e72b37514aafbe448baaf7a614323fc9872aa",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/ffn_prefetch.py": "74a1c9f488f5afd3f644ccc6095748a0cbf4d5adcb4e72e59c74970943271c6a",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/layer_ffn.py": "9d5745dbbf2df01924e1188e998b195d73b888fe8ef6ce3497a45172d44b1037",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/paired_affine.py": "50236bb1eb5ef3107319c3079438820f029b851f853396a89bd4be65638ab880",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "b1388d36be266c4a44968c1df4ce6117edddc6c1b938749af34b64d3b27c22be",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "5a43a0469b74eadd06df0eeda201b2aef4cff4553230b049f188c2ddf1152f68",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "7ae7eabc60440293321645b6099a72e12cac316a745550954c36af4b0fe18e62",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "p1-w1-four-rows",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 8175986,
+        "sha256": "e4b462e72bd90855664c7177470faa5eb75a5e9fe5d2a5a261100f290de8e420"
+      },
+      "M2_D1.asm": {
+        "bytes": 6738778,
+        "sha256": "9a7f2c1f1d5182ea16b1c57463c7a9a5ed688af17695eb62c72ee8f8fb2900e6"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "8f327ff97375c09b446c4afd8f38a6fadb94cc25bbb11ea6584abd9e85905700",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/four_rows.py": "98c7c6cf5506cae60c21a192166923e982016aef0173be699eb6573391bd5c8d",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "bbaedd2ce26ac967d03540c3afd31d337476f80927525b11671475045116bd9f",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "d72ab01a696011942735825cc65deb3d26a1e30430b49978dd93c182c582ba28",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "7ae7eabc60440293321645b6099a72e12cac316a745550954c36af4b0fe18e62",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "p1-w1-four-rows-paced",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 8177621,
+        "sha256": "01c0d58137e59fc968c3d110eb6f6f261da0a2c68d89f4a86a6b3d83adc3f31b"
+      },
+      "M2_D1.asm": {
+        "bytes": 6738778,
+        "sha256": "9a7f2c1f1d5182ea16b1c57463c7a9a5ed688af17695eb62c72ee8f8fb2900e6"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "8f327ff97375c09b446c4afd8f38a6fadb94cc25bbb11ea6584abd9e85905700",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/four_rows.py": "a1653dafc5507ed21bc27dfd156b44f2c3eaaf82b14c71f27b0a997662f315cd",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "bbaedd2ce26ac967d03540c3afd31d337476f80927525b11671475045116bd9f",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "d72ab01a696011942735825cc65deb3d26a1e30430b49978dd93c182c582ba28",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "7ae7eabc60440293321645b6099a72e12cac316a745550954c36af4b0fe18e62",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "p1-w1-m32-k32",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 389,
+        "sha256": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7"
+      },
+      "M1_P1.asm": {
+        "bytes": 6917647,
+        "sha256": "f4387da14dfcd48161f5e13dd5f8d26578f1c86f52e3c488c3d430be9f8ad11c"
+      },
+      "M2_D1.asm": {
+        "bytes": 6738778,
+        "sha256": "9a7f2c1f1d5182ea16b1c57463c7a9a5ed688af17695eb62c72ee8f8fb2900e6"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "8f327ff97375c09b446c4afd8f38a6fadb94cc25bbb11ea6584abd9e85905700",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/four_rows.py": "7899a780f4797bec20962ca03313f1f48129d06f50ccd6d8c169845126cb59ef",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "bbaedd2ce26ac967d03540c3afd31d337476f80927525b11671475045116bd9f",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "d72ab01a696011942735825cc65deb3d26a1e30430b49978dd93c182c582ba28",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "7ae7eabc60440293321645b6099a72e12cac316a745550954c36af4b0fe18e62",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "p1-w1-quarter-sh",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 437,
+        "sha256": "6148af7b0794b9fa75e817e4591457a71d7673c3d343b4e714d349f908416d57"
+      },
+      "M1_P1.asm": {
+        "bytes": 6221395,
+        "sha256": "5ca37d37a305f8a3e181a02945f8759577402b12a927a1e380ffac28c15444fe"
+      },
+      "M2_D1.asm": {
+        "bytes": 6774536,
+        "sha256": "a87468aafcb2ee142f639758aeead12e8858f8730740d5eea8e1fd7863b9b9c2"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "8f327ff97375c09b446c4afd8f38a6fadb94cc25bbb11ea6584abd9e85905700",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/double_c.py": "eb97fba5aff489c1b78548e152ce79ccbf88c97bab1d3c725bfaca2acd58baaf",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/four_rows.py": "a1653dafc5507ed21bc27dfd156b44f2c3eaaf82b14c71f27b0a997662f315cd",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/quarter_sh.py": "d3bd16e5e86c2919dcada06dca808d3409ce82a58dea66e22d6ff75ed59cde55",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "791ec1ea260be202f80305235569cef86bf22f68d9af7c5fbb41f3bf1cea83e6",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "d3fcd86525d7233801a3feab755fa266ff2377b63794d6720b2bd9176825559f",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "31dfb4d8e7147c8e472c70ea2c7f0b5e0c2ac6c1d03fe0050bb81e679ffc53e7",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "p1-w1-quarter-sh-paired",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 437,
+        "sha256": "6148af7b0794b9fa75e817e4591457a71d7673c3d343b4e714d349f908416d57"
+      },
+      "M1_P1.asm": {
+        "bytes": 6974624,
+        "sha256": "d695d6744e1bc3c39adfd573a3bac2f67e738442d57b0cc762772a8f5bbe878b"
+      },
+      "M2_D1.asm": {
+        "bytes": 6774536,
+        "sha256": "a87468aafcb2ee142f639758aeead12e8858f8730740d5eea8e1fd7863b9b9c2"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "8f327ff97375c09b446c4afd8f38a6fadb94cc25bbb11ea6584abd9e85905700",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/double_c.py": "eb97fba5aff489c1b78548e152ce79ccbf88c97bab1d3c725bfaca2acd58baaf",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/four_rows.py": "a1653dafc5507ed21bc27dfd156b44f2c3eaaf82b14c71f27b0a997662f315cd",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/quarter_sh.py": "7c11f03167f6ae966b09403a9799cfa95f70f7944f9f997a9518a830035c1b17",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "791ec1ea260be202f80305235569cef86bf22f68d9af7c5fbb41f3bf1cea83e6",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "d3fcd86525d7233801a3feab755fa266ff2377b63794d6720b2bd9176825559f",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "31dfb4d8e7147c8e472c70ea2c7f0b5e0c2ac6c1d03fe0050bb81e679ffc53e7",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "p1-w1-quarter-sh-paired-fixed",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 437,
+        "sha256": "6148af7b0794b9fa75e817e4591457a71d7673c3d343b4e714d349f908416d57"
+      },
+      "M1_P1.asm": {
+        "bytes": 6986775,
+        "sha256": "f1a253d4ee9a1f97eae77aace9bfcc7779144b49536d53c8ad2656dee0fbc53b"
+      },
+      "M2_D1.asm": {
+        "bytes": 6774536,
+        "sha256": "a87468aafcb2ee142f639758aeead12e8858f8730740d5eea8e1fd7863b9b9c2"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "8f327ff97375c09b446c4afd8f38a6fadb94cc25bbb11ea6584abd9e85905700",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "dd01deb6ac04303ea4da9b4bf9712aa2c572a0477a3c7ccde1f84f56a57d6704",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/double_c.py": "eb97fba5aff489c1b78548e152ce79ccbf88c97bab1d3c725bfaca2acd58baaf",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/four_rows.py": "a1653dafc5507ed21bc27dfd156b44f2c3eaaf82b14c71f27b0a997662f315cd",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/quarter_sh.py": "47743dd1ece4de36c69c66c42b3c66b3d8de767e7868b9bb546343995ee90360",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "791ec1ea260be202f80305235569cef86bf22f68d9af7c5fbb41f3bf1cea83e6",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "d3fcd86525d7233801a3feab755fa266ff2377b63794d6720b2bd9176825559f",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "89913f47a9e59008c0dfcd7b44d8a9a29bbd0e914c500c33c9561dc8f901896c",
+      "project/sync_dense.py": "31dfb4d8e7147c8e472c70ea2c7f0b5e0c2ac6c1d03fe0050bb81e679ffc53e7",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  },
+  {
+    "candidate": "p1-w1-vec8-wide",
+    "artifacts": {
+      "hardware.json": {
+        "bytes": 435,
+        "sha256": "fb4318b46c3593cc0c681ff0c6e05d993dff48cfae25e866287747e8a60728a7"
+      },
+      "M1_P1.asm": {
+        "bytes": 7145817,
+        "sha256": "d8313fa97e7b210cf43ff175ff3e57fa03be4276436f3c79597472d8432b1a70"
+      },
+      "M2_D1.asm": {
+        "bytes": 7796728,
+        "sha256": "67ae1ac35228d5114c9e25abac9e8dcf405d75277af3cd5b10a56bc90a18e01a"
+      }
+    },
+    "generator_sha256": {
+      "project/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "project/affine_gemm.py": "8f327ff97375c09b446c4afd8f38a6fadb94cc25bbb11ea6584abd9e85905700",
+      "project/block_epilogue.py": "5118564b324185b075515ebf63c0bc7493a902c4e6c433fb5aa921ed7b2b66f2",
+      "project/build_programs.py": "b43edecb23677b6ff4a22cc4bd89924d5dcb927b36585dbad7f6b117941187bd",
+      "project/cold_affine.py": "d6d71b9c88b52773b7624746d5ccbf4acf6e690eea3cd0d326bb993f0f7ee4e7",
+      "project/compact_combine.py": "c691daeba85a364da6c77f6ed3cb4c48066353e78d91853b1e3598725fecf5d6",
+      "project/compact_names.py": "983595f55d9ed387138bd6358cb3036509d7736ab25505522b7f0f27ddc11e04",
+      "project/compiler.py": "bde8d0fb70e47651fa72580f4282c8433948059a5f14941f0f3e84b145236767",
+      "project/dense_probe.py": "7b0742431c058203e63f4015e600d934e9551baeeb3acfd0af81e12c24ceb010",
+      "project/double_c.py": "eb97fba5aff489c1b78548e152ce79ccbf88c97bab1d3c725bfaca2acd58baaf",
+      "project/event_paced_weights.py": "f2348859a3ad1bb70828194c5548f51f12523b7041a20dfed20dac5696cb1e5d",
+      "project/exact_case.py": "a89415ba4b63716affbf1346ea162b7224087253aa5129fd8396f82772eeb272",
+      "project/first_dense_prefix.py": "3f1b788e62fb06a833e6cdc8921a1c28024a32c8669d81112774bf5b05cbafd8",
+      "project/four_rows.py": "a1653dafc5507ed21bc27dfd156b44f2c3eaaf82b14c71f27b0a997662f315cd",
+      "project/freeze_candidate.py": "6b834b5c5fe97d52eb41f1436366b4b40be445f452f32021742c14656b00fbb6",
+      "project/functional_check.py": "cca38e9ecb004eba3a22102b5230ddf644a14281a234a2bc3622ac746d39c9c7",
+      "project/fused_d1.py": "4c8c0331bc4f20e630c939318393e8ad64987573fd43687b235390f6e50ba3ea",
+      "project/lazy_weights.py": "315e948b38e1373f8b79d79487e5e75a87368270be6ce9872bc919ecee4cc0ad",
+      "project/parallel_step.py": "c55acb6c0356802884d43db993404eadc817b5061a3b6b5a27bde8a40632f923",
+      "project/power_observed_grade.py": "b810e97ffc858cb783e02401a316c558b9f319be3cbb4748ee549de2787194fe",
+      "project/profile_case.py": "97281fd7e8d07fb6209d6cbe3949efb1f3a28f719daf0ea3b8b7dad3f5c21636",
+      "project/quarter_sh.py": "5cb0e6f73fbb92595940cc2d62f3b4bbb46a80296b82657410bf6f921bf2901d",
+      "project/resource_bound.py": "6eb126ae99916cc902221418bf012d687dce5c9f38554661e7eef3f2b81f98fe",
+      "project/rf_prompt.py": "9806902cb75d840ae425577667f01fecefe19fd036df8ea422b8fa199c91b2b8",
+      "project/rough_model.py": "f36428519e6b13ab924703a7e5be6465624c625818ac5df72b8ed957e044ef6e",
+      "project/schedule.py": "d3fcd86525d7233801a3feab755fa266ff2377b63794d6720b2bd9176825559f",
+      "project/step_cached.py": "da1c84acce5f6c22491a9c49a3a4e02d8b804b2e1e532d88c8e3aff517f787b1",
+      "project/strip_tail_prefetch.py": "a8753808bab00a3c10379346488c42127634ff6d065868166e62400d9c3b0701",
+      "project/sync_dense.py": "31dfb4d8e7147c8e472c70ea2c7f0b5e0c2ac6c1d03fe0050bb81e679ffc53e7",
+      "project/verify_artifacts.py": "57d813308c34790fde81b90d65b5a660c5e724539475a1f11c2569c98c286118",
+      "project/wide_qkv.py": "9a24d8f888f2399e1879cd7c8db25534683c23c0d15e2b8c5eb1e6a1bd8ee5f0"
+    }
+  }
+]
