@@ -1,0 +1,10 @@
+{
+  "seed": 19,
+  "command": "OPENBLAS_NUM_THREADS=1 python -m project.functional_check --hardware ../final-optimized-62270-20261006/hardware.json --program-p1 ../final-optimized-62270-20261006/programs/M1_P1.asm --program-d1 ../final-optimized-62270-20261006/programs/M2_D1.asm --seed 19 --report ../final-optimized-62270-20261006/seed19-functional.json",
+  "sha256": {
+    "hardware.json": "5a5ae43d6179493dbfb9b9c2063233c8acc3ca553bcd0e23f7335ba41e2ea3b7",
+    "programs/M1_P1.asm": "b53401ca4d1b051cabb825b19ed736707f5ef928596a1020fcd8d8da514964e0",
+    "programs/M2_D1.asm": "9a7f2c1f1d5182ea16b1c57463c7a9a5ed688af17695eb62c72ee8f8fb2900e6",
+    "seed19-functional.json": "c9dba4e0d15abe593e115a8e53f7e8b8152ee2fb0cc99682beadbd1cac338ad6"
+  }
+}
