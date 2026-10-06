@@ -8,4 +8,4 @@
 
 相比62270.94分，P1 W2部分和工作组跨度增加64float padding，使读取更均匀地分配到8个HBM通道，P1减少7144周期，分数提高约1.14%。62270/61669及此前完整版本保留。
 
-[最新方向与实验](optimization-80k-pipeline-20261006/README.md)；[上一轮数学模型](optimization-80k-round2-20261004/MODEL_80K.md)。跨层预取、FFN行流水、QKV前缀流水均记录实际超功耗/无收益；SH历史四段注意力较慢。未完成完整grade的候选不会替代最高完整成绩。
+[最新内存与流式实验](optimization-80k-memory-20261006/README.md)；[此前流水实验](optimization-80k-pipeline-20261006/README.md)；[上一轮数学模型](optimization-80k-round2-20261004/MODEL_80K.md)。跨层预取、FFN行流水、QKV前缀流水均记录实际超功耗/无收益；SH历史四段注意力较慢。未完成完整grade的候选不会替代最高完整成绩。

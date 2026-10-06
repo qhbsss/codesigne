@@ -1,0 +1,14 @@
+{
+  "cases": {
+    "M2_D1": {
+      "checks": [],
+      "elapsed_seconds": 5.984052990039345,
+      "error": "RF address/scope invalid; destination={'space': 'RF', 'offset': 0, 'count': 512, 'wg': 'd0', 'lane': 12}; value_count=512; finite_count=512; event=d0_e7; kind=None",
+      "hbm_races_validated": true,
+      "passed": false
+    }
+  },
+  "kind": "functional-only-v1",
+  "passed": false,
+  "race_only": false
+}
