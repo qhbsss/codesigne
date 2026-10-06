@@ -1,0 +1,4 @@
+{
+  "kind": "aborted-functional-check",
+  "reason": "Started while generator was still running; copied base ASM may have been read. No result counted."
+}
