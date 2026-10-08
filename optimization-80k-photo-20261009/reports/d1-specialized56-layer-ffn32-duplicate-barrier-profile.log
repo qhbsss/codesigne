@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/codesigne/optimization-80k-photo-20261009/project/profile_case.py", line 15, in <module>
+    hardware=Hardware.from_dict(json.loads(Path(a.hardware).read_text()));timing=estimate_case(a.case,hardware,Path(a.program).read_text())
+                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-photo-20261009/codesign/challenge/runner.py", line 288, in estimate_case
+    timing = estimate_pipeline(
+             ^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-photo-20261009/codesign/challenge/pipeline.py", line 180, in estimate_pipeline
+    return estimate_global_events(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-photo-20261009/codesign/challenge/pipeline_events.py", line 1214, in estimate_global_events
+    return GlobalEventPipeline(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-photo-20261009/codesign/challenge/pipeline_events.py", line 309, in __init__
+    self.queues = group_program(program)
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-photo-20261009/codesign/challenge/pipeline_events.py", line 112, in group_program
+    targets = tuple(active[name] for name in sync_targets(op, args, active))
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/codesigne/optimization-80k-photo-20261009/codesign/challenge/isa.py", line 68, in sync_targets
+    raise ValueError("Duplicate barrier workgroup")
+ValueError: Duplicate barrier workgroup

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "zip_sha256": "88375e77a27ea05af9de6126e843d58aed4be36b1330a10bd27658a28ebec851",
+  "zip_bytes": 1222058,
+  "crc_passed": true,
+  "core_bytes_match_frozen": true,
+  "extracted_provenance_regeneration_seed19_binding_passed": true,
+  "program_bytes": {
+    "programs/M1_P1.asm": 6923394,
+    "programs/M2_D1.asm": 7671488
+  },
+  "goal_80000_achieved": false
+}

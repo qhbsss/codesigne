@@ -1,0 +1,76 @@
+"""Overlap LayerNorm statistics with its following GEMV.
+
+LN(x)W = rsqrt(var+eps) * ((x*gamma)W-mu*(gamma W)) + beta W.
+The two fixed projections are computed from the actual runtime parameters.
+"""
+from .compiler import hbm, imm
+
+def affine_gemm(w,x,gamma,beta,b,out,m,k,n,name,n_lo=0,n_hi=None,epilogue=None,bias=None):
+    assert m==1 and k==128 and gamma.space==beta.space=='RF'
+    n_hi=n if n_hi is None else n_hi
+    width=n_hi-n_lo
+    assert width==16 and b.rf_chunks
+    r=lambda count,off=0:w._rf(15,count,off)
+    if not hasattr(w,'affine_constants'):w.affine_constants={}
+    key=b.rf_chunks
+    if key not in w.affine_constants:
+        from .cold_affine import execute
+        return execute(w,x,gamma,beta,b,out,k,n,n_lo,width,epilogue,bias)
+    w.lines.extend(w.pending_weights.pop(b.rf_chunks,[]))
+    if key not in w.affine_constants:
+        base=beta.offset
+        w.affine_constants[key]=base
+        w.vec('add',[imm(0),imm(0)],r(width,768))
+        w.vec('add',[imm(0),imm(0)],r(width,896))
+        for lane,off,start,depth in b.rf_chunks:
+            bv=w._rf(lane,depth*width,off)
+            w.emit('MMA.ACC',a=w._rf(gamma.lane,depth,gamma.offset+start),b=bv,acc=r(width,768),m=1,n=width,k=depth,event=None)
+            w.emit('MMA.ACC',a=w._rf(beta.lane,depth,beta.offset+start),b=bv,acc=r(width,896),m=1,n=width,k=depth,event=None)
+        w.vec('mul',[r(width,768),imm(-1)],w._rf(14,width,base))
+        if bias is not None:
+            w.ld(hbm(bias.offset+n_lo,width),r(width,32))
+            w.vec('add',[r(width,896),r(width,32)],w._rf(14,width,base+16))
+            if hasattr(w,'reducer_column'):w.ld(hbm(w.reducer_bias_source[base],8),w._rf(14,8,base+48))
+        else:w.vec('add',[r(width,896),imm(0)],w._rf(14,width,base+16))
+    base=w.affine_constants[key]
+    sum_projection=w._rf(14,width,base)
+    beta_projection=w._rf(14,width,base+16)
+    reuse=getattr(w,'reuse_norm',False)
+    if not reuse:w.ld(hbm(x.offset,k),r(k))
+    if bias is not None and getattr(w,'ffn_prefetch',None):
+        if getattr(w,'ffn_wait_events',[]):
+            import json
+            w.lines.append('BARRIER '+json.dumps(dict(wgs=[w.wg],events=w.ffn_wait_events),separators=(',',':')))
+        w.lines.extend(w.pending_weights.pop(w.ffn_prefetch[0].rf_chunks,[]))
+    if bias is not None and hasattr(w,'reducer_column'):
+        w.vec('add',[r(8,w.reducer_column),imm(0)],w._rf(14,8,base+56))
+    w.vec('add',[imm(0),imm(0)],r(width,768))
+    w.vec('add',[imm(0),imm(0)],r(width,896))
+    if not reuse:
+        w.vec('mul',[r(k),w._rf(gamma.lane,k,gamma.offset)],r(k,128))
+        w.reduce('sum',r(k),r(1,700))
+        w.vec('mul',[r(k),r(k)],r(k,256))
+    for ci,(lane,off,start,depth) in enumerate(b.rf_chunks):
+        w.emit('MMA.ACC',a=r(depth,128+start),b=w._rf(lane,depth*width,off),acc=r(width,768 if ci%2==0 else 896),m=1,n=width,k=depth,event=None)
+        if ci==0 and bias is not None and getattr(w,'ffn_prefetch',None):
+            w.lines.extend(w.pending_weights.pop(w.ffn_prefetch[1].rf_chunks,[]))
+    if not reuse:
+        w.reduce('sum',r(k,256),r(1,701))
+        w.vec('mul',[r(1,700),imm(1/k)],r(1,700))
+        w.vec('mul',[r(1,700),r(1,700)],r(1,702))
+        w.vec('sub',[imm(1e-5),r(1,702)],r(1,702))
+        w.vec('fma',[r(1,701),imm(1/k),r(1,702)],r(1,701))
+        w.vec('max',[r(1,701),imm(1e-5)],r(1,701))
+        w.sfu('rsqrt',r(1,701),r(1,701))
+    w.vec('add',[r(width,768),r(width,896)],r(width,768))
+    w.vec('fma',[sum_projection,r(1,700),r(width,768)],r(width,768))
+    w.vec('fma',[r(width,768),r(1,701),beta_projection],r(width,32 if epilogue=='bias_gelu' else 768))
+    if epilogue=='bias_gelu':
+        w._gelu_persistent(width,32)
+        stored=r(width,96)
+    else:
+        assert epilogue is None
+        stored=r(width,768)
+    # K/V are exported directly from RF by the caller; Q alone needs qkv HBM.
+    if out.space!='RF' and not (bias is None and n==3*k and n_lo>=k):
+        w.st(stored,hbm(out.offset+n_lo,width))

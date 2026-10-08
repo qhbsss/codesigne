@@ -1,0 +1,14 @@
+{
+  "cases": {
+    "M2_D1": {
+      "checks": [],
+      "elapsed_seconds": 1.4630099740024889,
+      "error": "Duplicate barrier workgroup",
+      "hbm_races_validated": false,
+      "passed": false
+    }
+  },
+  "kind": "functional-only-v1",
+  "passed": false,
+  "race_only": false
+}

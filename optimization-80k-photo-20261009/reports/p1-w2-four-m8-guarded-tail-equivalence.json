@@ -1,0 +1,7 @@
+{
+  "kind": "guarded-tail-expanded-instruction-equivalence",
+  "passed": true,
+  "dynamic_instructions": 109830,
+  "guarded_source_bytes": 7374769,
+  "peeled_source_bytes": 9858705
+}
