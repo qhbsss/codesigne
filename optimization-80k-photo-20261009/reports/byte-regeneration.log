@@ -16,3 +16,6 @@ p1-w2-four-m8-rolled source, reports and byte regeneration passed
 p1-w2-half-owner-aligned source, reports and byte regeneration passed
 p1-w2-half-owner-oversize source, reports and byte regeneration passed
 p1-w2-owner-merge source, reports and byte regeneration passed
+p1-wf64-n16 source, reports and byte regeneration passed
+p1-wf64-n16-two-m8 source, reports and byte regeneration passed
+20 candidates verified; no complete score inferred from partial timings
