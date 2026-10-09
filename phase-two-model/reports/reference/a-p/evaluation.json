@@ -1,0 +1,110 @@
+{
+  "config_sha256": null,
+  "contract": "phase-two-static-v1",
+  "error": null,
+  "evaluation": {
+    "comparison": {
+      "elements": 5242880,
+      "max_abs": 2.86102294921875e-6,
+      "max_scaled": 0.0010663715142022593
+    },
+    "hbm_peak_allocated_bytes": 239128576,
+    "header": {
+      "batch": 1,
+      "contract": "phase-two-static-v1",
+      "decode": false,
+      "hardware": {
+        "cache_mib": 0,
+        "dma_depth": 1,
+        "dma_engines": 1,
+        "global_noc": 512,
+        "hbm_channels": 8,
+        "hbm_queue": 256,
+        "multicast": false,
+        "p": 8,
+        "q": 16,
+        "reduction_units": 0,
+        "resident_groups": 2,
+        "rf_kib": 128,
+        "rf_tier": 1,
+        "sfu": 4,
+        "sh_banks": 16,
+        "sh_kib": 128,
+        "sh_tc_bw": 0,
+        "shared_ports": 1,
+        "sm_noc": 64,
+        "sms": 8,
+        "tc_count": 1,
+        "tc_k_parallel": 4,
+        "vector": 32
+      },
+      "model": "phase-two-compact-v2",
+      "shape": {
+        "d": 512,
+        "f": 2048,
+        "heads": 8,
+        "history": 1,
+        "layers": 2,
+        "prefill": 2048,
+        "steps": 1
+      }
+    },
+    "output_sha256": "5ceb5d9efa11f1362160523b31264e67826ebf5a3c667250be2dfef64c7a5f7c",
+    "program_sha256": "086a57b5957387dcfcaf4b387e0fd094e778cda6809e8d9e88e46880f3196fbb",
+    "report": {
+      "area_au": 99.5862930128333,
+      "base_power_w": 3.689657325320833,
+      "energy_j": 2.56358686853314,
+      "long_power_w": 10.728273085270256,
+      "memory": {
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "completed": 63208448,
+        "direction_switches": 215340,
+        "hbm_reads": 48775168,
+        "hbm_writes": 14433280,
+        "max_cache_mshrs": 0,
+        "max_events": 1513,
+        "max_hbm_inflight": 1024,
+        "max_pending": 1024,
+        "merged_reads": 0,
+        "miss_merged": 0,
+        "multicast_destinations": 0,
+        "noc_bytes": 9332948992,
+        "noc_endpoint_bytes": 4666474496,
+        "noc_global_bytes": 4666474496,
+        "submitted": 63208448,
+        "valid_bytes": 3917545472
+      },
+      "model": "phase-two-compact-v2",
+      "power_pass": true,
+      "short_power_w": 23.35563895796122,
+      "stats": {
+        "cycles": 249709295,
+        "groups": 148464,
+        "instructions": 1470432,
+        "max_active_dmas": 16,
+        "max_descriptors_per_engine": 2,
+        "max_frontend": 18,
+        "max_resident_groups": 2,
+        "max_return_queue": 33,
+        "physical_fmas": 21474836480,
+        "rf_bytes": 27543536128,
+        "scheduler_iterations": 170575071,
+        "sh_bytes": 4932501504,
+        "waves": 9281
+      }
+    },
+    "step_cycles": [
+      249709295
+    ],
+    "work_units": 23802806272
+  },
+  "host_seconds": 279.260160606,
+  "mode": "evaluate",
+  "model": "phase-two-compact-v2",
+  "official_score": null,
+  "seed": 7,
+  "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19",
+  "status": "complete"
+}

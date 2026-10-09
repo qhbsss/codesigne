@@ -1,0 +1,13 @@
+[package]
+name = "phase-two-model-runtime"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.90"
+
+[dependencies]
+vnext-sim = { path = "../../phase-two-starter/source", features = ["compact"] }
+serde_json = "1"
+sha2 = "0.10"
+
+[profile.release]
+opt-level = 3

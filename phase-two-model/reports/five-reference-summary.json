@@ -1,0 +1,112 @@
+{
+  "scope": "five official reference programs, attention_stress seed 7; not optimized final submission",
+  "all_five_numerical_pass": true,
+  "all_timing_report_fields_equal": true,
+  "independent_full_runtime_model": false,
+  "derived_local_score": 1548.9935009026813,
+  "has_official_aggregate_grade_json": false,
+  "official_server_score": null,
+  "cases": [
+    {
+      "program_sha256": "38a0fd11460a6eca17630b3352e2632a8d782958c5b33b8ada506ce37febaa3d",
+      "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19",
+      "backend": "shared_official_transition_core",
+      "independent_runtime_validation": false,
+      "all_timing_report_fields_equal": true,
+      "differences": [],
+      "cycles": 91208716,
+      "cycle_gap": 0,
+      "comparison": {
+        "elements": 1966080,
+        "max_abs": 4.5299530029296875e-06,
+        "max_scaled": 0.002280391441125173
+      },
+      "official_numerical_pass": true,
+      "prediction_seconds": 114.081624357,
+      "official_seconds": 130.054125316,
+      "note": "Timing equality uses the same immutable transition core. FP32 correctness comes only from the separate full evaluator.",
+      "case": "w-p"
+    },
+    {
+      "program_sha256": "086a57b5957387dcfcaf4b387e0fd094e778cda6809e8d9e88e46880f3196fbb",
+      "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19",
+      "backend": "shared_official_transition_core",
+      "independent_runtime_validation": false,
+      "all_timing_report_fields_equal": true,
+      "differences": [],
+      "cycles": 249709295,
+      "cycle_gap": 0,
+      "comparison": {
+        "elements": 5242880,
+        "max_abs": 2.86102294921875e-06,
+        "max_scaled": 0.0010663715142022593
+      },
+      "official_numerical_pass": true,
+      "prediction_seconds": 238.979921694,
+      "official_seconds": 279.260160606,
+      "note": "Timing equality uses the same immutable transition core. FP32 correctness comes only from the separate full evaluator.",
+      "case": "a-p"
+    },
+    {
+      "program_sha256": "29a4a4e83394172a71dc24b9afe8d1feb948125ab6a6810b84c87f28dffd814e",
+      "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19",
+      "backend": "shared_official_transition_core",
+      "independent_runtime_validation": false,
+      "all_timing_report_fields_equal": true,
+      "differences": [],
+      "cycles": 19698605,
+      "cycle_gap": 0,
+      "comparison": {
+        "elements": 30720,
+        "max_abs": 3.337860107421875e-06,
+        "max_scaled": 0.0013835405076127651
+      },
+      "official_numerical_pass": true,
+      "prediction_seconds": 67.802829385,
+      "official_seconds": 69.973637454,
+      "note": "Timing equality uses the same immutable transition core. FP32 correctness comes only from the separate full evaluator.",
+      "case": "w-d1"
+    },
+    {
+      "program_sha256": "165bf070404871b6521a6e3ff748d61cf820eb51cedc02c764d84a01a21eaea8",
+      "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19",
+      "backend": "shared_official_transition_core",
+      "independent_runtime_validation": false,
+      "all_timing_report_fields_equal": true,
+      "differences": [],
+      "cycles": 28034378,
+      "cycle_gap": 0,
+      "comparison": {
+        "elements": 491520,
+        "max_abs": 5.0067901611328125e-06,
+        "max_scaled": 0.0017618896719789317
+      },
+      "official_numerical_pass": true,
+      "prediction_seconds": 87.735513524,
+      "official_seconds": 97.173327065,
+      "note": "Timing equality uses the same immutable transition core. FP32 correctness comes only from the separate full evaluator.",
+      "case": "w-d16"
+    },
+    {
+      "program_sha256": "4a9bf21ceecd14962ecd07cd3a7b97322a4475f3a1fbd9c3c9bc4a295d6415ea",
+      "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19",
+      "backend": "shared_official_transition_core",
+      "independent_runtime_validation": false,
+      "all_timing_report_fields_equal": true,
+      "differences": [],
+      "cycles": 57484249,
+      "cycle_gap": 0,
+      "comparison": {
+        "elements": 122880,
+        "max_abs": 3.5762786865234375e-06,
+        "max_scaled": 0.0014300670632439473
+      },
+      "official_numerical_pass": true,
+      "prediction_seconds": 155.65426954,
+      "official_seconds": 158.705510087,
+      "note": "Timing equality uses the same immutable transition core. FP32 correctness comes only from the separate full evaluator.",
+      "case": "w-d4l"
+    }
+  ],
+  "adapter_revision_note": "Five-case comparisons predate addition of the official non-functional static checker. Timing core is unchanged. Final adapter was rechecked on the small complete example and race/alias/numerical negative tests."
+}

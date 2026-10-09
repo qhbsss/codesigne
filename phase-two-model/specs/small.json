@@ -1,0 +1,5 @@
+{
+  "cases": [{"name":"small-prefill","config":"phase-two-starter/examples/small-config.json","weight":1.0}],
+  "domains": {"hardware.rf_tier":[1,2],"policy.k":[8,16],"parallel_groups":[1,2]},
+  "seed":7,"max_designs":8,"solver_seconds":30
+}

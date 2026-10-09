@@ -1,0 +1,110 @@
+{
+  "backend": "shared_official_transition_core",
+  "contract": "phase-two-static-v1",
+  "host_seconds": 114.081624357,
+  "model": "phase-two-compact-v2",
+  "result": {
+    "checks_omitted": [
+      "initialization and numerical execution",
+      "reference comparison",
+      "host timeout/RSS"
+    ],
+    "cumulative_allocated_bytes": 281702400,
+    "eligibility": "not_established_without_functional_evaluation",
+    "hbm_peak_allocated_bytes": 259682304,
+    "header": {
+      "batch": 1,
+      "contract": "phase-two-static-v1",
+      "decode": false,
+      "hardware": {
+        "cache_mib": 0,
+        "dma_depth": 1,
+        "dma_engines": 1,
+        "global_noc": 512,
+        "hbm_channels": 8,
+        "hbm_queue": 256,
+        "multicast": false,
+        "p": 8,
+        "q": 16,
+        "reduction_units": 0,
+        "resident_groups": 2,
+        "rf_kib": 128,
+        "rf_tier": 1,
+        "sfu": 4,
+        "sh_banks": 16,
+        "sh_kib": 128,
+        "sh_tc_bw": 0,
+        "shared_ports": 1,
+        "sm_noc": 64,
+        "sms": 8,
+        "tc_count": 1,
+        "tc_k_parallel": 4,
+        "vector": 32
+      },
+      "model": "phase-two-compact-v2",
+      "shape": {
+        "d": 1536,
+        "f": 6144,
+        "heads": 12,
+        "history": 1,
+        "layers": 2,
+        "prefill": 256,
+        "steps": 1
+      }
+    },
+    "lower_bound_cycles": 13412352,
+    "numerical_correctness": "not_checked",
+    "primitives": 444624,
+    "program_sha256": "38a0fd11460a6eca17630b3352e2632a8d782958c5b33b8ada506ce37febaa3d",
+    "report": {
+      "area_au": 99.5862930128333,
+      "base_power_w": 3.689657325320833,
+      "energy_j": 1.0628102335794627,
+      "long_power_w": 12.66760089990094,
+      "memory": {
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "completed": 32688960,
+        "direction_switches": 27684,
+        "hbm_reads": 30919680,
+        "hbm_writes": 1769280,
+        "max_cache_mshrs": 0,
+        "max_events": 1778,
+        "max_hbm_inflight": 1024,
+        "max_pending": 1024,
+        "merged_reads": 0,
+        "miss_merged": 0,
+        "multicast_destinations": 0,
+        "noc_bytes": 4735518720,
+        "noc_endpoint_bytes": 2367759360,
+        "noc_global_bytes": 2367759360,
+        "submitted": 32688960,
+        "valid_bytes": 2088775680
+      },
+      "model": "phase-two-compact-v2",
+      "power_pass": true,
+      "short_power_w": 23.355631724603917,
+      "stats": {
+        "cycles": 91208716,
+        "groups": 26344,
+        "instructions": 548816,
+        "max_active_dmas": 16,
+        "max_descriptors_per_engine": 2,
+        "max_frontend": 18,
+        "max_resident_groups": 2,
+        "max_return_queue": 39,
+        "physical_fmas": 14898167808,
+        "rf_bytes": 16547488512,
+        "scheduler_iterations": 81867813,
+        "sh_bytes": 3649044480,
+        "waves": 1649
+      }
+    },
+    "step_cycles": [
+      91208716
+    ],
+    "work_units": 16162772992
+  },
+  "runtime_source_sha256": "55cf800796d086cd5820be88b322052c10888282225cbdcaea37b909717c56c2",
+  "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19"
+}

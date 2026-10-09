@@ -1,0 +1,19 @@
+{
+  "program_sha256": "4a9bf21ceecd14962ecd07cd3a7b97322a4475f3a1fbd9c3c9bc4a295d6415ea",
+  "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19",
+  "backend": "shared_official_transition_core",
+  "independent_runtime_validation": false,
+  "all_timing_report_fields_equal": true,
+  "differences": [],
+  "cycles": 57484249,
+  "cycle_gap": 0,
+  "comparison": {
+    "elements": 122880,
+    "max_abs": 3.5762786865234375e-06,
+    "max_scaled": 0.0014300670632439473
+  },
+  "official_numerical_pass": true,
+  "prediction_seconds": 155.65426954,
+  "official_seconds": 158.705510087,
+  "note": "Timing equality uses the same immutable transition core. FP32 correctness comes only from the separate full evaluator."
+}

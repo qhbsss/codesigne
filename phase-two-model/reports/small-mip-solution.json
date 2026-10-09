@@ -1,0 +1,195 @@
+{
+  "scope": "finite_declared_generator_space; not unrestricted ISA optimality",
+  "timing_backend": "shared_official_transition_core; not independent simulator",
+  "termination": "optimal_within_declared_space_and_tolerance",
+  "evaluated_designs": 8,
+  "legal_designs": 8,
+  "model_log_lower_bound": 10.0696797274002,
+  "incumbent_log_cost": 10.0696797274002,
+  "log_gap": 0,
+  "numerical_scope": "official attention_stress public seed 7; no universal proof",
+  "host_seconds": 1.566166012999929,
+  "iterations": [
+    {
+      "iteration": 0,
+      "design": {
+        "hardware.rf_tier": 1,
+        "policy.k": 16,
+        "parallel_groups": 1
+      },
+      "master": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "variables": 14,
+        "constraints": 11,
+        "mip_gap": 0.0,
+        "dual_bound": 5.0689042022202315
+      },
+      "analytic_lower_bound_log_cost": 5.0689042022202315,
+      "exact_cycles": [
+        23658
+      ],
+      "exact_log_cost": 10.071456603105682,
+      "new_incumbent": true
+    },
+    {
+      "iteration": 1,
+      "design": {
+        "hardware.rf_tier": 1,
+        "policy.k": 16,
+        "parallel_groups": 2
+      },
+      "master": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "variables": 14,
+        "constraints": 11,
+        "mip_gap": 0.0,
+        "dual_bound": 5.0689042022202315
+      },
+      "analytic_lower_bound_log_cost": 5.0689042022202315,
+      "exact_cycles": [
+        23658
+      ],
+      "exact_log_cost": 10.071456603105682
+    },
+    {
+      "iteration": 2,
+      "design": {
+        "hardware.rf_tier": 2,
+        "policy.k": 16,
+        "parallel_groups": 2
+      },
+      "master": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "variables": 14,
+        "constraints": 11,
+        "mip_gap": 0.0,
+        "dual_bound": 5.0689042022202315
+      },
+      "analytic_lower_bound_log_cost": 5.0689042022202315,
+      "exact_cycles": [
+        23616
+      ],
+      "exact_log_cost": 10.0696797274002,
+      "new_incumbent": true
+    },
+    {
+      "iteration": 3,
+      "design": {
+        "hardware.rf_tier": 2,
+        "policy.k": 16,
+        "parallel_groups": 1
+      },
+      "master": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "variables": 14,
+        "constraints": 11,
+        "mip_gap": 0.0,
+        "dual_bound": 5.0689042022202315
+      },
+      "analytic_lower_bound_log_cost": 5.0689042022202315,
+      "exact_cycles": [
+        23616
+      ],
+      "exact_log_cost": 10.0696797274002
+    },
+    {
+      "iteration": 4,
+      "design": {
+        "hardware.rf_tier": 1,
+        "policy.k": 8,
+        "parallel_groups": 1
+      },
+      "master": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "variables": 14,
+        "constraints": 11,
+        "mip_gap": 0.0,
+        "dual_bound": 5.159055299214529
+      },
+      "analytic_lower_bound_log_cost": 5.159055299214529,
+      "exact_cycles": [
+        26654
+      ],
+      "exact_log_cost": 10.190694512139672
+    },
+    {
+      "iteration": 5,
+      "design": {
+        "hardware.rf_tier": 1,
+        "policy.k": 8,
+        "parallel_groups": 2
+      },
+      "master": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "variables": 14,
+        "constraints": 11,
+        "mip_gap": 0.0,
+        "dual_bound": 5.159055299214529
+      },
+      "analytic_lower_bound_log_cost": 5.159055299214529,
+      "exact_cycles": [
+        26654
+      ],
+      "exact_log_cost": 10.190694512139672
+    },
+    {
+      "iteration": 6,
+      "design": {
+        "hardware.rf_tier": 2,
+        "policy.k": 8,
+        "parallel_groups": 1
+      },
+      "master": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "variables": 14,
+        "constraints": 11,
+        "mip_gap": 0.0,
+        "dual_bound": 5.159055299214529
+      },
+      "analytic_lower_bound_log_cost": 5.159055299214529,
+      "exact_cycles": [
+        26597
+      ],
+      "exact_log_cost": 10.18855370645454
+    },
+    {
+      "iteration": 7,
+      "design": {
+        "hardware.rf_tier": 2,
+        "policy.k": 8,
+        "parallel_groups": 2
+      },
+      "master": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "variables": 14,
+        "constraints": 11,
+        "mip_gap": 0.0,
+        "dual_bound": 5.159055299214529
+      },
+      "analytic_lower_bound_log_cost": 5.159055299214529,
+      "exact_cycles": [
+        26597
+      ],
+      "exact_log_cost": 10.18855370645454
+    }
+  ],
+  "has_official_five_case_score": false,
+  "best_design": {
+    "hardware.rf_tier": 2,
+    "policy.k": 16,
+    "parallel_groups": 2
+  },
+  "best_program_hashes": {
+    "small-prefill": "397af41815fb6b3f37ffcc373a8217aa1c71448422ec5027c5f6c22dc2923b8e"
+  },
+  "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19",
+  "official_evidence_directory": "runs/final-small-optimize/design-0007"
+}
