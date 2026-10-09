@@ -1,0 +1,47 @@
+[package]
+name = "vnext-sim"
+version = "0.9.0"
+edition = "2024"
+default-run = "vnext-sim"
+rust-version = "1.90"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[features]
+explore = []
+concurrent = ["explore"]
+long-waves = ["concurrent"]
+compact = ["long-waves"]
+
+[[bin]]
+name = "vnext-explore"
+path = "src/bin/vnext-explore.rs"
+required-features = ["explore"]
+
+[[example]]
+name = "extreme_probe"
+required-features = ["explore"]
+
+[[bin]]
+name = "vnext-concurrent"
+path = "src/bin/vnext-concurrent.rs"
+required-features = ["concurrent"]
+
+[[example]]
+name = "v09_probe"
+required-features = ["concurrent"]
+
+[[example]]
+name = "online_attention_probe"
+required-features = ["concurrent"]

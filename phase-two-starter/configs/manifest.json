@@ -1,0 +1,1232 @@
+{
+  "verified_trials": {
+    "model": "vnext-concurrent-v0.9",
+    "date": "2026-10-02",
+    "source_sha256": "7286ddfacbce9a844463b1b57158dc1e254ec463470ce9d0938135a91d344da2",
+    "evidence_sha256": "e0972c9cb0a669a0bdd842c6ba4afaa7c6d101ca8906dc815a977a4e0a5472da",
+    "status": "9 complete five-case families, 1 retained two-timeout family; local reproducible trials, not signed grades or global optima",
+    "candidate_attempts": 55,
+    "case_order": [
+      "w-p",
+      "a-p",
+      "w-d1",
+      "w-d16",
+      "w-d4l"
+    ],
+    "routes": [
+      {
+        "name": "reference",
+        "area_au_measured": 76.61029301283328,
+        "all_five_pass": true,
+        "reference_score": 1000.0,
+        "purpose": "单TC/Kp1，SH直接供数基线",
+        "cases": {
+          "w-p": {
+            "config_sha256": "9bb2b0d49f3aa184e00a12c5f85bbe5818308abbc3923673954a02a877f5d721",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 187689274,
+            "receipt": "static-final2/workers/w-p/runner.json",
+            "power_pass": true
+          },
+          "a-p": {
+            "config_sha256": "8d5b029ffc0fbb75a26f63cd0be4db80678aa592b49612af9c108a94a65fcf0b",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 374856358,
+            "receipt": "static-final2/workers/a-p/runner.json",
+            "power_pass": true
+          },
+          "w-d1": {
+            "config_sha256": "5af20bf2d7a9d1f401be6385db352e85fada22924d417ebcf18997d6da01ab92",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 27068433,
+            "receipt": "static-final2/workers/w-d1/runner.json",
+            "power_pass": true
+          },
+          "w-d16": {
+            "config_sha256": "70e6add4d57debcf3953cb3e4c920628e42c5309c950e747fb8605f7b03a21ea",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 42358913,
+            "receipt": "static-final2/workers/w-d16/runner.json",
+            "power_pass": true
+          },
+          "w-d4l": {
+            "config_sha256": "f37b19496671ee14c14c35bdd3475a07f79068e52206521d55fecdfdc1425e51",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 70439292,
+            "receipt": "static-final2/workers/w-d4l/runner.json",
+            "power_pass": true
+          }
+        },
+        "hardware": {
+          "sms": 8,
+          "rf_kib": 128,
+          "rf_tier": 1,
+          "vector": 32,
+          "sfu": 8,
+          "p": 8,
+          "q": 16,
+          "hbm_channels": 8,
+          "hbm_queue": 256,
+          "sm_noc": 64,
+          "global_noc": 512,
+          "sh_kib": 128,
+          "sh_banks": 16,
+          "sh_tc_bw": 64,
+          "tc_count": 1,
+          "tc_k_parallel": 1,
+          "reduction_units": 0,
+          "shared_ports": 1,
+          "dma_depth": 1,
+          "dma_engines": 1,
+          "multicast": false,
+          "cache_mib": 0,
+          "resident_groups": 2
+        }
+      },
+      {
+        "name": "dual-tc",
+        "area_au_measured": 85.39349301283328,
+        "all_five_pass": true,
+        "reference_score": 829.0556918430551,
+        "purpose": "双TC/Kp2/高档RF",
+        "cases": {
+          "w-p": {
+            "config_sha256": "bf49e1d924d1a6c29443f9d2197c34d7b503efbdeb97b3f940796c675c671a84",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 206450201,
+            "error": null,
+            "receipt": "candidates-final2/dual-tc__w-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 66.48250715713948,
+            "peak_rss_bytes": 513560576
+          },
+          "a-p": {
+            "config_sha256": "634a37c0e9689ae807142f15a5c088765350fa6025fdd8083ce86fb702439108",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 431002489,
+            "error": null,
+            "receipt": "candidates-final2/dual-tc__a-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 124.58795690815896,
+            "peak_rss_bytes": 316497920
+          },
+          "w-d1": {
+            "config_sha256": "fb6e8af531e4072bae7f293b1cc89fe6fe0e5dbac70d70950646e0241683d8e7",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 35036287,
+            "error": null,
+            "receipt": "candidates-final2/dual-tc__w-d1/runner.json",
+            "power_pass": true,
+            "host_seconds": 34.41645440924913,
+            "peak_rss_bytes": 719519744
+          },
+          "w-d16": {
+            "config_sha256": "aa55a40bb1b847b91286ca35fe91337e0e153721d64793252d941e36ccd2e939",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 49615261,
+            "error": null,
+            "receipt": "candidates-final2/dual-tc__w-d16/runner.json",
+            "power_pass": true,
+            "host_seconds": 43.99363672826439,
+            "peak_rss_bytes": 726286336
+          },
+          "w-d4l": {
+            "config_sha256": "b42534531d56104e4930451c1ab544be427ad3c826b0611451e40d3a84409f4b",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 100600743,
+            "error": null,
+            "receipt": "candidates-final2/dual-tc__w-d4l/runner.json",
+            "power_pass": true,
+            "host_seconds": 82.83728816080838,
+            "peak_rss_bytes": 1476300800
+          }
+        },
+        "hardware": {
+          "sms": 4,
+          "rf_kib": 256,
+          "rf_tier": 2,
+          "vector": 32,
+          "sfu": 8,
+          "p": 8,
+          "q": 16,
+          "hbm_channels": 8,
+          "hbm_queue": 256,
+          "sm_noc": 64,
+          "global_noc": 512,
+          "sh_kib": 128,
+          "sh_banks": 16,
+          "sh_tc_bw": 64,
+          "tc_count": 2,
+          "tc_k_parallel": 2,
+          "reduction_units": 1,
+          "shared_ports": 2,
+          "dma_depth": 2,
+          "dma_engines": 2,
+          "multicast": false,
+          "cache_mib": 0,
+          "resident_groups": 2
+        }
+      },
+      {
+        "name": "rf-only",
+        "area_au_measured": 66.30629301283328,
+        "all_five_pass": true,
+        "reference_score": 1286.9149801104568,
+        "purpose": "Kp1、无SH",
+        "cases": {
+          "w-p": {
+            "config_sha256": "88913d44947c9e6686d0184fb13ca3f115360a371e8ca28044c26aa596f5caa2",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 100862282,
+            "error": null,
+            "receipt": "candidates-final2/rf-only__w-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 83.91701104771346,
+            "peak_rss_bytes": 514605056
+          },
+          "a-p": {
+            "config_sha256": "afac4c9953068c777814076ca4b6e4058bb2bd5f4ca7575e69e7fa8a9a88b238",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 254317427,
+            "error": null,
+            "receipt": "candidates-final2/rf-only__a-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 160.99407693836838,
+            "peak_rss_bytes": 325246976
+          },
+          "w-d1": {
+            "config_sha256": "aeb11c6f003373c2c616f6effc8546b6e78e47b384447a0f89ab5b8fbd0893f2",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 27068433,
+            "error": null,
+            "receipt": "candidates-final2/rf-only__w-d1/runner.json",
+            "power_pass": true,
+            "host_seconds": 36.19155462551862,
+            "peak_rss_bytes": 720547840
+          },
+          "w-d16": {
+            "config_sha256": "42b28635cfd6a9bc9c8578d04f8ba8a30cb63f96d3c2d1891ebbb8e668257db9",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 42358913,
+            "error": null,
+            "receipt": "candidates-final2/rf-only__w-d16/runner.json",
+            "power_pass": true,
+            "host_seconds": 45.28520850930363,
+            "peak_rss_bytes": 726114304
+          },
+          "w-d4l": {
+            "config_sha256": "213711bde83bd9ed57af18cbb23c5ae6a6d6d9f13f1a3ef20e1539ca01af0e46",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 70439292,
+            "error": null,
+            "receipt": "candidates-final2/rf-only__w-d4l/runner.json",
+            "power_pass": true,
+            "host_seconds": 85.74218560103327,
+            "peak_rss_bytes": 1477664768
+          }
+        },
+        "hardware": {
+          "sms": 8,
+          "rf_kib": 128,
+          "rf_tier": 1,
+          "vector": 32,
+          "sfu": 8,
+          "p": 8,
+          "q": 16,
+          "hbm_channels": 8,
+          "hbm_queue": 256,
+          "sm_noc": 64,
+          "global_noc": 512,
+          "sh_kib": 0,
+          "sh_banks": 0,
+          "sh_tc_bw": 0,
+          "tc_count": 1,
+          "tc_k_parallel": 1,
+          "reduction_units": 0,
+          "shared_ports": 1,
+          "dma_depth": 1,
+          "dma_engines": 1,
+          "multicast": false,
+          "cache_mib": 0,
+          "resident_groups": 2
+        }
+      },
+      {
+        "name": "sh-bandwidth",
+        "area_au_measured": 90.88229301283329,
+        "all_five_pass": true,
+        "reference_score": 758.328885607891,
+        "purpose": "双TC/双SH读口",
+        "cases": {
+          "w-p": {
+            "config_sha256": "46d78fa5e47c716e3ce4f8eb4b482aa5b4236e4422d56be7ab00e38d14759ff5",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 281397259,
+            "error": null,
+            "receipt": "candidates-final2/sh-bandwidth__w-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 98.53957134671509,
+            "peak_rss_bytes": 514740224
+          },
+          "a-p": {
+            "config_sha256": "86e009906446d9662075ba18863c92f70cfcdf12979717b5f105621792d24461",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 512486418,
+            "error": null,
+            "receipt": "candidates-final2/sh-bandwidth__a-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 175.85135655570775,
+            "peak_rss_bytes": 325758976
+          },
+          "w-d1": {
+            "config_sha256": "a2718f9c7fb9753ade7b65579eb473442a6e1d03b1cc5a1e9b6b70938bf62484",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 33521485,
+            "error": null,
+            "receipt": "candidates-final2/sh-bandwidth__w-d1/runner.json",
+            "power_pass": true,
+            "host_seconds": 37.73883598763496,
+            "peak_rss_bytes": 721420288
+          },
+          "w-d16": {
+            "config_sha256": "96b6d5ed933f8243f1f328acad19c7379cbcda5e80b6525530a2471628a131e7",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 51510803,
+            "error": null,
+            "receipt": "candidates-final2/sh-bandwidth__w-d16/runner.json",
+            "power_pass": true,
+            "host_seconds": 47.561157666146755,
+            "peak_rss_bytes": 726626304
+          },
+          "w-d4l": {
+            "config_sha256": "a5194add7401acad39d906c3a42af16f1c5907647a4c2a0885e493a0722a0d21",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 83812522,
+            "error": null,
+            "receipt": "candidates-final2/sh-bandwidth__w-d4l/runner.json",
+            "power_pass": true,
+            "host_seconds": 88.80221220012754,
+            "peak_rss_bytes": 1477783552
+          }
+        },
+        "hardware": {
+          "sms": 8,
+          "rf_kib": 128,
+          "rf_tier": 1,
+          "vector": 32,
+          "sfu": 8,
+          "p": 8,
+          "q": 8,
+          "hbm_channels": 8,
+          "hbm_queue": 256,
+          "sm_noc": 64,
+          "global_noc": 512,
+          "sh_kib": 256,
+          "sh_banks": 32,
+          "sh_tc_bw": 128,
+          "tc_count": 2,
+          "tc_k_parallel": 1,
+          "reduction_units": 0,
+          "shared_ports": 2,
+          "dma_depth": 1,
+          "dma_engines": 1,
+          "multicast": false,
+          "cache_mib": 0,
+          "resident_groups": 2
+        }
+      },
+      {
+        "name": "cache-reuse",
+        "area_au_measured": 84.19429301283328,
+        "all_five_pass": false,
+        "reference_score": null,
+        "purpose": "旧细分块；D16/D4L各300 s超时",
+        "cases": {
+          "w-p": {
+            "config_sha256": "50105c8fe49e1d8508a8b30da5780f882522961eef7ca42746baf56be25e7353",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 159137163,
+            "error": null,
+            "receipt": "candidates-final2/cache-reuse__w-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 260.7306683277711,
+            "peak_rss_bytes": 515915776
+          },
+          "a-p": {
+            "config_sha256": "1bd264156ce0999ecde5357b5167aec21e17f1d0ef33ccfd97c1fd17e3cdfd70",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 255766485,
+            "error": null,
+            "receipt": "candidates-final2/cache-reuse__a-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 283.65682435035706,
+            "peak_rss_bytes": 326320128
+          },
+          "w-d1": {
+            "config_sha256": "977654603baada89eaf8f6216d857812fca436bc93858586403d7218da30f211",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 55671572,
+            "error": null,
+            "receipt": "candidates-final2/cache-reuse__w-d1/runner.json",
+            "power_pass": true,
+            "host_seconds": 81.47855426836759,
+            "peak_rss_bytes": 721518592
+          },
+          "w-d16": {
+            "config_sha256": "c383c5aaffc6697d3dae8e81e11a45e676284d4fa4fd7f7d3fe8c0605c2f152b",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "failed",
+            "error": "wall timeout",
+            "receipt": "candidates-final2/cache-reuse__w-d16/runner.json",
+            "host_seconds": 300.0456115594134,
+            "peak_rss_bytes": 723292160
+          },
+          "w-d4l": {
+            "config_sha256": "fc990dcc5d1de6b5e6a4dc3a6d6b646b6a81ad0e0af43e93559ecd35a628f9e7",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "failed",
+            "error": "wall timeout",
+            "receipt": "candidates-final2/cache-reuse__w-d4l/runner.json",
+            "host_seconds": 300.065622234717,
+            "peak_rss_bytes": 1474568192
+          }
+        },
+        "hardware": {
+          "sms": 8,
+          "rf_kib": 128,
+          "rf_tier": 1,
+          "vector": 32,
+          "sfu": 8,
+          "p": 8,
+          "q": 16,
+          "hbm_channels": 8,
+          "hbm_queue": 256,
+          "sm_noc": 64,
+          "global_noc": 512,
+          "sh_kib": 0,
+          "sh_banks": 0,
+          "sh_tc_bw": 0,
+          "tc_count": 1,
+          "tc_k_parallel": 1,
+          "reduction_units": 0,
+          "shared_ports": 1,
+          "dma_depth": 2,
+          "dma_engines": 2,
+          "multicast": true,
+          "cache_mib": 4,
+          "resident_groups": 2
+        }
+      },
+      {
+        "name": "cache-tiled",
+        "area_au_measured": 84.19429301283328,
+        "all_five_pass": true,
+        "reference_score": 955.4321260906886,
+        "purpose": "相同Cache硬件，修正分块",
+        "cases": {
+          "w-p": {
+            "config_sha256": "2cb80d68be53b066096ebbb5490278e22345d0d27098c3d422cdde5fc250bdfc",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 104581975,
+            "error": null,
+            "receipt": "analytic-final2/cache-tiled__w-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 136.59837701544166,
+            "peak_rss_bytes": 516206592
+          },
+          "a-p": {
+            "config_sha256": "63e94b7cf5f73d4675da37127d632d2e5cc0a15b6a99d73f4c5a56741bc56c59",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 234026439,
+            "error": null,
+            "receipt": "analytic-final2/cache-tiled__a-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 195.67362196650356,
+            "peak_rss_bytes": 327036928
+          },
+          "w-d1": {
+            "config_sha256": "8c7a1004f12c19d5e155c8e5c1eb95af4a8907c8039ef317ae75f0703ad5ff19",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 57193294,
+            "error": null,
+            "receipt": "analytic-final2/cache-tiled__w-d1/runner.json",
+            "power_pass": true,
+            "host_seconds": 85.27773844171315,
+            "peak_rss_bytes": 722501632
+          },
+          "w-d16": {
+            "config_sha256": "10ab1511db7e068f869d90a3fdaa6d890d86271fbdb0ab243d9475bf188bbe47",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 66898192,
+            "error": null,
+            "receipt": "analytic-final2/cache-tiled__w-d16/runner.json",
+            "power_pass": true,
+            "host_seconds": 89.98079455737025,
+            "peak_rss_bytes": 728035328
+          },
+          "w-d4l": {
+            "config_sha256": "c13ecef09bdd7fab24743581b3e0647be94786e3599272dc1ba3db7c8895135c",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 135250298,
+            "error": null,
+            "receipt": "analytic-final2/cache-tiled__w-d4l/runner.json",
+            "power_pass": true,
+            "host_seconds": 185.63329279143363,
+            "peak_rss_bytes": 1479041024
+          }
+        },
+        "hardware": {
+          "sms": 8,
+          "rf_kib": 128,
+          "rf_tier": 1,
+          "vector": 32,
+          "sfu": 8,
+          "p": 8,
+          "q": 16,
+          "hbm_channels": 8,
+          "hbm_queue": 256,
+          "sm_noc": 64,
+          "global_noc": 512,
+          "sh_kib": 0,
+          "sh_banks": 0,
+          "sh_tc_bw": 0,
+          "tc_count": 1,
+          "tc_k_parallel": 1,
+          "reduction_units": 0,
+          "shared_ports": 1,
+          "dma_depth": 2,
+          "dma_engines": 2,
+          "multicast": true,
+          "cache_mib": 4,
+          "resident_groups": 2
+        }
+      },
+      {
+        "name": "k4-compact",
+        "area_au_measured": 96.57829301283329,
+        "all_five_pass": true,
+        "reference_score": 1203.1119165230018,
+        "purpose": "Kp4/RF64/SH直接供数",
+        "cases": {
+          "w-p": {
+            "config_sha256": "44f192dcdfac4a70e21daebddef599068db8a39bdbff9964daa1415ee5e17ea2",
+            "parallel_groups": 1,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 119005884,
+            "error": null,
+            "receipt": "repair-final2/k4-compact__w-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 59.91624922771007,
+            "peak_rss_bytes": 513900544
+          },
+          "a-p": {
+            "config_sha256": "cb11ffb75f360cd2e4e88713ea551937a237100092b450279c5caf625b940f37",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 224134468,
+            "error": null,
+            "receipt": "repair-final2/k4-compact__a-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 129.6353057762608,
+            "peak_rss_bytes": 317005824
+          },
+          "w-d1": {
+            "config_sha256": "8bd891ba84bd40e6b76ca750653461d8551a744c24c7280cfcf226cafc56f8de",
+            "parallel_groups": 1,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 29270524,
+            "error": null,
+            "receipt": "repair-final2/k4-compact__w-d1/runner.json",
+            "power_pass": true,
+            "host_seconds": 33.40966635476798,
+            "peak_rss_bytes": 719912960
+          },
+          "w-d16": {
+            "config_sha256": "a44d627c22118b468a478c5497359b765634fa8767a22cb45dc05012982093cb",
+            "parallel_groups": 1,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 45770515,
+            "error": null,
+            "receipt": "repair-final2/k4-compact__w-d16/runner.json",
+            "power_pass": true,
+            "host_seconds": 42.68051135726273,
+            "peak_rss_bytes": 727093248
+          },
+          "w-d4l": {
+            "config_sha256": "96732ec5e12b118330534e30bc40bed98c2bdd43b35d0db68fb5eb34aa61a3d0",
+            "parallel_groups": 1,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 85155228,
+            "error": null,
+            "receipt": "repair-final2/k4-compact__w-d4l/runner.json",
+            "power_pass": true,
+            "host_seconds": 81.1543608950451,
+            "peak_rss_bytes": 1476472832
+          }
+        },
+        "hardware": {
+          "sms": 8,
+          "rf_kib": 64,
+          "rf_tier": 1,
+          "vector": 32,
+          "sfu": 8,
+          "p": 8,
+          "q": 16,
+          "hbm_channels": 8,
+          "hbm_queue": 256,
+          "sm_noc": 64,
+          "global_noc": 512,
+          "sh_kib": 128,
+          "sh_banks": 16,
+          "sh_tc_bw": 64,
+          "tc_count": 1,
+          "tc_k_parallel": 4,
+          "reduction_units": 0,
+          "shared_ports": 1,
+          "dma_depth": 1,
+          "dma_engines": 1,
+          "multicast": false,
+          "cache_mib": 0,
+          "resident_groups": 2
+        }
+      },
+      {
+        "name": "sm12-skinny-k2",
+        "area_au_measured": 96.19029301283328,
+        "all_five_pass": true,
+        "reference_score": 1184.1951095543586,
+        "purpose": "12 SM瘦阵列/Kp2/HBM4",
+        "cases": {
+          "w-p": {
+            "config_sha256": "dad9f75ecff84ed8f15eb3b41a864fbc4fb0818b864fb2fdfceedc19fe05de29",
+            "parallel_groups": 1,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 180645513,
+            "error": null,
+            "receipt": "repair-final2/sm12-skinny-k2__w-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 72.49744507763535,
+            "peak_rss_bytes": 514822144
+          },
+          "a-p": {
+            "config_sha256": "0ecae98e0e02c146e73fcf23ec296b30197392c76078d318aecdb8c2a1406eaa",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 296309358,
+            "error": null,
+            "receipt": "repair-final2/sm12-skinny-k2__a-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 163.8678877754137,
+            "peak_rss_bytes": 325378048
+          },
+          "w-d1": {
+            "config_sha256": "cbe4814e78767e795ff2ad92936b56127630c1eba3c82bcee2b6dd208c61cd3e",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 18979298,
+            "error": null,
+            "receipt": "repair-final2/sm12-skinny-k2__w-d1/runner.json",
+            "power_pass": true,
+            "host_seconds": 43.711697039194405,
+            "peak_rss_bytes": 720646144
+          },
+          "w-d16": {
+            "config_sha256": "6509af99bf1f122bab76989de86dc0da18a0982c66e94a1e42076373d8ca993b",
+            "parallel_groups": 1,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 45460025,
+            "error": null,
+            "receipt": "repair-final2/sm12-skinny-k2__w-d16/runner.json",
+            "power_pass": true,
+            "host_seconds": 48.72821144107729,
+            "peak_rss_bytes": 725897216
+          },
+          "w-d4l": {
+            "config_sha256": "b5ed4dc707b73cc5331b4bdf42b3916c5367355b4ce681d3a72a297b6f115420",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 51153010,
+            "error": null,
+            "receipt": "repair-final2/sm12-skinny-k2__w-d4l/runner.json",
+            "power_pass": true,
+            "host_seconds": 102.9745948202908,
+            "peak_rss_bytes": 1476960256
+          }
+        },
+        "hardware": {
+          "sms": 12,
+          "rf_kib": 64,
+          "rf_tier": 1,
+          "vector": 32,
+          "sfu": 16,
+          "p": 4,
+          "q": 16,
+          "hbm_channels": 4,
+          "hbm_queue": 256,
+          "sm_noc": 64,
+          "global_noc": 512,
+          "sh_kib": 128,
+          "sh_banks": 16,
+          "sh_tc_bw": 64,
+          "tc_count": 1,
+          "tc_k_parallel": 2,
+          "reduction_units": 0,
+          "shared_ports": 1,
+          "dma_depth": 1,
+          "dma_engines": 1,
+          "multicast": false,
+          "cache_mib": 0,
+          "resident_groups": 2
+        }
+      },
+      {
+        "name": "k4-rf",
+        "area_au_measured": 95.49029301283329,
+        "all_five_pass": true,
+        "reference_score": 1948.8760841015899,
+        "purpose": "Kp4/RF128/无SH",
+        "cases": {
+          "w-p": {
+            "config_sha256": "64f402f8c8468c757b159a9b93766fdd97b6e65852c84eb7cd958b5c0e506bac",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 49943123,
+            "error": null,
+            "receipt": "analytic-final2/k4-rf__w-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 89.19249334745109,
+            "peak_rss_bytes": 514117632
+          },
+          "a-p": {
+            "config_sha256": "ea6b83b98c3906ccafe606ae364987871a5eca389aac063b4c0d3a42bed2d98d",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 186983878,
+            "error": null,
+            "receipt": "analytic-final2/k4-rf__a-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 155.97080844268203,
+            "peak_rss_bytes": 316764160
+          },
+          "w-d1": {
+            "config_sha256": "90d5c66090a264a3c785de9bc59d201d6035c30557311430dcb8fcfb3a39dd73",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 19495887,
+            "error": null,
+            "receipt": "analytic-final2/k4-rf__w-d1/runner.json",
+            "power_pass": true,
+            "host_seconds": 35.24482393544167,
+            "peak_rss_bytes": 719650816
+          },
+          "w-d16": {
+            "config_sha256": "61c299ec8bfccb52d94c503734c8e9290fc54bcfce95e7e2841ec777d172b42f",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 27578841,
+            "error": null,
+            "receipt": "analytic-final2/k4-rf__w-d16/runner.json",
+            "power_pass": true,
+            "host_seconds": 44.1238759867847,
+            "peak_rss_bytes": 725741568
+          },
+          "w-d4l": {
+            "config_sha256": "8caf9662bad542354920f61d58a69a6d260808223843d0282a4d371795b5aeb1",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 56693759,
+            "error": null,
+            "receipt": "analytic-final2/k4-rf__w-d4l/runner.json",
+            "power_pass": true,
+            "host_seconds": 83.99672808218747,
+            "peak_rss_bytes": 1476882432
+          }
+        },
+        "hardware": {
+          "sms": 8,
+          "rf_kib": 128,
+          "rf_tier": 1,
+          "vector": 32,
+          "sfu": 8,
+          "p": 8,
+          "q": 16,
+          "hbm_channels": 8,
+          "hbm_queue": 256,
+          "sm_noc": 64,
+          "global_noc": 512,
+          "sh_kib": 0,
+          "sh_banks": 0,
+          "sh_tc_bw": 0,
+          "tc_count": 1,
+          "tc_k_parallel": 4,
+          "reduction_units": 0,
+          "shared_ports": 1,
+          "dma_depth": 1,
+          "dma_engines": 1,
+          "multicast": false,
+          "cache_mib": 0,
+          "resident_groups": 2
+        }
+      },
+      {
+        "name": "k4-sh-staged",
+        "area_au_measured": 99.5862930128333,
+        "all_five_pass": true,
+        "reference_score": 1548.9935009026813,
+        "purpose": "Kp4/RF128/SH→RF分级搬运",
+        "cases": {
+          "w-p": {
+            "config_sha256": "c8d682c817ff7fda7920b754abd5f6e9057152463e6e387675c21b8f81134dcb",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 91208716,
+            "error": null,
+            "receipt": "repair-final2/k4-sh-staged__w-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 65.91296746768057,
+            "peak_rss_bytes": 514531328
+          },
+          "a-p": {
+            "config_sha256": "1af8c9fa151231117b83132e605c015bf792677082f553c91f0eeb4f8fb02502",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 249709295,
+            "error": null,
+            "receipt": "repair-final2/k4-sh-staged__a-p/runner.json",
+            "power_pass": true,
+            "host_seconds": 130.90827757678926,
+            "peak_rss_bytes": 317624320
+          },
+          "w-d1": {
+            "config_sha256": "d61c08f265969cbe8092cda21fa82bb361f455caf42d2bd83b397aff2e3aabe8",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 19698605,
+            "error": null,
+            "receipt": "repair-final2/k4-sh-staged__w-d1/runner.json",
+            "power_pass": true,
+            "host_seconds": 35.103659057058394,
+            "peak_rss_bytes": 720269312
+          },
+          "w-d16": {
+            "config_sha256": "77fea646ecad860ed78e214a92f47f9d9a142842ed435237478276b79c74c745",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 28034378,
+            "error": null,
+            "receipt": "repair-final2/k4-sh-staged__w-d16/runner.json",
+            "power_pass": true,
+            "host_seconds": 44.23623755108565,
+            "peak_rss_bytes": 725856256
+          },
+          "w-d4l": {
+            "config_sha256": "c9afb765dfb4c7f3b557c4a99442ab9e85fb6d8df40de64d82523f55882ecd02",
+            "parallel_groups": 2,
+            "async_prefetch": true,
+            "status": "complete",
+            "cycles": 57484249,
+            "error": null,
+            "receipt": "repair-final2/k4-sh-staged__w-d4l/runner.json",
+            "power_pass": true,
+            "host_seconds": 84.5326688811183,
+            "peak_rss_bytes": 1476886528
+          }
+        },
+        "hardware": {
+          "sms": 8,
+          "rf_kib": 128,
+          "rf_tier": 1,
+          "vector": 32,
+          "sfu": 4,
+          "p": 8,
+          "q": 16,
+          "hbm_channels": 8,
+          "hbm_queue": 256,
+          "sm_noc": 64,
+          "global_noc": 512,
+          "sh_kib": 128,
+          "sh_banks": 16,
+          "sh_tc_bw": 0,
+          "tc_count": 1,
+          "tc_k_parallel": 4,
+          "reduction_units": 0,
+          "shared_ports": 1,
+          "dma_depth": 1,
+          "dma_engines": 1,
+          "multicast": false,
+          "cache_mib": 0,
+          "resident_groups": 2
+        }
+      }
+    ]
+  },
+  "families": [
+    "reference",
+    "dual-tc",
+    "cache-reuse",
+    "sh-bandwidth",
+    "rf-only",
+    "cache-tiled",
+    "k4-compact",
+    "sm12-skinny-k2",
+    "k4-rf",
+    "k4-sh-staged"
+  ],
+  "cases": [
+    "w-p",
+    "a-p",
+    "w-d1",
+    "w-d16",
+    "w-d4l"
+  ],
+  "files": {
+    "configs/cache-reuse/a-p.json": {
+      "bytes": 981,
+      "sha256": "1bd264156ce0999ecde5357b5167aec21e17f1d0ef33ccfd97c1fd17e3cdfd70",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/cache-reuse/a-p.json"
+    },
+    "configs/cache-reuse/w-d1.json": {
+      "bytes": 982,
+      "sha256": "977654603baada89eaf8f6216d857812fca436bc93858586403d7218da30f211",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/cache-reuse/w-d1.json"
+    },
+    "configs/cache-reuse/w-d16.json": {
+      "bytes": 982,
+      "sha256": "c383c5aaffc6697d3dae8e81e11a45e676284d4fa4fd7f7d3fe8c0605c2f152b",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/cache-reuse/w-d16.json"
+    },
+    "configs/cache-reuse/w-d4l.json": {
+      "bytes": 982,
+      "sha256": "fc990dcc5d1de6b5e6a4dc3a6d6b646b6a81ad0e0af43e93559ecd35a628f9e7",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/cache-reuse/w-d4l.json"
+    },
+    "configs/cache-reuse/w-p.json": {
+      "bytes": 983,
+      "sha256": "50105c8fe49e1d8508a8b30da5780f882522961eef7ca42746baf56be25e7353",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/cache-reuse/w-p.json"
+    },
+    "configs/cache-tiled/a-p.json": {
+      "bytes": 981,
+      "sha256": "63e94b7cf5f73d4675da37127d632d2e5cc0a15b6a99d73f4c5a56741bc56c59",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/cache-tiled/a-p.json"
+    },
+    "configs/cache-tiled/w-d1.json": {
+      "bytes": 982,
+      "sha256": "8c7a1004f12c19d5e155c8e5c1eb95af4a8907c8039ef317ae75f0703ad5ff19",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/cache-tiled/w-d1.json"
+    },
+    "configs/cache-tiled/w-d16.json": {
+      "bytes": 983,
+      "sha256": "10ab1511db7e068f869d90a3fdaa6d890d86271fbdb0ab243d9475bf188bbe47",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/cache-tiled/w-d16.json"
+    },
+    "configs/cache-tiled/w-d4l.json": {
+      "bytes": 982,
+      "sha256": "c13ecef09bdd7fab24743581b3e0647be94786e3599272dc1ba3db7c8895135c",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/cache-tiled/w-d4l.json"
+    },
+    "configs/cache-tiled/w-p.json": {
+      "bytes": 983,
+      "sha256": "2cb80d68be53b066096ebbb5490278e22345d0d27098c3d422cdde5fc250bdfc",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/cache-tiled/w-p.json"
+    },
+    "configs/dual-tc/a-p.json": {
+      "bytes": 985,
+      "sha256": "634a37c0e9689ae807142f15a5c088765350fa6025fdd8083ce86fb702439108",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/dual-tc/a-p.json"
+    },
+    "configs/dual-tc/w-d1.json": {
+      "bytes": 945,
+      "sha256": "fb6e8af531e4072bae7f293b1cc89fe6fe0e5dbac70d70950646e0241683d8e7",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/dual-tc/w-d1.json"
+    },
+    "configs/dual-tc/w-d16.json": {
+      "bytes": 946,
+      "sha256": "aa55a40bb1b847b91286ca35fe91337e0e153721d64793252d941e36ccd2e939",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/dual-tc/w-d16.json"
+    },
+    "configs/dual-tc/w-d4l.json": {
+      "bytes": 945,
+      "sha256": "b42534531d56104e4930451c1ab544be427ad3c826b0611451e40d3a84409f4b",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/dual-tc/w-d4l.json"
+    },
+    "configs/dual-tc/w-p.json": {
+      "bytes": 987,
+      "sha256": "bf49e1d924d1a6c29443f9d2197c34d7b503efbdeb97b3f940796c675c671a84",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/dual-tc/w-p.json"
+    },
+    "configs/hardware/cache-reuse.json": {
+      "bytes": 409,
+      "sha256": "dea4790cba6e0d6cc33c7475e893687a51acfee9dac66cd999ac7d1cf1ba8a38",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/hardware/cache-reuse.json"
+    },
+    "configs/hardware/dual-tc.json": {
+      "bytes": 414,
+      "sha256": "72629c888697ff5e58284613f30fad6e7fd5f9fc82f773541500ed172b214fc3",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/hardware/dual-tc.json"
+    },
+    "configs/hardware/reference.json": {
+      "bytes": 414,
+      "sha256": "1302990d849ea2a9f0768e84397b8ff71f8d4dc6e5d9fd72a5c984a8f34b6a27",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/hardware/reference.json"
+    },
+    "configs/hardware/sh-bandwidth.json": {
+      "bytes": 414,
+      "sha256": "938a44bb39c392fe5eef8dde634b601ea8ac87d58c06a45be0402d77614aa089",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/hardware/sh-bandwidth.json"
+    },
+    "configs/k4-compact/a-p.json": {
+      "bytes": 984,
+      "sha256": "cb11ffb75f360cd2e4e88713ea551937a237100092b450279c5caf625b940f37",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-compact/a-p.json"
+    },
+    "configs/k4-compact/w-d1.json": {
+      "bytes": 944,
+      "sha256": "8bd891ba84bd40e6b76ca750653461d8551a744c24c7280cfcf226cafc56f8de",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-compact/w-d1.json"
+    },
+    "configs/k4-compact/w-d16.json": {
+      "bytes": 944,
+      "sha256": "a44d627c22118b468a478c5497359b765634fa8767a22cb45dc05012982093cb",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-compact/w-d16.json"
+    },
+    "configs/k4-compact/w-d4l.json": {
+      "bytes": 944,
+      "sha256": "96732ec5e12b118330534e30bc40bed98c2bdd43b35d0db68fb5eb34aa61a3d0",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-compact/w-d4l.json"
+    },
+    "configs/k4-compact/w-p.json": {
+      "bytes": 986,
+      "sha256": "44f192dcdfac4a70e21daebddef599068db8a39bdbff9964daa1415ee5e17ea2",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-compact/w-p.json"
+    },
+    "configs/k4-rf/a-p.json": {
+      "bytes": 982,
+      "sha256": "ea6b83b98c3906ccafe606ae364987871a5eca389aac063b4c0d3a42bed2d98d",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-rf/a-p.json"
+    },
+    "configs/k4-rf/w-d1.json": {
+      "bytes": 983,
+      "sha256": "90d5c66090a264a3c785de9bc59d201d6035c30557311430dcb8fcfb3a39dd73",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-rf/w-d1.json"
+    },
+    "configs/k4-rf/w-d16.json": {
+      "bytes": 984,
+      "sha256": "61c299ec8bfccb52d94c503734c8e9290fc54bcfce95e7e2841ec777d172b42f",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-rf/w-d16.json"
+    },
+    "configs/k4-rf/w-d4l.json": {
+      "bytes": 983,
+      "sha256": "8caf9662bad542354920f61d58a69a6d260808223843d0282a4d371795b5aeb1",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-rf/w-d4l.json"
+    },
+    "configs/k4-rf/w-p.json": {
+      "bytes": 984,
+      "sha256": "64f402f8c8468c757b159a9b93766fdd97b6e65852c84eb7cd958b5c0e506bac",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-rf/w-p.json"
+    },
+    "configs/k4-sh-staged/a-p.json": {
+      "bytes": 985,
+      "sha256": "1af8c9fa151231117b83132e605c015bf792677082f553c91f0eeb4f8fb02502",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-sh-staged/a-p.json"
+    },
+    "configs/k4-sh-staged/w-d1.json": {
+      "bytes": 968,
+      "sha256": "d61c08f265969cbe8092cda21fa82bb361f455caf42d2bd83b397aff2e3aabe8",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-sh-staged/w-d1.json"
+    },
+    "configs/k4-sh-staged/w-d16.json": {
+      "bytes": 969,
+      "sha256": "77fea646ecad860ed78e214a92f47f9d9a142842ed435237478276b79c74c745",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-sh-staged/w-d16.json"
+    },
+    "configs/k4-sh-staged/w-d4l.json": {
+      "bytes": 968,
+      "sha256": "c9afb765dfb4c7f3b557c4a99442ab9e85fb6d8df40de64d82523f55882ecd02",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-sh-staged/w-d4l.json"
+    },
+    "configs/k4-sh-staged/w-p.json": {
+      "bytes": 987,
+      "sha256": "c8d682c817ff7fda7920b754abd5f6e9057152463e6e387675c21b8f81134dcb",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/k4-sh-staged/w-p.json"
+    },
+    "configs/reference/a-p.json": {
+      "bytes": 985,
+      "sha256": "8d5b029ffc0fbb75a26f63cd0be4db80678aa592b49612af9c108a94a65fcf0b",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/reference/a-p.json"
+    },
+    "configs/reference/w-d1.json": {
+      "bytes": 945,
+      "sha256": "5af20bf2d7a9d1f401be6385db352e85fada22924d417ebcf18997d6da01ab92",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/reference/w-d1.json"
+    },
+    "configs/reference/w-d16.json": {
+      "bytes": 946,
+      "sha256": "70e6add4d57debcf3953cb3e4c920628e42c5309c950e747fb8605f7b03a21ea",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/reference/w-d16.json"
+    },
+    "configs/reference/w-d4l.json": {
+      "bytes": 945,
+      "sha256": "f37b19496671ee14c14c35bdd3475a07f79068e52206521d55fecdfdc1425e51",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/reference/w-d4l.json"
+    },
+    "configs/reference/w-p.json": {
+      "bytes": 987,
+      "sha256": "9bb2b0d49f3aa184e00a12c5f85bbe5818308abbc3923673954a02a877f5d721",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/reference/w-p.json"
+    },
+    "configs/rf-only/a-p.json": {
+      "bytes": 982,
+      "sha256": "afac4c9953068c777814076ca4b6e4058bb2bd5f4ca7575e69e7fa8a9a88b238",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/rf-only/a-p.json"
+    },
+    "configs/rf-only/w-d1.json": {
+      "bytes": 983,
+      "sha256": "aeb11c6f003373c2c616f6effc8546b6e78e47b384447a0f89ab5b8fbd0893f2",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/rf-only/w-d1.json"
+    },
+    "configs/rf-only/w-d16.json": {
+      "bytes": 984,
+      "sha256": "42b28635cfd6a9bc9c8578d04f8ba8a30cb63f96d3c2d1891ebbb8e668257db9",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/rf-only/w-d16.json"
+    },
+    "configs/rf-only/w-d4l.json": {
+      "bytes": 983,
+      "sha256": "213711bde83bd9ed57af18cbb23c5ae6a6d6d9f13f1a3ef20e1539ca01af0e46",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/rf-only/w-d4l.json"
+    },
+    "configs/rf-only/w-p.json": {
+      "bytes": 984,
+      "sha256": "88913d44947c9e6686d0184fb13ca3f115360a371e8ca28044c26aa596f5caa2",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/rf-only/w-p.json"
+    },
+    "configs/sh-bandwidth/a-p.json": {
+      "bytes": 985,
+      "sha256": "86e009906446d9662075ba18863c92f70cfcdf12979717b5f105621792d24461",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/sh-bandwidth/a-p.json"
+    },
+    "configs/sh-bandwidth/w-d1.json": {
+      "bytes": 945,
+      "sha256": "a2718f9c7fb9753ade7b65579eb473442a6e1d03b1cc5a1e9b6b70938bf62484",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/sh-bandwidth/w-d1.json"
+    },
+    "configs/sh-bandwidth/w-d16.json": {
+      "bytes": 946,
+      "sha256": "96b6d5ed933f8243f1f328acad19c7379cbcda5e80b6525530a2471628a131e7",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/sh-bandwidth/w-d16.json"
+    },
+    "configs/sh-bandwidth/w-d4l.json": {
+      "bytes": 945,
+      "sha256": "a5194add7401acad39d906c3a42af16f1c5907647a4c2a0885e493a0722a0d21",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/sh-bandwidth/w-d4l.json"
+    },
+    "configs/sh-bandwidth/w-p.json": {
+      "bytes": 987,
+      "sha256": "46d78fa5e47c716e3ce4f8eb4b482aa5b4236e4422d56be7ab00e38d14759ff5",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/sh-bandwidth/w-p.json"
+    },
+    "configs/sm12-skinny-k2/a-p.json": {
+      "bytes": 986,
+      "sha256": "0ecae98e0e02c146e73fcf23ec296b30197392c76078d318aecdb8c2a1406eaa",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/sm12-skinny-k2/a-p.json"
+    },
+    "configs/sm12-skinny-k2/w-d1.json": {
+      "bytes": 946,
+      "sha256": "cbe4814e78767e795ff2ad92936b56127630c1eba3c82bcee2b6dd208c61cd3e",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/sm12-skinny-k2/w-d1.json"
+    },
+    "configs/sm12-skinny-k2/w-d16.json": {
+      "bytes": 946,
+      "sha256": "6509af99bf1f122bab76989de86dc0da18a0982c66e94a1e42076373d8ca993b",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/sm12-skinny-k2/w-d16.json"
+    },
+    "configs/sm12-skinny-k2/w-d4l.json": {
+      "bytes": 946,
+      "sha256": "b5ed4dc707b73cc5331b4bdf42b3916c5367355b4ce681d3a72a297b6f115420",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/sm12-skinny-k2/w-d4l.json"
+    },
+    "configs/sm12-skinny-k2/w-p.json": {
+      "bytes": 988,
+      "sha256": "dad9f75ecff84ed8f15eb3b41a864fbc4fb0818b864fb2fdfceedc19fe05de29",
+      "source": "/Users/dingyi/Projects/break-layer/examples/vnext/v09-candidates/configs/sm12-skinny-k2/w-p.json"
+    }
+  },
+  "note": "Candidate templates; outcomes are established only by the source-bound evidence. Each family uses one hardware across five cases."
+}

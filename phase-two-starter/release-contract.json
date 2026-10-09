@@ -1,0 +1,99 @@
+{
+  "config_sha256": null,
+  "contract": "phase-two-static-v1",
+  "error": null,
+  "evaluation": {
+    "cases": {
+      "a-p": {
+        "batch": 1,
+        "decode": false,
+        "reference_cycles": 374856358,
+        "shape": {
+          "d": 512,
+          "f": 2048,
+          "heads": 8,
+          "history": 1,
+          "layers": 2,
+          "prefill": 2048,
+          "steps": 1
+        },
+        "weight": 0.25
+      },
+      "w-d1": {
+        "batch": 1,
+        "decode": true,
+        "reference_cycles": 27068433,
+        "shape": {
+          "d": 1536,
+          "f": 6144,
+          "heads": 12,
+          "history": 4096,
+          "layers": 2,
+          "prefill": 1,
+          "steps": 4
+        },
+        "weight": 0.16666666666666666
+      },
+      "w-d16": {
+        "batch": 16,
+        "decode": true,
+        "reference_cycles": 42358913,
+        "shape": {
+          "d": 1536,
+          "f": 6144,
+          "heads": 12,
+          "history": 256,
+          "layers": 2,
+          "prefill": 1,
+          "steps": 4
+        },
+        "weight": 0.16666666666666666
+      },
+      "w-d4l": {
+        "batch": 4,
+        "decode": true,
+        "reference_cycles": 70439292,
+        "shape": {
+          "d": 1536,
+          "f": 6144,
+          "heads": 12,
+          "history": 4096,
+          "layers": 2,
+          "prefill": 1,
+          "steps": 4
+        },
+        "weight": 0.16666666666666666
+      },
+      "w-p": {
+        "batch": 1,
+        "decode": false,
+        "reference_cycles": 187689274,
+        "shape": {
+          "d": 1536,
+          "f": 6144,
+          "heads": 12,
+          "history": 1,
+          "layers": 2,
+          "prefill": 256,
+          "steps": 1
+        },
+        "weight": 0.25
+      }
+    },
+    "limits": {
+      "area_mm2_per_au": 0.25,
+      "line_bytes": 16777216,
+      "program_file_bytes": 134217728,
+      "wave_commands": 2097152,
+      "wave_distinct_access_intervals": 262144,
+      "wave_primitives": 1048576
+    }
+  },
+  "host_seconds": 0.0006935,
+  "mode": "contract",
+  "model": "phase-two-compact-v2",
+  "official_score": null,
+  "seed": 73,
+  "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19",
+  "status": "complete"
+}
