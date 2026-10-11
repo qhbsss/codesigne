@@ -83,30 +83,113 @@ def profile(i,h):
         "sh_read_cycles","sh_write_cycles","sh_tc_bytes","core_duration","core_energy_pj","physical_fmas")}
     return dict(engine=engine,steps=steps,**totals)
 
-def lower_bound_plain(path):
+def lower_bound_plain(path,profile_cache=None):
     """A conservative lower bound from expanded paid primitives, not timings.
 
-    Core occupancy excludes operand service/delays. Per-SM mandatory issue work
-    is accumulated per wave; one final fence per wave/commit is unavoidable.
+    Each wave fences before the next one. Within a wave, pinned SMs have
+    independent engines but shared RF ports; overlap between distinct resources
+    is allowed. Operand latency, DMA and communication are omitted.
     """
-    import json
-    with open(path) as f:
-        header=json.loads(next(f));h=header["hardware"];validate(h)
-        core={k:0 for k in ("Tc","Vector","Sfu","Reduction")};issue=0
-        for line in f:
-            r=json.loads(line)
+    from contextlib import closing
+    from .estimate import _compute_key, program_records
+    profile_cache={} if profile_cache is None else profile_cache
+    with closing(program_records(path)) as records:
+        header=next(records);h=header["hardware"];validate(h)
+        capacities={"Tc":h["tc_count"],"Vector":1,"Sfu":1,
+            "Reduction":h["reduction_units"]}
+        read_bw=[128,256,512][h["rf_tier"]-1]
+        write_bw=[64,128,256][h["rf_tier"]-1]
+        bound=0
+        for r in records:
             if r["record"]=="wave":
                 issues=[0]*h["sms"]
+                core=[{engine:0 for engine in capacities} for _ in issues]
+                rf_read=[0]*h["sms"]
+                rf_write=[0]*h["sms"]
                 for g in r["groups"]:
-                    issues[g["sm"]]+=len(g["commands"])
+                    sm=g["sm"]
+                    issues[sm]+=len(g["commands"])
                     for cmd in g["commands"]:
                         if cmd["command"]=="wait":continue
                         i=cmd["instruction"]
                         if i["op"] in ("load","store","load_shared","store_shared"):continue
-                        p=profile(i,h)
-                        if p["engine"] in core:core[p["engine"]]+=p["core_duration"]
-                issue+=max(issues,default=0)+1
-            elif r["record"]=="commit":issue+=1
+                        key=_compute_key(i)
+                        p=profile_cache.get(key)
+                        if p is None:
+                            p=profile(i,h)
+                            profile_cache[key]=p
+                        if p["engine"] in capacities:core[sm][p["engine"]]+=p["core_duration"]
+                        rf_read[sm]+=p["rf_read_bytes"]
+                        rf_write[sm]+=p["rf_write_bytes"]
+                resources=[max(issues,default=0)]
+                for sm in range(h["sms"]):
+                    for engine,work in core[sm].items():
+                        count=capacities[engine]
+                        if count and work:resources.append((work+count-1)//count)
+                    resources.extend(((rf_read[sm]+read_bw-1)//read_bw,
+                        (rf_write[sm]+write_bw-1)//write_bw))
+                bound+=max(resources)+1
+            elif r["record"]=="commit":bound+=1
             elif r["record"] not in ("input","alloc","release"):raise ValueError("bound requires expanded exporter output")
-    caps={"Tc":h["sms"]*h["tc_count"],"Vector":h["sms"],"Sfu":h["sms"],"Reduction":h["sms"]*h["reduction_units"]}
-    return max([issue,1]+[(v+caps[k]-1)//caps[k] for k,v in core.items() if v and caps[k]])
+    return max(bound,1)
+
+def lower_bound_enhanced(path):
+    """Diagnostic throughput floor for cache-free, nonmulticast programs.
+
+    Counting every DMA as an HBM miss is not safe with caches or multicast.
+    Do not use this heuristic as an optimization certificate.
+    """
+    import json
+    with open(path) as f:
+        header=json.loads(next(f));h=header["hardware"];validate(h)
+        capacities={"Tc":h["tc_count"],"Vector":1,"Sfu":1,
+            "Reduction":h["reduction_units"]}
+        read_bw=[128,256,512][h["rf_tier"]-1]
+        write_bw=[64,128,256][h["rf_tier"]-1]
+        hbm_ch=h["hbm_channels"]
+        gnoc=h["global_noc"]
+        snoc=h["sm_noc"]
+        engines=h["dma_engines"]
+        bound=0;total_hbm_lines=0
+        for line in f:
+            r=json.loads(line)
+            if r["record"]=="wave":
+                n=h["sms"]
+                issues=[0]*n
+                core=[{e:0 for e in capacities} for _ in range(n)]
+                rf_read=[0]*n;rf_write=[0]*n
+                hbm_lines=[0]*n;noc_bytes=[0]*n;dma_count=[0]*n
+                for g in r["groups"]:
+                    sm=g["sm"];issues[sm]+=len(g["commands"])
+                    for cmd in g["commands"]:
+                        if cmd["command"]=="wait":continue
+                        i=cmd["instruction"]
+                        if i["op"] in ("load","store","load_shared","store_shared"):
+                            gv=i["global"]
+                            lines=(gv["rows"]*gv["cols"]*4+63)//64
+                            hbm_lines[sm]+=lines
+                            noc_bytes[sm]+=lines*64
+                            dma_count[sm]+=1
+                            continue
+                        p=profile(i,h)
+                        if p["engine"] in capacities:core[sm][p["engine"]]+=p["core_duration"]
+                        rf_read[sm]+=p["rf_read_bytes"];rf_write[sm]+=p["rf_write_bytes"]
+                resources=[max(issues,default=0)]
+                for sm in range(n):
+                    for engine,work in core[sm].items():
+                        count=capacities[engine]
+                        if count and work:resources.append((work+count-1)//count)
+                    resources.extend(((rf_read[sm]+read_bw-1)//read_bw,
+                        (rf_write[sm]+write_bw-1)//write_bw))
+                    if noc_bytes[sm]:resources.append((noc_bytes[sm]+snoc-1)//snoc)
+                    if dma_count[sm]:resources.append((dma_count[sm]+engines-1)//engines*6)
+                wave_hbm=sum(hbm_lines)
+                if wave_hbm:resources.append((wave_hbm*2+hbm_ch-1)//hbm_ch)
+                wave_noc=sum(noc_bytes)
+                if wave_noc:resources.append((wave_noc+gnoc-1)//gnoc)
+                total_hbm_lines+=wave_hbm
+                bound+=max(resources)+1
+            elif r["record"]=="commit":bound+=1
+            elif r["record"] not in ("input","alloc","release"):raise ValueError("bound requires expanded exporter output")
+        global_hbm=(total_hbm_lines*2+hbm_ch-1)//hbm_ch if total_hbm_lines else 0
+        return max(bound,global_hbm,1)

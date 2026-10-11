@@ -416,7 +416,6 @@ LD {"src":{"space":"HBM","offset":230656,"count":128,"wg":null,"lane":0},"dst":{
 LD {"src":{"space":"HBM","offset":296320,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":768,"count":128,"wg":"d31","lane":14},"event":"d31_e23"}
 LD {"src":{"space":"HBM","offset":296448,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":896,"count":128,"wg":"d31","lane":14},"event":"d31_e24"}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":461056,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e25"}
 LD {"src":{"space":"HBM","offset":256,"count":1024,"wg":null,"lane":0,"shape":[64,16],"strides":[384,1]},"dst":{"space":"RF","offset":0,"count":1024,"wg":"d0","lane":0},"event":"d0_e1"}
 LD {"src":{"space":"HBM","offset":24832,"count":1024,"wg":null,"lane":0,"shape":[64,16],"strides":[384,1]},"dst":{"space":"RF","offset":0,"count":1024,"wg":"d0","lane":1},"event":"d0_e2"}
@@ -1670,7 +1669,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e43"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e44"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":467824,"count":16,"wg":null,"lane":0},"event":"d31_e45"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":467712,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e78"}
 LD {"src":{"space":"HBM","offset":66048,"count":1024,"wg":null,"lane":0,"shape":[64,16],"strides":[512,1]},"dst":{"space":"RF","offset":0,"count":1024,"wg":"d0","lane":2},"event":"d0_e3"}
@@ -3114,7 +3112,6 @@ VEC {"kind":"add","src":[{"space":"RF","offset":512,"count":8,"wg":"d15","lane":
 VEC {"kind":"add","src":[{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},{"space":"RF","offset":432,"count":8,"wg":"d15","lane":14}],"dst":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"event":"d15_e104"}
 ST {"src":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":468472,"count":8,"wg":null,"lane":0},"event":"d15_e105"}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":468352,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e122"}
 LD {"src":{"space":"HBM","offset":230784,"count":1024,"wg":null,"lane":0,"shape":[64,16],"strides":[384,1]},"dst":{"space":"RF","offset":0,"count":1024,"wg":"d0","lane":6},"event":"d0_e13"}
 LD {"src":{"space":"HBM","offset":255360,"count":1024,"wg":null,"lane":0,"shape":[64,16],"strides":[384,1]},"dst":{"space":"RF","offset":0,"count":1024,"wg":"d0","lane":7},"event":"d0_e14"}
@@ -4368,7 +4365,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e99"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e100"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":474544,"count":16,"wg":null,"lane":0},"event":"d31_e101"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":474432,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e175"}
 LD {"src":{"space":"HBM","offset":296576,"count":1024,"wg":null,"lane":0,"shape":[64,16],"strides":[512,1]},"dst":{"space":"RF","offset":0,"count":1024,"wg":"d0","lane":8},"event":"d0_e15"}
@@ -5845,7 +5841,6 @@ ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d14","lane":15},"dst":{"space
 LD {"src":{"space":"HBM","offset":475192,"count":8,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"event":"d15_e187"}
 ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":462200,"count":8,"wg":null,"lane":0},"event":"d15_e188"}
 STEP.COMMIT {"step":0}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":461184,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e221"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e222"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e223"}
@@ -6859,7 +6854,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e155"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e156"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":481264,"count":16,"wg":null,"lane":0},"event":"d31_e157"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":481152,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e268"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":440,"count":8,"wg":"d0","lane":14},"event":"d0_e269"}
@@ -7887,7 +7881,6 @@ VEC {"kind":"add","src":[{"space":"RF","offset":512,"count":8,"wg":"d15","lane":
 VEC {"kind":"add","src":[{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},{"space":"RF","offset":432,"count":8,"wg":"d15","lane":14}],"dst":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"event":"d15_e254"}
 ST {"src":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":481912,"count":8,"wg":null,"lane":0},"event":"d15_e255"}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":481792,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e304"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e305"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e306"}
@@ -8901,7 +8894,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e204"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e205"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":487984,"count":16,"wg":null,"lane":0},"event":"d31_e206"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":487872,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e351"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":952,"count":8,"wg":"d0","lane":14},"event":"d0_e352"}
@@ -9962,7 +9954,6 @@ ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d14","lane":15},"dst":{"space
 LD {"src":{"space":"HBM","offset":488632,"count":8,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"event":"d15_e323"}
 ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":462328,"count":8,"wg":null,"lane":0},"event":"d15_e324"}
 STEP.COMMIT {"step":1}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":461312,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e389"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e390"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e391"}
@@ -10976,7 +10967,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e253"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e254"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":494704,"count":16,"wg":null,"lane":0},"event":"d31_e255"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":494592,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e436"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":440,"count":8,"wg":"d0","lane":14},"event":"d0_e437"}
@@ -12004,7 +11994,6 @@ VEC {"kind":"add","src":[{"space":"RF","offset":512,"count":8,"wg":"d15","lane":
 VEC {"kind":"add","src":[{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},{"space":"RF","offset":432,"count":8,"wg":"d15","lane":14}],"dst":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"event":"d15_e390"}
 ST {"src":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":495352,"count":8,"wg":null,"lane":0},"event":"d15_e391"}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":495232,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e472"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e473"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e474"}
@@ -13018,7 +13007,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e302"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e303"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":501424,"count":16,"wg":null,"lane":0},"event":"d31_e304"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":501312,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e519"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":952,"count":8,"wg":"d0","lane":14},"event":"d0_e520"}
@@ -14079,7 +14067,6 @@ ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d14","lane":15},"dst":{"space
 LD {"src":{"space":"HBM","offset":502072,"count":8,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"event":"d15_e459"}
 ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":462456,"count":8,"wg":null,"lane":0},"event":"d15_e460"}
 STEP.COMMIT {"step":2}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":461440,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e557"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e558"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e559"}
@@ -15093,7 +15080,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e351"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e352"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":508144,"count":16,"wg":null,"lane":0},"event":"d31_e353"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":508032,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e604"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":440,"count":8,"wg":"d0","lane":14},"event":"d0_e605"}
@@ -16121,7 +16107,6 @@ VEC {"kind":"add","src":[{"space":"RF","offset":512,"count":8,"wg":"d15","lane":
 VEC {"kind":"add","src":[{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},{"space":"RF","offset":432,"count":8,"wg":"d15","lane":14}],"dst":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"event":"d15_e526"}
 ST {"src":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":508792,"count":8,"wg":null,"lane":0},"event":"d15_e527"}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":508672,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e640"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e641"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e642"}
@@ -17135,7 +17120,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e400"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e401"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":514864,"count":16,"wg":null,"lane":0},"event":"d31_e402"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":514752,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e687"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":952,"count":8,"wg":"d0","lane":14},"event":"d0_e688"}
@@ -18196,7 +18180,6 @@ ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d14","lane":15},"dst":{"space
 LD {"src":{"space":"HBM","offset":515512,"count":8,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"event":"d15_e595"}
 ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":462584,"count":8,"wg":null,"lane":0},"event":"d15_e596"}
 STEP.COMMIT {"step":3}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":461568,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e725"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e726"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e727"}
@@ -19210,7 +19193,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e449"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e450"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":521584,"count":16,"wg":null,"lane":0},"event":"d31_e451"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":521472,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e772"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":440,"count":8,"wg":"d0","lane":14},"event":"d0_e773"}
@@ -20238,7 +20220,6 @@ VEC {"kind":"add","src":[{"space":"RF","offset":512,"count":8,"wg":"d15","lane":
 VEC {"kind":"add","src":[{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},{"space":"RF","offset":432,"count":8,"wg":"d15","lane":14}],"dst":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"event":"d15_e662"}
 ST {"src":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":522232,"count":8,"wg":null,"lane":0},"event":"d15_e663"}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":522112,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e808"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e809"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e810"}
@@ -21252,7 +21233,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e498"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e499"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":528304,"count":16,"wg":null,"lane":0},"event":"d31_e500"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":528192,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e855"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":952,"count":8,"wg":"d0","lane":14},"event":"d0_e856"}
@@ -22313,7 +22293,6 @@ ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d14","lane":15},"dst":{"space
 LD {"src":{"space":"HBM","offset":528952,"count":8,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"event":"d15_e731"}
 ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":462712,"count":8,"wg":null,"lane":0},"event":"d15_e732"}
 STEP.COMMIT {"step":4}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":461696,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e893"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e894"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e895"}
@@ -23327,7 +23306,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e547"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e548"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":535024,"count":16,"wg":null,"lane":0},"event":"d31_e549"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":534912,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e940"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":440,"count":8,"wg":"d0","lane":14},"event":"d0_e941"}
@@ -24355,7 +24333,6 @@ VEC {"kind":"add","src":[{"space":"RF","offset":512,"count":8,"wg":"d15","lane":
 VEC {"kind":"add","src":[{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},{"space":"RF","offset":432,"count":8,"wg":"d15","lane":14}],"dst":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"event":"d15_e798"}
 ST {"src":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":535672,"count":8,"wg":null,"lane":0},"event":"d15_e799"}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":535552,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e976"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e977"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e978"}
@@ -25369,7 +25346,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e596"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e597"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":541744,"count":16,"wg":null,"lane":0},"event":"d31_e598"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":541632,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e1023"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":952,"count":8,"wg":"d0","lane":14},"event":"d0_e1024"}
@@ -26430,7 +26406,6 @@ ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d14","lane":15},"dst":{"space
 LD {"src":{"space":"HBM","offset":542392,"count":8,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"event":"d15_e867"}
 ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":462840,"count":8,"wg":null,"lane":0},"event":"d15_e868"}
 STEP.COMMIT {"step":5}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":461824,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e1061"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e1062"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e1063"}
@@ -27444,7 +27419,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e645"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e646"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":548464,"count":16,"wg":null,"lane":0},"event":"d31_e647"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":548352,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e1108"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":440,"count":8,"wg":"d0","lane":14},"event":"d0_e1109"}
@@ -28472,7 +28446,6 @@ VEC {"kind":"add","src":[{"space":"RF","offset":512,"count":8,"wg":"d15","lane":
 VEC {"kind":"add","src":[{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},{"space":"RF","offset":432,"count":8,"wg":"d15","lane":14}],"dst":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"event":"d15_e934"}
 ST {"src":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":549112,"count":8,"wg":null,"lane":0},"event":"d15_e935"}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":548992,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e1144"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e1145"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e1146"}
@@ -29486,7 +29459,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e694"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e695"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":555184,"count":16,"wg":null,"lane":0},"event":"d31_e696"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":555072,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e1191"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":952,"count":8,"wg":"d0","lane":14},"event":"d0_e1192"}
@@ -30547,7 +30519,6 @@ ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d14","lane":15},"dst":{"space
 LD {"src":{"space":"HBM","offset":555832,"count":8,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"event":"d15_e1003"}
 ST {"src":{"space":"RF","offset":0,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":462968,"count":8,"wg":null,"lane":0},"event":"d15_e1004"}
 STEP.COMMIT {"step":6}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":461952,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e1229"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e1230"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e1231"}
@@ -31561,7 +31532,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e743"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e744"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":561904,"count":16,"wg":null,"lane":0},"event":"d31_e745"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":561792,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e1276"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":440,"count":8,"wg":"d0","lane":14},"event":"d0_e1277"}
@@ -32589,7 +32559,6 @@ VEC {"kind":"add","src":[{"space":"RF","offset":512,"count":8,"wg":"d15","lane":
 VEC {"kind":"add","src":[{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},{"space":"RF","offset":432,"count":8,"wg":"d15","lane":14}],"dst":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"event":"d15_e1070"}
 ST {"src":{"space":"RF","offset":48,"count":8,"wg":"d15","lane":15},"dst":{"space":"HBM","offset":562552,"count":8,"wg":null,"lane":0},"event":"d15_e1071"}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":562432,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e1312"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d0","lane":15},"event":"d0_e1313"}
 VEC {"kind":"add","src":[{"imm":0},{"imm":0}],"dst":{"space":"RF","offset":896,"count":16,"wg":"d0","lane":15},"event":"d0_e1314"}
@@ -33603,7 +33572,6 @@ MMA.ACC {"a":{"space":"RF","offset":64,"count":64,"wg":"d31","lane":15},"b":{"sp
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":896,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},"event":"d31_e792"}
 VEC {"kind":"add","src":[{"space":"RF","offset":768,"count":16,"wg":"d31","lane":15},{"space":"RF","offset":512,"count":16,"wg":"d31","lane":15}],"dst":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"event":"d31_e793"}
 ST {"src":{"space":"RF","offset":32,"count":16,"wg":"d31","lane":15},"dst":{"space":"HBM","offset":568624,"count":16,"wg":null,"lane":0},"event":"d31_e794"}
-BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 BARRIER {"wgs":["d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30","d31"],"events":[]}
 LD {"src":{"space":"HBM","offset":568512,"count":128,"wg":null,"lane":0},"dst":{"space":"RF","offset":0,"count":128,"wg":"d0","lane":15},"event":"d0_e1359"}
 VEC {"kind":"add","src":[{"space":"RF","offset":0,"count":8,"wg":"d0","lane":15},{"imm":0}],"dst":{"space":"RF","offset":952,"count":8,"wg":"d0","lane":14},"event":"d0_e1360"}

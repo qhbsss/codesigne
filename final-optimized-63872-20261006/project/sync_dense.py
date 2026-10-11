@@ -32,11 +32,12 @@ def dense(lines,allworkers,tasks,rows,k,n,name,gelu=False,n_tile=32,k_tile=16,re
         if n_tile==16:w.vec('add',[acc,w._rf(14,16*n_tile,256)],acc)
         t=lambda count,off=0:w._rf(15,count,off)
         if gelu:
+            cells=16*n_tile
             w.vec('add',[imm(1),imm(0)],w._rf(15,16))
-            w.emit('MMA.ACC',a=w._rf(15,16),b=w._rf(14,32,512),acc=acc,m=16,n=32,k=1,event=None)
-            w.vec('mul',[acc,acc],t(512));w.vec('fma',[t(512),imm(.044715*sqrt(2/pi)),imm(sqrt(2/pi))],t(512))
-            w.vec('mul',[t(512),acc],t(512));w.sfu('tanh',t(512),t(512))
-            w.vec('mul',[acc,imm(.5)],t(512,512));w.vec('fma',[t(512,512),t(512),t(512,512)],acc)
+            w.emit('MMA.ACC',a=w._rf(15,16),b=w._rf(14,n_tile,512),acc=acc,m=16,n=n_tile,k=1,event=None)
+            w.vec('mul',[acc,acc],t(cells));w.vec('fma',[t(cells),imm(.044715*sqrt(2/pi)),imm(sqrt(2/pi))],t(cells))
+            w.vec('mul',[t(cells),acc],t(cells));w.sfu('tanh',t(cells),t(cells))
+            w.vec('mul',[acc,imm(.5)],t(cells,cells));w.vec('fma',[t(cells,cells),t(cells),t(cells,cells)],acc)
         if residual is not None:
             w.ld(hbm(add(residual.offset,mul(row,n),col),16*n_tile,[16,n_tile],[n,1]),t(16*n_tile))
             w.vec('add',[acc,t(16*n_tile)],acc)

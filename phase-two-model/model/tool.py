@@ -13,12 +13,15 @@ import time
 
 from .hardware import area, validate
 from .profiles import lower_bound_plain
+from .estimate import InfeasibleProgramError, estimate_program
 
 ROOT=Path(__file__).resolve().parents[2]
 MODEL=ROOT/"phase-two-model"
 STARTER=ROOT/"phase-two-starter"
 RUNTIME=MODEL/"runtime/target/release/phase-two-model-runtime"
 OFFICIAL=STARTER/"source/target/release/vnext-concurrent"
+SCORE_CASES={"w-p":(187689274,1/4),"a-p":(374856358,1/4),
+    "w-d1":(27068433,1/6),"w-d16":(42358913,1/6),"w-d4l":(70439292,1/6)}
 
 def write(path,obj):
     Path(path).write_text(json.dumps(obj,indent=2,ensure_ascii=False,allow_nan=False)+"\n")
@@ -83,11 +86,330 @@ def compare_reports(p,o,program_hash):
         "prediction_seconds":p["host_seconds"],"official_seconds":o["host_seconds"],
         "note":"Timing equality uses the same immutable transition core. FP32 correctness comes only from the separate full evaluator."}
 
+def estimate(program,out):
+    out=Path(out);fresh(out)
+    report=estimate_program(program)
+    report.update(program_sha256=sha(program),numerical_correctness="not_checked",
+        optimality_bound=False,official_score=None)
+    write(out/"estimate.json",report)
+    return report
+
+def estimate_suite(directory,out,grade=None):
+    out=Path(out);fresh(out)
+    cases={}
+    for name,(reference,weight) in SCORE_CASES.items():
+        path=Path(directory)/f"{name}.jsonl"
+        result=estimate_program(path)
+        result["program_sha256"]=sha(path)
+        result["reference_cycles"]=reference
+        result["weight"]=weight
+        cases[name]=result
+    log_gain=sum(entry["weight"]*math.log(entry["reference_cycles"]/entry["cycles"])
+        for entry in cases.values())
+    result={"cases":cases,"score_if_all_eligible":1000*math.exp(log_gain),
+        "independent":True,"optimality_bound":False,"numerical_correctness":"not_checked",
+        "official_score":None}
+    if grade is not None:
+        official=json.loads(Path(grade).read_text())
+        if official["status"]!="complete":raise ValueError("grade did not complete")
+        if set(official["cases"])!=set(cases):raise ValueError("grade cases differ")
+        if any(official["cases"][name]["program_sha256"]!=entry["program_sha256"]
+               for name,entry in cases.items()):raise ValueError("grade program hashes differ")
+        result["official_score"]=official["score"]
+        result["score_error_percent"]=(result["score_if_all_eligible"]/official["score"]-1)*100
+        for name,entry in cases.items():
+            actual=official["cases"][name]["cycles"]
+            entry["official_cycles"]=actual
+            entry["cycle_error_percent"]=(entry["cycles"]/actual-1)*100
+    write(out/"estimate.json",result)
+    return result
+
 def set_field(config,key,value):
     parts=key.split(".");obj=config
     for p in parts[:-1]:obj=obj[p]
     if parts[-1] not in obj:raise ValueError(f"unknown design field {key}")
     obj[parts[-1]]=value
+
+def search_estimate_casewise(spec,out,search_started,timeout):
+    """Optimize independent per-case generator choices for each shared hardware."""
+    cases=spec["cases"]
+    domains=spec["domains"]
+    case_domains=spec["case_domains"]
+    if spec.get("program_base"):
+        raise ValueError("case_domains requires export; program_base only supports hardware fields")
+    if any(not key.startswith("hardware.") for key in domains):
+        raise ValueError("case_domains requires shared hardware domains only")
+    if set(case_domains)-{case["name"] for case in cases}:
+        raise ValueError("case_domains contains unknown cases")
+    for name, local in case_domains.items():
+        if any(not (key.startswith("policy.") or key in ("parallel_groups","async_prefetch"))
+               for key in local):
+            raise ValueError(f"case {name} cannot override shared hardware or workload")
+        if any(not values or len({json.dumps(value) for value in values})!=len(values)
+               for values in local.values()):
+            raise ValueError(f"case {name} has empty or duplicate domain values")
+    option_counts={case["name"]:math.prod(map(len,case_domains.get(case["name"],{}).values()))
+                   for case in cases}
+    hardware_count=math.prod(map(len,domains.values()))
+    total=hardware_count*math.prod(option_counts.values())
+    if total>spec.get("max_designs",256):
+        raise ValueError("declared finite space exceeds max_designs")
+    base_hardware=None
+    if "hardware_base_program" in spec:
+        with (ROOT/spec["hardware_base_program"]).open() as source:
+            base_hardware=json.loads(next(source))["hardware"]
+        validate(base_hardware)
+    candidates=[];rejections=[];estimated_programs=0;feasible_designs=0
+    for index,values in enumerate(itertools.product(*domains.values())):
+        hardware_design=dict(zip(domains,values))
+        directory=out/f"candidate-{index:04d}"
+        selected={};options_by_case={};common_hardware=None
+        for case in cases:
+            name=case["name"]
+            local=case_domains.get(name,{})
+            options=[]
+            for option_index,option_values in enumerate(itertools.product(*local.values())):
+                local_design=dict(zip(local,option_values))
+                design={**hardware_design,**{f"{name}.{key}":value
+                    for key,value in local_design.items()}}
+                try:
+                    config=copy.deepcopy(json.loads((ROOT/case["config"]).read_text()))
+                    if base_hardware is not None:
+                        config["hardware"]=copy.deepcopy(base_hardware)
+                    for key,value in case.get("overrides",{}).items():
+                        set_field(config,key,value)
+                    for key,value in hardware_design.items():
+                        set_field(config,key,value)
+                    for key,value in local_design.items():
+                        set_field(config,key,value)
+                    validate(config["hardware"])
+                    if not 1<=config.get("parallel_groups",1)<=config["hardware"]["resident_groups"]:
+                        raise ValueError("parallel_groups exceeds residency")
+                    if common_hardware is None:
+                        common_hardware=config["hardware"]
+                    if config["hardware"]!=common_hardware:
+                        raise ValueError("shared hardware constraint")
+                except ValueError as error:
+                    rejections.append({"design":design,"case":name,"reason":str(error)})
+                    continue
+                option_dir=directory/"choices"/name/f"option-{option_index:04d}"
+                option_dir.mkdir(parents=True,exist_ok=False)
+                source=option_dir/"config.json";write(source,config)
+                exported=option_dir/"export"
+                try:
+                    command([OFFICIAL,"export",source,spec.get("seed",7),exported],timeout,
+                        option_dir/"export-command.json")
+                except RuntimeError:
+                    log=json.loads((option_dir/"export-command.json").read_text())
+                    rejections.append({"design":design,"case":name,"reason":f"export failed: {log.get('stderr','').strip()[:200]}"})
+                    continue
+                program=option_dir/"program.jsonl"
+                try:
+                    command(["python3",STARTER/"tools/compact_program.py",
+                        exported/"program.jsonl",program],timeout,option_dir/"compact-command.json")
+                except RuntimeError:
+                    rejections.append({"design":design,"case":name,"reason":"compact failed"})
+                    continue
+                (exported/"program.jsonl").unlink()
+                started=time.monotonic()
+                try:
+                    cycles=estimate_program(program)["cycles"]
+                except InfeasibleProgramError as error:
+                    rejections.append({"design":design,"case":name,"reason":str(error)})
+                    continue
+                estimated_programs+=1
+                options.append({"design":local_design,"cycles":cycles,"program_sha256":sha(program),
+                    "program":str(program),"estimate_seconds":time.monotonic()-started})
+                write(out/"progress.json",{"completed_hardware":index,"current_hardware":hardware_design,
+                    "case":name,"estimated_programs":estimated_programs})
+            options_by_case[name]=options
+            if not options:
+                break
+            selected[name]=min(options,key=lambda option:option["cycles"])
+        if len(selected)!=len(cases):
+            rejections.append({"design":hardware_design,"reason":"no feasible case option"})
+            continue
+        feasible_designs+=math.prod(len(options_by_case[case["name"]]) for case in cases)
+        fresh(directory/"programs")
+        write(directory/"hardware.json",common_hardware)
+        for name,choice in selected.items():
+            shutil.copyfile(choice["program"],directory/"programs"/f"{name}.jsonl")
+        predicted={name:choice["cycles"] for name,choice in selected.items()}
+        cost=sum(case["weight"]*math.log(predicted[case["name"]]) for case in cases)
+        candidates.append({"design":{**hardware_design,**{f"{name}.{key}":value
+                for name,choice in selected.items() for key,value in choice["design"].items()}},
+            "directory":str(directory),"predicted_cycles":predicted,
+            "program_sha256":{name:choice["program_sha256"] for name,choice in selected.items()},
+            "predicted_log_cost":cost,"area_au":area(common_hardware),
+            "case_options":options_by_case})
+        print(f"estimated hardware {index+1}/{hardware_count}: {hardware_design} log_cost={cost:.6f}",flush=True)
+    write(out/"rejections.json",rejections)
+    if not candidates:raise ValueError("no legal candidate; see rejections.json")
+    best=min(candidates,key=lambda candidate:candidate["predicted_log_cost"])
+    fresh(out/"best");fresh(out/"best/programs")
+    for case in cases:
+        name=case["name"]
+        program=out/"best/programs"/f"{name}.jsonl"
+        shutil.copyfile(Path(best["directory"])/"programs"/f"{name}.jsonl",program)
+        if sha(program)!=best["program_sha256"][name]:
+            raise RuntimeError(f"selected program changed during search: {name}")
+    shutil.copyfile(Path(best["directory"])/"hardware.json",out/"best/hardware.json")
+    score=None
+    if set(case["name"] for case in cases)==set(SCORE_CASES) and all(
+        math.isclose(case["weight"],SCORE_CASES[case["name"]][1]) for case in cases):
+        score=1000*math.exp(sum(case["weight"]*math.log(
+            SCORE_CASES[case["name"]][0]/best["predicted_cycles"][case["name"]]) for case in cases))
+    result={"scope":"exhaustive independent estimates over declared case-separable generator domain",
+        "global_optimum_proven":False,"actual_optimum_proven":False,"official_score":None,
+        "numerical_correctness":"not_checked","domain_designs":total,
+        "evaluated_designs":feasible_designs,"estimated_programs":estimated_programs,
+        "rejections":rejections,"candidates":candidates,"best_design":best["design"],
+        "best_predicted_cycles":best["predicted_cycles"],
+        "best_program_sha256":best["program_sha256"],
+        "best_estimated_log_cost":best["predicted_log_cost"],
+        "best_score_if_eligible":score,
+        "estimator_sha256":sha(Path(__file__).parent/"estimate.py"),
+        "target_score":spec.get("target_score"),
+        "target_met":score is not None and score>=spec.get("target_score",math.inf),
+        "search_wall_seconds":time.monotonic()-search_started}
+    write(out/"search.json",result)
+    return result
+
+def search_estimate(spec_path,out,timeout=600):
+    """Exhaustively rank a declared finite domain without the timing backend."""
+    search_started=time.monotonic()
+    out=Path(out);fresh(out)
+    spec=json.loads(Path(spec_path).read_text());write(out/"spec.json",spec)
+    cases=spec["cases"];domains=spec["domains"];keys=list(domains)
+    if not cases or any(case["weight"]<=0 for case in cases):raise ValueError("positive case weights required")
+    if not math.isclose(sum(case["weight"] for case in cases),1):raise ValueError("weights must sum to one")
+    if len({case["name"] for case in cases})!=len(cases):raise ValueError("duplicate case")
+    if any(not values or len({json.dumps(v) for v in values})!=len(values)
+           for values in domains.values()):raise ValueError("empty or duplicate domain values")
+    if "case_domains" in spec:
+        return search_estimate_casewise(spec,out,search_started,timeout)
+    total=math.prod(map(len,domains.values()))
+    if total>spec.get("max_designs",256):raise ValueError("declared finite space exceeds max_designs")
+    base_hardware=None
+    if "hardware_base_program" in spec:
+        with (ROOT/spec["hardware_base_program"]).open() as source:
+            base_hardware=json.loads(next(source))["hardware"]
+        validate(base_hardware)
+    program_base=spec.get("program_base")
+    base_program_hashes={}
+    if program_base:
+        if any(not key.startswith("hardware.") for key in keys) or any(
+            case.get("overrides") for case in cases):
+            raise ValueError("program_base only supports hardware design fields")
+        for case in cases:
+            path=ROOT/program_base/f'{case["name"]}.jsonl'
+            with path.open() as source:header=json.loads(next(source))
+            config=json.loads((ROOT/case["config"]).read_text())
+            if any(header[field]!=config[field] for field in ("shape","batch","decode","hardware")):
+                raise ValueError(f'program_base mismatch for {case["name"]}')
+            base_program_hashes[case["name"]]=sha(path)
+    candidates=[];rejections=[]
+    for index,values in enumerate(itertools.product(*domains.values())):
+        design=dict(zip(keys,values));configs=[]
+        try:
+            for case in cases:
+                config=copy.deepcopy(json.loads((ROOT/case["config"]).read_text()))
+                if base_hardware is not None:config["hardware"]=copy.deepcopy(base_hardware)
+                for key,value in case.get("overrides",{}).items():set_field(config,key,value)
+                for key,value in design.items():set_field(config,key,value)
+                validate(config["hardware"])
+                if not 1<=config.get("parallel_groups",1)<=config["hardware"]["resident_groups"]:
+                    raise ValueError("parallel_groups exceeds residency")
+                configs.append(config)
+            if any(config["hardware"]!=configs[0]["hardware"] for config in configs):
+                raise ValueError("shared hardware constraint")
+        except ValueError as error:
+            rejections.append({"design":design,"reason":str(error)});continue
+        directory=out/f"candidate-{index:04d}";fresh(directory);fresh(directory/"programs")
+        write(directory/"hardware.json",configs[0]["hardware"])
+        predicted={};hashes={};predict_seconds={}
+        for case,config in zip(cases,configs):
+            case_started=time.monotonic()
+            name=case["name"];source=directory/f"{name}.config.json";write(source,config)
+            program=directory/"programs"/f"{name}.jsonl"
+            if program_base:
+                base_path=ROOT/program_base/f"{name}.jsonl"
+                if sha(base_path)!=base_program_hashes[name]:
+                    raise RuntimeError(f"base program changed during search: {name}")
+                with base_path.open("rb") as reader, program.open("xb") as writer:
+                    header=json.loads(reader.readline());header["hardware"]=config["hardware"]
+                    writer.write(json.dumps(header,separators=(",",":")).encode()+b"\n")
+                    shutil.copyfileobj(reader,writer)
+            else:
+                exported=directory/f"export-{name}"
+                command([OFFICIAL,"export",source,spec.get("seed",7),exported],timeout,
+                    directory/f"export-{name}.command.json")
+                expanded=exported/"program.jsonl"
+                command(["python3",STARTER/"tools/compact_program.py",expanded,program],timeout,
+                    directory/f"compact-{name}.command.json")
+                expanded.unlink()
+            try:
+                predicted[name]=estimate_program(program)["cycles"]
+            except InfeasibleProgramError as error:
+                rejections.append({"design":design,"case":name,"reason":str(error)})
+                break
+            predict_seconds[name]=time.monotonic()-case_started
+            hashes[name]=sha(program)
+            write(out/"progress.json",{"completed_designs":len(candidates),"current_design":design,
+                "completed_cases":predicted,"case_wall_seconds":predict_seconds})
+        if len(predicted)!=len(cases):continue
+        cost=sum(case["weight"]*math.log(predicted[case["name"]]) for case in cases)
+        candidates.append({"design":design,"directory":str(directory),"predicted_cycles":predicted,
+            "program_sha256":hashes,"predicted_log_cost":cost,"area_au":area(configs[0]["hardware"]),
+            "case_wall_seconds":predict_seconds})
+        write(out/"progress.json",{"completed_designs":len(candidates),"current_design":None})
+        print(f"estimated design {index+1}/{total}: {design} log_cost={cost:.6f}",flush=True)
+    write(out/"rejections.json",rejections)
+    if not candidates:raise ValueError("no legal candidate; see rejections.json")
+    best=min(candidates,key=lambda candidate:candidate["predicted_log_cost"])
+    fresh(out/"best");fresh(out/"best/programs")
+    for case in cases:
+        name=case["name"]
+        shutil.copyfile(Path(best["directory"])/"programs"/f"{name}.jsonl",
+            out/"best/programs"/f"{name}.jsonl")
+    shutil.copyfile(Path(best["directory"])/"hardware.json",out/"best/hardware.json")
+    score=None
+    if set(case["name"] for case in cases)==set(SCORE_CASES) and all(
+        math.isclose(case["weight"],SCORE_CASES[case["name"]][1]) for case in cases):
+        score=1000*math.exp(sum(case["weight"]*math.log(
+            SCORE_CASES[case["name"]][0]/best["predicted_cycles"][case["name"]]) for case in cases))
+    scope=("finite header-replay program domain" if program_base else "finite generator domain")
+    result={"scope":f"exhaustive independent estimates over declared {scope}",
+        "global_optimum_proven":False,"actual_optimum_proven":False,"official_score":None,
+        "numerical_correctness":"not_checked","domain_designs":total,
+        "evaluated_designs":len(candidates),"rejections":rejections,"candidates":candidates,
+        "best_design":best["design"],"best_predicted_cycles":best["predicted_cycles"],
+        "best_program_sha256":best["program_sha256"],"best_estimated_log_cost":best["predicted_log_cost"],
+        "best_score_if_eligible":score,"estimator_sha256":sha(Path(__file__).parent/"estimate.py"),
+        "program_base":program_base,"base_program_sha256":base_program_hashes,
+        "target_score":spec.get("target_score"),
+        "target_met":score is not None and score>=spec.get("target_score",math.inf),
+        "search_wall_seconds":time.monotonic()-search_started}
+    write(out/"search.json",result)
+    return result
+
+def grade_if_target(search_dir,out,target=5000,seed=7,timeout=600):
+    search_dir=Path(search_dir);out=Path(out)
+    report=json.loads((search_dir/"search.json").read_text())
+    predicted=report.get("best_score_if_eligible")
+    if predicted is None or not math.isfinite(predicted) or predicted<target:
+        raise ValueError(f"conditional predicted score {predicted} below grade target {target}")
+    hashes=report["best_program_sha256"]
+    if set(hashes)!=set(SCORE_CASES):raise ValueError("grade requires exactly five official cases")
+    programs=search_dir/"best/programs"
+    if any(sha(programs/f"{name}.jsonl")!=digest for name,digest in hashes.items()):
+        raise ValueError("selected program hashes changed since independent prediction")
+    if out.exists():raise FileExistsError(out)
+    command(["python3",STARTER/"tools/grade_v09.py",programs,out,
+             "--binary",OFFICIAL,"--seed",seed,"--jobs",2,"--cpu-budget",4,
+             "--total-memory-gib",8,"--timeout",timeout],timeout*3+60,
+            out.with_name(out.name+"-grade-command.json"))
+    return json.loads((out/"grade.json").read_text())
 
 def prepare(spec,out,timeout):
     """Generate unpaid design alternatives and analytical bounds BEFORE timing.
@@ -126,9 +448,13 @@ def prepare(spec,out,timeout):
             compact=directory/f"{name}.jsonl"
             command(["python3",STARTER/"tools/compact_program.py",plain,compact],timeout,directory/f"compact-{name}.command.json")
             paths.append(compact)
+        estimates=[estimate_program(path)["cycles"] for path in paths] if spec.get("estimate_candidates",False) else None
         lb=sum(case["weight"]*math.log(bound) for case,bound in zip(cases,bounds))
         candidates.append({"directory":directory,"paths":paths,"design":dict(zip(keys,values)),
-            "area_au":area(configs[0]["hardware"]),"bounds":bounds,"lb":lb,"state":"unmeasured"})
+            "area_au":area(configs[0]["hardware"]),"bounds":bounds,"lb":lb,
+            "estimated_cycles":estimates,
+            "estimated_log_cost":sum(case["weight"]*math.log(t) for case,t in zip(cases,estimates)) if estimates else None,
+            "state":"unmeasured"})
     write(out/"analytic-rejections.json",rejections)
     return candidates
 
@@ -183,8 +509,16 @@ def optimize(spec_path,out,timeout=600,max_evaluations=32):
         if incumbent is not None and dual is not None and dual>=best-1e-9:
             termination="optimal_within_declared_space_and_tolerance";break
         if it==max_evaluations:break
+        if spec.get("estimate_candidates",False):
+            viable=[j for j,candidate in enumerate(candidates)
+                if candidate["state"]=="unmeasured" and candidate["lb"]<best-1e-9]
+            if viable:
+                index=min(viable,key=lambda j:candidates[j]["estimated_log_cost"])
         c=candidates[index];entry={"iteration":it,"design":c["design"],"master":info,
             "analytic_lower_bound_log_cost":c["lb"]};iterations.append(entry)
+        if c["estimated_cycles"]:
+            entry["independent_estimated_cycles"]=c["estimated_cycles"]
+            entry["independent_estimated_log_cost"]=c["estimated_log_cost"]
         write(out/"iterations.json",iterations)
         exact=[];snapshots=[];source=None
         for name,path in zip([x["name"] for x in spec["cases"]],c["paths"]):
@@ -242,15 +576,29 @@ def optimize(spec_path,out,timeout=600,max_evaluations=32):
 
 def main():
     ap=argparse.ArgumentParser();sub=ap.add_subparsers(dest="mode",required=True)
-    for mode in ("predict","compare","optimize"):
+    for mode in ("predict","compare","optimize","model-first","estimate","estimate-suite","search-estimate","grade-if-target"):
         p=sub.add_parser(mode);p.add_argument("input",type=Path);p.add_argument("output",type=Path)
         p.add_argument("--timeout",type=int,default=600)
         if mode=="compare":p.add_argument("--seed",type=int,default=7)
         if mode=="optimize":p.add_argument("--max-evaluations",type=int,default=32)
+        if mode=="model-first":
+            p.add_argument("--max-verifications",type=int,default=32)
+            p.add_argument("--resume",action="store_true")
+        if mode=="estimate-suite":p.add_argument("--grade",type=Path)
+        if mode=="grade-if-target":
+            p.add_argument("--target-score",type=float,default=5000)
+            p.add_argument("--seed",type=int,default=7)
     a=ap.parse_args()
     try:
         if a.mode=="predict":r=predict(a.input,a.output,a.timeout)
         elif a.mode=="compare":r=compare(a.input,a.output,a.seed,a.timeout)
+        elif a.mode=="estimate":r=estimate(a.input,a.output)
+        elif a.mode=="estimate-suite":r=estimate_suite(a.input,a.output,a.grade)
+        elif a.mode=="search-estimate":r=search_estimate(a.input,a.output,a.timeout)
+        elif a.mode=="model-first":
+            from .structured import solve
+            r=solve(a.input,a.output,a.timeout,a.max_verifications,resume=a.resume)
+        elif a.mode=="grade-if-target":r=grade_if_target(a.input,a.output,a.target_score,a.seed,a.timeout)
         else:r=optimize(a.input,a.output,a.timeout,a.max_evaluations)
     except Exception as error:
         if a.output.exists() and not (a.output/"failure.json").exists():

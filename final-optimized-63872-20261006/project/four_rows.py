@@ -5,7 +5,7 @@ from .compiler import hbm,imm,add,mul,sub,emit_barrier
 from .wide_qkv import dense as original
 
 def dense(lines,allworkers,tasks,rows,k,n,name,**kwargs):
-    if not kwargs.get('gelu',False):return original(lines,allworkers,tasks,rows,k,n,name,**kwargs)
+    if not kwargs.get('gelu',False) or kwargs.get('n_tile') is not None:return original(lines,allworkers,tasks,rows,k,n,name,**kwargs)
     assert rows==128 and k==256 and n==1024 and len(tasks)==32
     def load(w,a,tile,ki,ri,phase):
         row=add(mul(tile,32),ri*8)

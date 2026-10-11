@@ -214,7 +214,8 @@ def emit_decoder_layer(
             workers[0].layernorm(
                 x, weight(0, "ln1_g"), weight(0, "ln1_b"), ln1, rows, d, name + "ln1"
             )
-    emit_barrier(lines, workers)
+    if not (decode_step is not None and isinstance(weights, list)):
+        emit_barrier(lines, workers)
     if decode_step is None:
         if parts == 16 and h == 8 and rows == 64 and past == 0:
             # Two workers per head.  Each owns 32 rows, so its private 16 KiB
@@ -417,7 +418,8 @@ def emit_decoder_layer(
             workers[0].layernorm(
                 res, weight(0, "ln2_g"), weight(0, "ln2_b"), ln2, rows, d, name + "ln2"
             )
-    emit_barrier(lines, workers)
+    if not (decode_step is not None and isinstance(weights, list)):
+        emit_barrier(lines, workers)
     if decode_step is not None:
         from .fused_d1 import emit_ffn
         emit_ffn(lines,workers,shared,res,weights,y,d,f,name)
@@ -735,13 +737,13 @@ def generate_m1_d1(gemm_n_tile: int = 16) -> tuple[str, Layout, int]:
         worker.finish()
     return "\n".join(lines) + "\n", layout, shared.cursor
 
-# RFBuilder is used only while generating the prompt; decode keeps its base Builder.
-def generate_m1_p1():
-    global Builder
-    from .rf_prompt import RFBuilder, generate_m1_p1 as generate
-    saved=Builder;Builder=RFBuilder
-    try:return generate()
-    finally:Builder=saved
+# RFBuilder override disabled: 4-WG/SM limit prevents 6-WG approach.
+# def generate_m1_p1():
+#     global Builder
+#     from .rf_prompt import RFBuilder, generate_m1_p1 as generate
+#     saved=Builder;Builder=RFBuilder
+#     try:return generate()
+#     finally:Builder=saved
 
 from .affine_gemm import affine_gemm
 Builder.affine_gemm = affine_gemm

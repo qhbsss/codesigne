@@ -1,4 +1,4 @@
-"""Current-layer RF weights and a six-bank row-prefetch pipeline."""
+"""Six-WG RF pipeline: QKV sync_dense(16) + W1 gemm_cached(16) for lower rf_r."""
 from math import sqrt,pi
 from .four_rows import fill_w2
 from .four_rows import dense
@@ -88,9 +88,10 @@ class RFBuilder(Builder):
             self.st(acc,hbm(add(out.offset,mul(row,n),col),cells,[nr,width],[n,1]))
     def export(self,qkv,k,v,head,row_lo,row_hi,name):
         with self.loop(name,row_lo,row_hi,8) as row:
+            pos=sub(row,row_lo)
             for comp,t in [(1,k),(2,v)]:
                 self.ld(hbm(add(qkv.offset,mul(row,768),comp*256+head*32),256,[8,32],[768,1]),self._rf(15,256))
-                self.st(self._rf(15,256),hbm(add(t.offset,head*65*32,mul(row,32)),256))
+                self.st(self._rf(15,256),hbm(add(t.offset,head*65*32,mul(pos,32)),256))
     def preload_kv(self,k,v,head,parts=2):
         for part in range(parts):
             self.ld(hbm(k.offset+head*65*32+part*1024,1024),self._rf(6+part,1024))
@@ -151,66 +152,106 @@ class RFBuilder(Builder):
 
 def generate_m1_p1():
     layout=build_layout(MODELS['M1'],'P1');lines=[];origin=layout.symbols['scratch'].address//4
-    workers,shared=_open_workers(layout,lines,'r',origin,[i%16 for i in range(64)],shared_bytes=0)
-    # _open_workers uses Builder; replace it before invoking this function.
+    # 96 workers: 6 WGs per SM
+    workers,shared=_open_workers(layout,lines,'r',origin,[i%16 for i in range(96)],shared_bytes=0)
     p=workers[0];x=p.symbol('input/prompt');out=p.symbol('output/hidden');rows=128
+
+    # QKV workers: 48 (3/SM) — workers 0-15, 64-79, 80-95
+    qkv_wi=list(range(16))+list(range(64,96))
+    # W1 workers: 64 (4/SM) — workers 0-31, 64-95
+    w1_wi=list(range(32))+list(range(64,96))
+
     for layer in range(3):
         w=_weights(p,f'layer{layer}/');weights=[{} for _ in workers]
-        for i,b in enumerate(workers[32:]):
+        # LN vectors for workers 32-63 only (they do LN)
+        for i,b in enumerate(workers[32:64]):
             for j,key in enumerate(['ln1_g','ln1_b','ln2_g','ln2_b']):b.cache_vector(w[key],0,256,j*256)
-        qkv=shared.alloc(rows,768);ctx=shared.alloc(rows,256);res=shared.alloc(rows,256);ln1=shared.alloc(rows,256);ln2=shared.alloc(rows,256);act=shared.alloc(rows,1024);y=shared.alloc(rows,256)
+        qkv=shared.alloc(rows,768);ctx=shared.alloc(rows,256);res=shared.alloc(rows,256)
+        ln1=shared.alloc(rows,256);ln2=shared.alloc(rows,256);act=shared.alloc(rows,1024);y=shared.alloc(rows,256)
         k=p.symbol(f'layer{layer}/new_k');v=p.symbol(f'layer{layer}/new_v')
-        for i,b in enumerate(workers[32:]):b.norm(x,ln1,256,0,256,f'l{layer}n1',i*4,(i+1)*4)
+
+        # --- LN1: workers 32-63 (same as before) ---
+        for i,b in enumerate(workers[32:64]):b.norm(x,ln1,256,0,256,f'l{layer}n1',i*4,(i+1)*4)
         emit_barrier(lines,workers)
-        # Complete normalization before the power-sensitive first QKV load wave.
-        for j,i in enumerate([off+base for off in range(4) for base in range(0,16,4)]):
-            b=workers[i]
-            weights[i]['qkv']=b.cache(w['wqkv'],i*48,(i+1)*48,64)
-            if j%4==3:emit_barrier(lines,workers[:16])
+
+        # --- QKV weight caching: 48 workers, 16 cols each ---
+        for j,wi in enumerate(qkv_wi):
+            weights[wi]['qkv']=workers[wi].cache(w['wqkv'],j*16,(j+1)*16,64)
+            if j%4==3:emit_barrier(lines,[workers[i] for i in qkv_wi])
         emit_barrier(lines,workers)
-        for b in workers[:16]:b.direct_k=k;b.direct_v=v
-        dense(lines,workers,[(b,ln1,weights[i]['qkv'],qkv,i*48) for i,b in enumerate(workers[:16])],rows,256,768,f'l{layer}q',n_tile=48,k_tile=64)
+
+        # --- QKV GEMM: sync_dense n_tile=16 ---
+        dense(lines,workers,[(workers[wi],ln1,weights[wi]['qkv'],qkv,j*16) for j,wi in enumerate(qkv_wi)],rows,256,768,f'l{layer}q',n_tile=16,k_tile=64)
         emit_barrier(lines,workers)
+
+        # --- K/V export: workers 0-15 ---
+        for i,b in enumerate(workers[:16]):
+            member=i//8;head=i%8
+            b.export(qkv,Tensor(k.offset+member*8*65*32,k.shape),Tensor(v.offset+member*8*65*32,v.shape),head,member*64,(member+1)*64,f'l{layer}e{i}')
+        emit_barrier(lines,workers)
+
+        # --- Attention preload: workers 0-31 ---
         for i,b in enumerate(workers[:32]):
             member,local=divmod(i,16);head,half=divmod(local,2)
             b.preload_kv(Tensor(k.offset+member*8*65*32,k.shape),Tensor(v.offset+member*8*65*32,v.shape),head,parts=1 if half==0 else 2)
             if i%8==7:emit_barrier(lines,workers)
         emit_barrier(lines,workers)
+
+        # --- Attention: workers 0-31 (Wo weights loaded inline for workers 0-15) ---
         for i,b in enumerate(workers[:32]):
             member,local=divmod(i,16);head,half=divmod(local,2)
             b.wo_boot=(w['wo'],i*16) if i<16 else None
             if i<16:weights[i]['wo']=(16,[(lane,0,lane*64,64) for lane in range(4)])
             b.attn(Tensor(qkv.offset+member*64*768,(64,768)),Tensor(ctx.offset+member*64*256,(64,256)),Tensor(k.offset+member*8*65*32,k.shape),Tensor(v.offset+member*8*65*32,v.shape),head,half*4,(half+1)*4,f'l{layer}a')
         emit_barrier(lines,workers)
+
+        # --- Wo: workers 0-15, sync_dense n_tile=16 ---
         dense(lines,workers,[(b,ctx,weights[i]['wo'],res,i*16) for i,b in enumerate(workers[:16])],rows,256,256,f'l{layer}o',n_tile=16,k_tile=64,residual=x)
         emit_barrier(lines,workers)
-        for i,b in enumerate(workers[32:]):b.norm(res,ln2,256,512,768,f'l{layer}n2',i*4,(i+1)*4)
-        for j,i in enumerate([off+base for off in range(2) for base in range(0,32,2)]):
-            b=workers[i]
-            weights[i]['w1']=b.cache(w['w1'],i*32,(i+1)*32,16);b.cache_vector(w['b1'],i*32,32,0)
-            if j%7==6:emit_barrier(lines,workers[:32])
+
+        # --- LN2: workers 32-63 ---
+        for i,b in enumerate(workers[32:64]):b.norm(res,ln2,256,512,768,f'l{layer}n2',i*4,(i+1)*4)
+
+        # --- W1 weight caching: 64 workers, 16 cols each ---
+        for j,wi in enumerate(w1_wi):
+            weights[wi]['w1']=workers[wi].cache(w['w1'],j*16,(j+1)*16,64)
+            workers[wi].cache_vector(w['b1'],j*16,16,1536)
+            if j%8==7:emit_barrier(lines,[workers[i] for i in w1_wi])
         emit_barrier(lines,workers)
-        marker=len(lines)
-        dense(lines,workers,[(b,ln2,weights[i]['w1'],act,i*32) for i,b in enumerate(workers[:32])],rows,256,1024,f'l{layer}f',gelu=True)
-        part=shared.alloc(32,rows*32+64);owners=workers[32:]
-        loaded=fill_w2(lines,owners,w['w2'],lines[marker:])
+
+        # --- W1 GEMM: sync_dense with gelu, 64 workers x 16 cols ---
+        dense(lines,workers,[(workers[wi],ln2,weights[wi]['w1'],act,j*16) for j,wi in enumerate(w1_wi)],rows,256,1024,f'l{layer}f',gelu=True,n_tile=16,k_tile=64)
+        emit_barrier(lines,workers)
+
+        # --- W2 weight loading (explicit, no overlap with W1) ---
+        part=shared.alloc(32,rows*32+64);owners=workers[32:64]
         for i,b in enumerate(owners):
-            weights[i]['w2']=loaded[i];b.cache_vector(w['b2'],(i%8)*32,32,1552)
+            kg,ng=divmod(i,8)
+            for bank in range(8):
+                panel=bank//4;kk_idx=bank%4
+                b.ld(hbm(w['w2'].offset+kg*256*256+kk_idx*64*256+ng*32+panel*16,1024,[64,16],[256,1]),b._rf(bank,1024))
+            weights[32+i]['w2']=(32,[(p,p*4+kk,0,kk*64,64) for p in range(2) for kk in range(4)])
+            b.cache_vector(w['b2'],(i%8)*32,32,1552)
         emit_barrier(lines,workers)
-        dense(lines,workers,[(b,Tensor(act.offset+(i//8)*256,(rows,256),row_stride=1024),weights[i]['w2'],Tensor(part.offset+i*(rows*32+64),(rows,32)),0) for i,b in enumerate(owners)],rows,256,32,f'l{layer}w')
+
+        # --- W2 partial GEMM: workers 32-63 ---
+        dense(lines,workers,[(b,Tensor(act.offset+(i//8)*256,(rows,256),row_stride=1024),weights[32+i]['w2'],Tensor(part.offset+i*(rows*32+64),(rows,32)),0) for i,b in enumerate(owners)],rows,256,32,f'l{layer}w')
         emit_barrier(lines,workers)
+
+        # --- W2 reduce: workers 0-31 ---
         for i,b in enumerate(workers[:32]):
             rg,ng=divmod(i,8);b.cache_vector(w['b2'],ng*32,32,1552);b.reduce32(part,y,res,rows,ng*32,rg*32,(rg+1)*32,f'l{layer}r')
         emit_barrier(lines,workers);x=y
+
+    # --- Output ---
     for member in range(2):
         for i,b in enumerate(workers[:16]):b.store_slice(Tensor(x.offset+member*64*256,(64,256)),out.offset+member*65*256,64,256,i*16,(i+1)*16,'out')
     _commit(lines,0)
-    # Use the validated conservative first-new-position generator.
-    from .schedule import emit_p1_fused_step_layer
-    x=p.symbol('input/step0');stepworkers=workers[:32]
-    retained_w2=(workers[32:],weights)
-    # The existing parallel-step accepts32; conservative original accepts8.
+
+    # --- Step phase ---
     from .step_cached import emit_p1_fused_step_layer as parallel_step
+    x=p.symbol('input/step0');stepworkers=workers[:32]
+    retained_w2=None
     for layer in range(3):
         k=p.symbol(f'layer{layer}/new_k');v=p.symbol(f'layer{layer}/new_v')
         x=parallel_step(lines,stepworkers,shared,x,_weights(p,f'layer{layer}/'),256,1024,8,32,f's{layer}',64,
