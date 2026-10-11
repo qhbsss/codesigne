@@ -1,0 +1,29 @@
+{
+  "base_config": "phase-two-starter/examples/w-d1.json",
+  "seed": 7,
+  "method": "official export and evaluate with changed hardware; independent compact/expanded program cycle estimator",
+  "cases": [
+    {
+      "name": "hbm4",
+      "hardware_changes": {"hbm_channels": 4, "global_noc": 256},
+      "estimated_cycles": 26928180,
+      "official_cycles": 28761282,
+      "notes": "evaluated before the multi-DMA collision correction; prediction unchanged by that correction"
+    },
+    {
+      "name": "dma2",
+      "hardware_changes": {"dma_engines": 2, "dma_depth": 2, "global_noc": 256},
+      "estimated_cycles": 27168468,
+      "official_cycles": 27561795,
+      "notes": "earlier prediction was 24173268; single-wave examination motivated the multi-DMA collision correction; not a held-out test"
+    },
+    {
+      "name": "hbm4-dma2",
+      "hardware_changes": {"hbm_channels": 4, "dma_engines": 2, "dma_depth": 2, "global_noc": 256},
+      "estimated_cycles": 27913628,
+      "official_cycles": 28962638,
+      "notes": "combination was evaluated after correcting dma2, without further parameter adjustment"
+    }
+  ],
+  "caveat": "finite hardware cases only; no worst-case prediction-error or ranking guarantee"
+}

@@ -1,0 +1,6 @@
+Evaluation host observed: 2026-10-11T02:54:01Z
+Linux 5.10.134-013.16.kangaroo.al8.x86_64 x86_64
+Python 3.12.3
+rustc 1.99.0 (b940084d7 2026-09-28)
+cargo 1.99.0 (5f94df478 2026-08-27)
+Logical CPUs: 4

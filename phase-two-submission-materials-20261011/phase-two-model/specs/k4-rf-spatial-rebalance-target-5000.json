@@ -1,0 +1,27 @@
+{
+  "cases": [
+    {"name": "w-p", "config": "phase-two-starter/configs/k4-rf/w-p.json", "weight": 0.25},
+    {"name": "a-p", "config": "phase-two-starter/configs/k4-rf/a-p.json", "weight": 0.25},
+    {"name": "w-d1", "config": "phase-two-starter/configs/k4-rf/w-d1.json", "weight": 0.16666666666666666},
+    {"name": "w-d16", "config": "phase-two-starter/configs/k4-rf/w-d16.json", "weight": 0.16666666666666666},
+    {"name": "w-d4l", "config": "phase-two-starter/configs/k4-rf/w-d4l.json", "weight": 0.16666666666666666}
+  ],
+  "domains": {},
+  "case_domains": {
+    "w-p": {"policy.m": [16], "policy.n": [32]},
+    "a-p": {"policy.m": [16], "policy.n": [32]},
+    "w-d1": {"policy.m": [16], "policy.n": [32]},
+    "w-d16": {"policy.m": [16], "policy.n": [32]},
+    "w-d4l": {"policy.m": [16], "policy.n": [32]}
+  },
+  "hardware_choices": [
+    {"hardware.sms": 12, "hardware.rf_kib": 64, "hardware.vector": 32, "hardware.sfu": 8, "hardware.p": 8, "hardware.q": 32, "hardware.dma_engines": 2, "hardware.tc_k_parallel": 1},
+    {"hardware.sms": 16, "hardware.rf_kib": 64, "hardware.vector": 16, "hardware.sfu": 8, "hardware.p": 8, "hardware.q": 16, "hardware.dma_engines": 2, "hardware.tc_k_parallel": 1},
+    {"hardware.sms": 12, "hardware.rf_kib": 128, "hardware.vector": 32, "hardware.sfu": 8, "hardware.p": 8, "hardware.q": 16, "hardware.dma_engines": 2, "hardware.tc_k_parallel": 1}
+  ],
+  "fusion_factors": {"w-p": [64], "a-p": [64], "w-d1": [64], "w-d16": [64], "w-d4l": [256]},
+  "fusion_modes": {"w-p": ["pipeline"], "a-p": ["pipeline"], "w-d1": ["concat"], "w-d16": ["concat"], "w-d4l": ["concat"]},
+  "seed": 7,
+  "max_designs": 3,
+  "target_score": 5000
+}

@@ -1,0 +1,59 @@
+{
+  "scope": "compute-only M8 N16 K32 constant GEMM, one group; not a Transformer submission",
+  "objective_source": "independent mathematical microstep equations; no runtime timings",
+  "candidate_count": 144,
+  "variables": 158,
+  "constraints": 22,
+  "solver_status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "mip_gap": 0.0,
+  "dual_bound_cycles": 177.0,
+  "chosen": {
+    "design": {
+      "rf_kib": 32,
+      "rf_tier": 2,
+      "p": 8,
+      "q": 16,
+      "tc_k_parallel": 4,
+      "k_tile": 32
+    },
+    "hardware": {
+      "sms": 2,
+      "rf_kib": 32,
+      "rf_tier": 2,
+      "vector": 32,
+      "sfu": 1,
+      "p": 8,
+      "q": 16,
+      "hbm_channels": 1,
+      "hbm_queue": 32,
+      "sm_noc": 16,
+      "global_noc": 64,
+      "sh_kib": 0,
+      "sh_banks": 0,
+      "sh_tc_bw": 0,
+      "tc_count": 1,
+      "tc_k_parallel": 4,
+      "reduction_units": 0,
+      "shared_ports": 1,
+      "dma_depth": 0,
+      "dma_engines": 1,
+      "multicast": false,
+      "cache_mib": 0,
+      "resident_groups": 1
+    },
+    "prediction": {
+      "cycles": 177,
+      "rf_bytes": 7680,
+      "sh_bytes": 0,
+      "physical_fmas": 4096,
+      "short_power_w": 0.740980362629912,
+      "long_power_w": 0.646448042629912,
+      "energy_j": 2.486552051709888e-07
+    },
+    "area_au": 19.817582505196476
+  },
+  "runtime_differences": [],
+  "all_modeled_metrics_match": true,
+  "numeric_scope": "constant .5 operands, exact real output 8; general input correctness not proved",
+  "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19"
+}

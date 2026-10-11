@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {"name": "w-p", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-p/option-0001/config.json", "weight": 0.25},
+    {"name": "a-p", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/a-p/option-0001/config.json", "weight": 0.25},
+    {"name": "w-d1", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d1/option-0000/config.json", "weight": 0.16666666666666666},
+    {"name": "w-d16", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d16/option-0000/config.json", "weight": 0.16666666666666666},
+    {"name": "w-d4l", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d4l/option-0001/config.json", "weight": 0.16666666666666666}
+  ],
+  "program_base": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000",
+  "program_choices": {
+    "w-p": ["phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-p/option-0001/program.jsonl"],
+    "a-p": ["phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/a-p/option-0001/program.jsonl"],
+    "w-d1": ["phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d1/option-0000/program.jsonl"],
+    "w-d16": ["phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d16/option-0000/program.jsonl"],
+    "w-d4l": ["phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d4l/option-0001/program.jsonl"]
+  },
+  "domains": {},
+  "case_domains": {},
+  "hardware_choices": [
+    {"hardware.sfu": 21},
+    {"hardware.dma_engines": 4},
+    {"hardware.sm_noc": 128, "hardware.sfu": 17},
+    {"hardware.dma_engines": 4, "hardware.sm_noc": 128, "hardware.sfu": 12},
+    {"hardware.vector": 64, "hardware.sfu": 11}
+  ],
+  "seed": 7,
+  "max_designs": 5,
+  "target_score": 5000
+}

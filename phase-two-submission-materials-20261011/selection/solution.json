@@ -1,0 +1,12 @@
+{
+  "termination": "below_prediction_target_unverified",
+  "scope": "declared header-replayed static programs, not regenerated code or unrestricted ISA",
+  "conditional_predicted_score": 3883.1221920286375,
+  "conditional_predicted_optimum_within_declared_domain": true,
+  "target_score": 5000,
+  "domain_designs": 6,
+  "model_optimum_proven": false,
+  "official_score": null,
+  "verified_options": 0,
+  "host_seconds": 1023.4349246470083
+}

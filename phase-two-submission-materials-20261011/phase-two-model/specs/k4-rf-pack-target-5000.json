@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {"name": "w-p", "config": "phase-two-starter/configs/k4-rf/w-p.json", "weight": 0.25},
+    {"name": "a-p", "config": "phase-two-starter/configs/k4-rf/a-p.json", "weight": 0.25},
+    {"name": "w-d1", "config": "phase-two-starter/configs/k4-rf/w-d1.json", "weight": 0.16666666666666666},
+    {"name": "w-d16", "config": "phase-two-starter/configs/k4-rf/w-d16.json", "weight": 0.16666666666666666},
+    {"name": "w-d4l", "config": "phase-two-starter/configs/k4-rf/w-d4l.json", "weight": 0.16666666666666666}
+  ],
+  "program_base": "phase-two-starter/programs/k4-rf",
+  "domains": {},
+  "case_domains": {},
+  "hardware_choices": [
+    {"hardware.dma_engines": 2, "hardware.sfu": 15,
+     "hardware.sm_noc": 64, "hardware.hbm_queue": 128,
+     "hardware.resident_groups": 4}
+  ],
+  "fusion_factors": {
+    "w-p": [1, 16, 64],
+    "a-p": [1, 16, 64],
+    "w-d1": [1, 16, 64],
+    "w-d16": [1, 16, 64],
+    "w-d4l": [1, 16, 64]
+  },
+  "fusion_modes": {
+    "w-p": ["pack"],
+    "a-p": ["pack"],
+    "w-d1": ["pack"],
+    "w-d16": ["pack"],
+    "w-d4l": ["pack"]
+  },
+  "seed": 7,
+  "max_designs": 243,
+  "target_score": 5000
+}

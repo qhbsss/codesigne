@@ -1,0 +1,26 @@
+{
+  "conditional_predicted_score": 3883.1221920286375,
+  "predicted_cycles": {
+    "w-p": 31137007,
+    "a-p": 56754587,
+    "w-d1": 12468872,
+    "w-d16": 15868188,
+    "w-d4l": 29910372
+  },
+  "selected": [
+    1,
+    3,
+    5,
+    6,
+    7
+  ],
+  "conditional_predicted_optimum_within_declared_domain": true,
+  "program_sha256": {
+    "w-p": "75c842c776bd6828c982136bc3887d2acac65f1ca3c70fdd3e503c32910c8ae2",
+    "a-p": "834ad9cca56bd92cce120dc2dbd7b56998f568890f434462ee7ad94d369f44f4",
+    "w-d1": "331074644b5157d279842bf47a3058b689c2d8677f3eae9da09e77fc6ce6cce5",
+    "w-d16": "3552b82503d5cea16474ba87cc276aac04804da3014d3ea2d92b35d947227a3f",
+    "w-d4l": "d9f70b6ea5a34a69a1f09bf5a5e216bb582d3d20b7070725d4f840310ffad630"
+  },
+  "not_a_lower_bound_or_correctness_certificate": true
+}

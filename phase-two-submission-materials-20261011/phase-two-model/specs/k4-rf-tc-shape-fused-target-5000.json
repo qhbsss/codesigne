@@ -1,0 +1,22 @@
+{
+  "cases": [
+    {"name": "w-p", "config": "phase-two-model/runs/k4-rf-fusion-v2-target-5000-20261010/hardware-0000/w-p/option-0002/config.json", "weight": 0.25},
+    {"name": "a-p", "config": "phase-two-model/runs/k4-rf-fusion-v2-target-5000-20261010/hardware-0000/a-p/option-0002/config.json", "weight": 0.25},
+    {"name": "w-d1", "config": "phase-two-model/runs/k4-rf-fusion-v2-target-5000-20261010/hardware-0000/w-d1/option-0002/config.json", "weight": 0.16666666666666666},
+    {"name": "w-d16", "config": "phase-two-model/runs/k4-rf-fusion-v2-target-5000-20261010/hardware-0000/w-d16/option-0002/config.json", "weight": 0.16666666666666666},
+    {"name": "w-d4l", "config": "phase-two-model/runs/k4-rf-fusion-v2-target-5000-20261010/hardware-0000/w-d4l/option-0002/config.json", "weight": 0.16666666666666666}
+  ],
+  "program_base": "phase-two-model/runs/k4-rf-tc-shape-fused-target-5000-20261011/base-programs",
+  "domains": {},
+  "case_domains": {},
+  "hardware_choices": [
+    {"hardware.p": 8, "hardware.q": 16, "hardware.tc_k_parallel": 4},
+    {"hardware.p": 16, "hardware.q": 16, "hardware.tc_k_parallel": 2},
+    {"hardware.p": 8, "hardware.q": 32, "hardware.tc_k_parallel": 2},
+    {"hardware.p": 16, "hardware.q": 32, "hardware.tc_k_parallel": 1},
+    {"hardware.p": 32, "hardware.q": 16, "hardware.tc_k_parallel": 1}
+  ],
+  "seed": 7,
+  "max_designs": 5,
+  "target_score": 5000
+}

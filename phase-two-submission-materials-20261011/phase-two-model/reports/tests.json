@@ -1,0 +1,25 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "returncode": 0,
+  "seconds": 0.7600020370000493,
+  "stdout": "",
+  "stderr": "test_independent_area_and_microsteps (test_model.DifferentialTests.test_independent_area_and_microsteps) ... ok\ntest_independent_multiple_groups_fixed_arbitration (test_model.DifferentialTests.test_independent_multiple_groups_fixed_arbitration) ... ok\ntest_independent_serial_cycles_and_power (test_model.DifferentialTests.test_independent_serial_cycles_and_power) ... ok\ntest_prediction_rejects_cross_group_hbm_race (test_model.DifferentialTests.test_prediction_rejects_cross_group_hbm_race) ... ok\ntest_rejects_capacity_and_async_hazard (test_model.DifferentialTests.test_rejects_capacity_and_async_hazard) ... ok\ntest_timing_prediction_is_not_a_numerical_certificate (test_model.DifferentialTests.test_timing_prediction_is_not_a_numerical_certificate) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.641s\n\nOK\n",
+  "source_hashes": {
+    "model/__init__.py": "deb89b3a6138e0469a7940655cdc9c8c8b5c3009d752c0b54d722dd68dfadf8f",
+    "model/compute.py": "4c148fb0cd6ccd0b7337e4cca29563a207bf9ac43f7ca3bc819a7e46e60c999f",
+    "model/hardware.py": "747941edb0d83cd667e7b6de08d8a9366da9c2303a43671d48467ec2bb9c6ac1",
+    "model/kernel.py": "a28b1b7b08690b02c1ec3f49dfac1c27f52e4dd6254e2946631d542e223e2347",
+    "model/profiles.py": "22e4d91760d036c4cffe0035da8852a4d7b85a0b673768bb4d2f35debd8b5e80",
+    "model/serial.py": "4e161335e14f829b90155abcb82047ef238cd31d6f591a41392fb089bfaa248c",
+    "model/tool.py": "1d0d42e8621822866149a892480ce580048c39e91a7931ae138dd6eb2c56e06a",
+    "runtime/src/main.rs": "941ab519263423429f1b8b62f9bf5a2736ed75f76b9a9c9073450c30ed1b1dcf"
+  }
+}

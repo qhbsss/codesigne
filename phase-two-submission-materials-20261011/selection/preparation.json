@@ -1,0 +1,170 @@
+{
+  "hardware": [
+    {
+      "index": 0,
+      "design": {
+        "hardware.vector": 64,
+        "hardware.sfu": 11
+      },
+      "hardware": {
+        "sms": 8,
+        "rf_kib": 128,
+        "rf_tier": 1,
+        "vector": 64,
+        "sfu": 11,
+        "p": 16,
+        "q": 32,
+        "hbm_channels": 8,
+        "hbm_queue": 256,
+        "sm_noc": 64,
+        "global_noc": 512,
+        "sh_kib": 0,
+        "sh_banks": 0,
+        "sh_tc_bw": 0,
+        "tc_count": 1,
+        "tc_k_parallel": 1,
+        "reduction_units": 0,
+        "shared_ports": 1,
+        "dma_depth": 1,
+        "dma_engines": 2,
+        "multicast": false,
+        "cache_mib": 0,
+        "resident_groups": 2
+      },
+      "area_au": 99.55429301283328
+    }
+  ],
+  "options": [
+    {
+      "hardware_index": 0,
+      "case": "w-p",
+      "design": {
+        "program_choice": 0
+      },
+      "lower_bound_cycles": 8884205,
+      "resource_bound_cycles": 6319129,
+      "dependency_bound_cycles": 8884205,
+      "estimated_cycles": 31408959,
+      "program_sha256": "3e51287f7e0556c8a71b661ec471af438be4e13a6290c24d42673cacf2f083a7",
+      "program": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/w-p/option-0000/program.jsonl",
+      "directory": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/w-p/option-0000",
+      "status": "unverified",
+      "base_program_sha256": "bd5d37d1462d24b3deebb2c851b5da067d907433ea0615b73c43d5b8abe56235"
+    },
+    {
+      "hardware_index": 0,
+      "case": "w-p",
+      "design": {
+        "program_choice": 1
+      },
+      "lower_bound_cycles": 8876201,
+      "resource_bound_cycles": 6319125,
+      "dependency_bound_cycles": 8876201,
+      "estimated_cycles": 31137007,
+      "program_sha256": "75c842c776bd6828c982136bc3887d2acac65f1ca3c70fdd3e503c32910c8ae2",
+      "program": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/w-p/option-0001/program.jsonl",
+      "directory": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/w-p/option-0001",
+      "status": "unverified",
+      "base_program_sha256": "6bfb933a41dc94b08cdf0970f866066b0693c868f3fa2c4a79ea1fbd7e08e576"
+    },
+    {
+      "hardware_index": 0,
+      "case": "a-p",
+      "design": {
+        "program_choice": 0
+      },
+      "lower_bound_cycles": 18569785,
+      "resource_bound_cycles": 12714805,
+      "dependency_bound_cycles": 18569785,
+      "estimated_cycles": 57477077,
+      "program_sha256": "52d62626c42ba7b4100c56ff1a124cb5a4d490e24a27b090a374ca61dc4a35a0",
+      "program": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/a-p/option-0000/program.jsonl",
+      "directory": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/a-p/option-0000",
+      "status": "unverified",
+      "base_program_sha256": "44eed697d4323d7d2f3a45c701628c342cbdeb3a7b1fa382828284b4b159b0dd"
+    },
+    {
+      "hardware_index": 0,
+      "case": "a-p",
+      "design": {
+        "program_choice": 1
+      },
+      "lower_bound_cycles": 18473781,
+      "resource_bound_cycles": 12714801,
+      "dependency_bound_cycles": 18473781,
+      "estimated_cycles": 56754587,
+      "program_sha256": "834ad9cca56bd92cce120dc2dbd7b56998f568890f434462ee7ad94d369f44f4",
+      "program": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/a-p/option-0001/program.jsonl",
+      "directory": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/a-p/option-0001",
+      "status": "unverified",
+      "base_program_sha256": "1db0558f9e6db6f6cf170717f2153976e4a8db274e0abba6a4ca5489c870df9c"
+    },
+    {
+      "hardware_index": 0,
+      "case": "a-p",
+      "design": {
+        "program_choice": 2
+      },
+      "lower_bound_cycles": 18473801,
+      "resource_bound_cycles": 12714821,
+      "dependency_bound_cycles": 18473801,
+      "estimated_cycles": 57014489,
+      "program_sha256": "85f41a79ad4c393ec7ac2fc8b54dabd63e2ae2d798f978396511245f641a2f40",
+      "program": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/a-p/option-0002/program.jsonl",
+      "directory": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/a-p/option-0002",
+      "status": "unverified",
+      "base_program_sha256": "410f51bf486c88e05a241e06c6dc1fec44e94572052754df52a7689d06161007"
+    },
+    {
+      "hardware_index": 0,
+      "case": "w-d1",
+      "design": {
+        "program_choice": 0
+      },
+      "lower_bound_cycles": 3763320,
+      "resource_bound_cycles": 1652068,
+      "dependency_bound_cycles": 3763320,
+      "estimated_cycles": 12468872,
+      "program_sha256": "331074644b5157d279842bf47a3058b689c2d8677f3eae9da09e77fc6ce6cce5",
+      "program": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/w-d1/option-0000/program.jsonl",
+      "directory": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/w-d1/option-0000",
+      "status": "unverified",
+      "base_program_sha256": "0fee7cccec2631c192d9e27773ab0fdd13420eb841ddbc6783b2bee5fdbc73a6"
+    },
+    {
+      "hardware_index": 0,
+      "case": "w-d16",
+      "design": {
+        "program_choice": 0
+      },
+      "lower_bound_cycles": 5373908,
+      "resource_bound_cycles": 2386276,
+      "dependency_bound_cycles": 5373908,
+      "estimated_cycles": 15868188,
+      "program_sha256": "3552b82503d5cea16474ba87cc276aac04804da3014d3ea2d92b35d947227a3f",
+      "program": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/w-d16/option-0000/program.jsonl",
+      "directory": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/w-d16/option-0000",
+      "status": "unverified",
+      "base_program_sha256": "38834ec4a120e885e41b1a38b2d9db9945cdd3ae0ec7deb65910296c80c01875"
+    },
+    {
+      "hardware_index": 0,
+      "case": "w-d4l",
+      "design": {
+        "program_choice": 0
+      },
+      "lower_bound_cycles": 9242724,
+      "resource_bound_cycles": 3463916,
+      "dependency_bound_cycles": 9242724,
+      "estimated_cycles": 29910372,
+      "program_sha256": "d9f70b6ea5a34a69a1f09bf5a5e216bb582d3d20b7070725d4f840310ffad630",
+      "program": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/w-d4l/option-0000/program.jsonl",
+      "directory": "runs/k4-rf-causal-rf-reuse-joint-20261011/hardware-0000/w-d4l/option-0000",
+      "status": "unverified",
+      "base_program_sha256": "a000c4c65ec9b30cf376a6d3124bb64c0d031124de403f741de87f47ad86acb3"
+    }
+  ],
+  "rejections": [],
+  "program_base": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000",
+  "bound_kind": "max of mandatory resource and workgroup dependency floors"
+}

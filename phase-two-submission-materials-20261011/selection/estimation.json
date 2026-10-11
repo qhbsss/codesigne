@@ -1,0 +1,93 @@
+{
+  "solver": {
+    "status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "variables": 9,
+    "constraints": 7,
+    "mip_gap": 0.0,
+    "dual_bound": 17.132420099936823
+  },
+  "scope": "declared header-replayed static programs, not regenerated code or unrestricted ISA",
+  "options": [
+    {
+      "case": "w-p",
+      "hardware_index": 0,
+      "design": {
+        "program_choice": 0
+      },
+      "program_sha256": "3e51287f7e0556c8a71b661ec471af438be4e13a6290c24d42673cacf2f083a7",
+      "estimated_cycles": 31408959,
+      "lower_bound_cycles": 8884205
+    },
+    {
+      "case": "w-p",
+      "hardware_index": 0,
+      "design": {
+        "program_choice": 1
+      },
+      "program_sha256": "75c842c776bd6828c982136bc3887d2acac65f1ca3c70fdd3e503c32910c8ae2",
+      "estimated_cycles": 31137007,
+      "lower_bound_cycles": 8876201
+    },
+    {
+      "case": "a-p",
+      "hardware_index": 0,
+      "design": {
+        "program_choice": 0
+      },
+      "program_sha256": "52d62626c42ba7b4100c56ff1a124cb5a4d490e24a27b090a374ca61dc4a35a0",
+      "estimated_cycles": 57477077,
+      "lower_bound_cycles": 18569785
+    },
+    {
+      "case": "a-p",
+      "hardware_index": 0,
+      "design": {
+        "program_choice": 1
+      },
+      "program_sha256": "834ad9cca56bd92cce120dc2dbd7b56998f568890f434462ee7ad94d369f44f4",
+      "estimated_cycles": 56754587,
+      "lower_bound_cycles": 18473781
+    },
+    {
+      "case": "a-p",
+      "hardware_index": 0,
+      "design": {
+        "program_choice": 2
+      },
+      "program_sha256": "85f41a79ad4c393ec7ac2fc8b54dabd63e2ae2d798f978396511245f641a2f40",
+      "estimated_cycles": 57014489,
+      "lower_bound_cycles": 18473801
+    },
+    {
+      "case": "w-d1",
+      "hardware_index": 0,
+      "design": {
+        "program_choice": 0
+      },
+      "program_sha256": "331074644b5157d279842bf47a3058b689c2d8677f3eae9da09e77fc6ce6cce5",
+      "estimated_cycles": 12468872,
+      "lower_bound_cycles": 3763320
+    },
+    {
+      "case": "w-d16",
+      "hardware_index": 0,
+      "design": {
+        "program_choice": 0
+      },
+      "program_sha256": "3552b82503d5cea16474ba87cc276aac04804da3014d3ea2d92b35d947227a3f",
+      "estimated_cycles": 15868188,
+      "lower_bound_cycles": 5373908
+    },
+    {
+      "case": "w-d4l",
+      "hardware_index": 0,
+      "design": {
+        "program_choice": 0
+      },
+      "program_sha256": "d9f70b6ea5a34a69a1f09bf5a5e216bb582d3d20b7070725d4f840310ffad630",
+      "estimated_cycles": 29910372,
+      "lower_bound_cycles": 9242724
+    }
+  ]
+}

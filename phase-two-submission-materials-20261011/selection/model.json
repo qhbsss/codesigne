@@ -1,0 +1,17 @@
+{
+  "binary_variables": [
+    "x_h",
+    "y_h,c,a"
+  ],
+  "constraints": [
+    "sum_h x_h=1",
+    "sum_a y_h,c,a=x_h for every h,c",
+    "sum_h area(h)*x_h<=100",
+    "infeasible y_h,c,a=0"
+  ],
+  "objective": "min sum_h,c,a weight_c * log(lower_bound_cycles_h,c,a) * y_h,c,a",
+  "lower_bound_source": "independent expanded-program resource and dependency floors",
+  "program_origin": "header replay",
+  "options_prepared": 8,
+  "hardware_prepared": 1
+}
