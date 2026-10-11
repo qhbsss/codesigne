@@ -1,0 +1,26 @@
+{
+  "balanced": {
+    "M1_P1.asm": "db5eb66f402c0e7cd7a5b3fbe3e25a002b7f8f6648be0dcb589b132c4c80981c",
+    "M2_D1.asm": "442839a2bfc48b105bc5ed6c9e4650f92d08385b12317e51e0444b2ae244360e"
+  },
+  "d1-init-unbarriered": {
+    "M1_P1.asm": "a6461e8417b288d521aeeb88ae7b0c68db48df1e96f92bf9ec8c845ad0561109",
+    "M2_D1.asm": "7ddb2253e9371309e8fb3000d3ee7ef9ae211f33ca82de2a9cbe95b00556e1d5"
+  },
+  "step-stream-paced": {
+    "M1_P1.asm": "c2159e548b2645883e5c15041e688989b646c783c3ad526a0cd705bf6cdadf22",
+    "M2_D1.asm": "442839a2bfc48b105bc5ed6c9e4650f92d08385b12317e51e0444b2ae244360e"
+  },
+  "step-stream-paced1": {
+    "M1_P1.asm": "38d28c5ab6ffb2983c5df38560184c5711a789e55e8567d06cf8c6307b16aed5",
+    "M2_D1.asm": "442839a2bfc48b105bc5ed6c9e4650f92d08385b12317e51e0444b2ae244360e"
+  },
+  "step-stream-paced2": {
+    "M1_P1.asm": "c094a3e4578d565c3266a481793e039a954dc1f01cc6afeca18838e5c402f973",
+    "M2_D1.asm": "442839a2bfc48b105bc5ed6c9e4650f92d08385b12317e51e0444b2ae244360e"
+  },
+  "step-stream-projections-only": {
+    "M1_P1.asm": "e94c80b9eb4ff301c709fc6b24053066ac70a698f816e5389a7f396601cc8a27",
+    "M2_D1.asm": "442839a2bfc48b105bc5ed6c9e4650f92d08385b12317e51e0444b2ae244360e"
+  }
+}

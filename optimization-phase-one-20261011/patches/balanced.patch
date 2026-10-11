@@ -1,0 +1,5 @@
+--- baseline/project/rf_prompt.py
++++ balanced/project/rf_prompt.py
+@@ -154 +154 @@
+-    workers,shared=_open_workers(layout,lines,'r',origin,[i%16 for i in range(64)],shared_bytes=0)
++    workers,shared=_open_workers(layout,lines,'r',origin,[(i%16)^1 if 16<=i<32 else i%16 for i in range(64)],shared_bytes=0)

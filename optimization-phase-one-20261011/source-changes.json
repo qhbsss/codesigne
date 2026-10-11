@@ -1,0 +1,28 @@
+{
+  "balanced": {
+    "rf_prompt.py": "f75d7962cc1e8ed291ed7f2a00e40a87a1c618ae291be5307d8b84c28edd0cf7"
+  },
+  "d1-init-unbarriered": {
+    "schedule.py": "116fc1491f3699d4dcbccb5d69eb11956421759ce32ec1e48dd1f8cf63766b85"
+  },
+  "step-stream-paced": {
+    "rf_prompt.py": "9377d38d0734cf1e1662abc387b3a0486f8e5cade60183adf4ca9063f203ee8f",
+    "step_stream.py": "0e6fcc4e9973623e439dad0c515bea2a7b7dcbb31a9b3871702f12b456247946",
+    "step_suffix.py": "323d5645fb6ad9d2163289e0ad41a036b934796b4f812fb3b16b9b6beec286be"
+  },
+  "step-stream-paced1": {
+    "rf_prompt.py": "9377d38d0734cf1e1662abc387b3a0486f8e5cade60183adf4ca9063f203ee8f",
+    "step_stream.py": "c71fd746352b9f918c2f7b946125ac6a64b2e03b7f420202370ea62838d7b496",
+    "step_suffix.py": "323d5645fb6ad9d2163289e0ad41a036b934796b4f812fb3b16b9b6beec286be"
+  },
+  "step-stream-paced2": {
+    "rf_prompt.py": "9377d38d0734cf1e1662abc387b3a0486f8e5cade60183adf4ca9063f203ee8f",
+    "step_stream.py": "cc6dc8f6655821c363f6a234533129e35a78768d16c1cd95db97ec26c826a8ac",
+    "step_suffix.py": "323d5645fb6ad9d2163289e0ad41a036b934796b4f812fb3b16b9b6beec286be"
+  },
+  "step-stream-projections-only": {
+    "rf_prompt.py": "9377d38d0734cf1e1662abc387b3a0486f8e5cade60183adf4ca9063f203ee8f",
+    "step_stream.py": "a47606c0aa09c2033bf4823ec109f338839feb1cfc221331ee361a42cbe264a7",
+    "step_suffix.py": "323d5645fb6ad9d2163289e0ad41a036b934796b4f812fb3b16b9b6beec286be"
+  }
+}

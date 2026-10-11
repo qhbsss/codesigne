@@ -1,0 +1,11 @@
+--- baseline/project/schedule.py
++++ d1-init-unbarriered/project/schedule.py
+@@ -686,7 +686,7 @@
+                 if not hasattr(worker,'reducer_bias_source'):worker.reducer_bias_source={}
+                 worker.reducer_bias_source[layer*4*d+3*d]=base['b2'].offset+(index-16)*8
+             per_worker.append(item)
+-            if index % 32 == 31: emit_barrier(lines,workers)
++            if False: emit_barrier(lines,workers)
+         cached_layers.append(per_worker)
+     for step in range(steps):
+         x = probe.symbol(f"input/step{step}")

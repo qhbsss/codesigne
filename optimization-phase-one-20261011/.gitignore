@@ -1,0 +1,8 @@
+candidates/*/programs/
+candidates/*/regenerated/
+candidates/*/baseline-grade.json
+**/__pycache__/
+candidates/*/codesign/
+candidates/*/baseline_manifest.json
+candidates/*/challenge.py
+candidates/*/grade.log
