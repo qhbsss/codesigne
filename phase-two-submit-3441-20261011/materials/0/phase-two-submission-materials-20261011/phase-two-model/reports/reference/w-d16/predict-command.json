@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "/workspace/codesigne/phase-two-model/runtime/target/release/phase-two-model-runtime",
+    "predict",
+    "/workspace/codesigne/phase-two-starter/programs/reference/w-d16.jsonl",
+    "runs/decode-reference-comparison/w-d16/model/prediction.json"
+  ],
+  "seconds": 87.73833177699998,
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

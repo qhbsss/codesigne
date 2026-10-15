@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {"name": "w-p", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-p/option-0001/config.json", "weight": 0.25},
+    {"name": "a-p", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/a-p/option-0001/config.json", "weight": 0.25},
+    {"name": "w-d1", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d1/option-0000/config.json", "weight": 0.16666666666666666},
+    {"name": "w-d16", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d16/option-0000/config.json", "weight": 0.16666666666666666},
+    {"name": "w-d4l", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d4l/option-0001/config.json", "weight": 0.16666666666666666}
+  ],
+  "program_base": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000",
+  "program_choices": {
+    "w-p": [
+      "phase-two-model/runs/fuse-bias-20261011/w-p-bias-gelu-pipeline.jsonl",
+      "phase-two-model/runs/fuse-bias-20261011/w-p-all-pipeline.jsonl"
+    ],
+    "a-p": [
+      "phase-two-model/runs/fuse-bias-20261011/a-p-bias-gelu-pipeline.jsonl",
+      "phase-two-model/runs/fuse-bias-20261011/a-p-all-pipeline.jsonl",
+      "phase-two-model/runs/fuse-bias-20261011/a-p-all-reuse-within-pipeline.jsonl"
+    ],
+    "w-d1": ["phase-two-model/runs/fuse-bias-20261011/w-d1-bias-gelu.jsonl"],
+    "w-d16": ["phase-two-model/runs/fuse-bias-20261011/w-d16-bias-gelu.jsonl"],
+    "w-d4l": ["phase-two-model/runs/fuse-bias-20261011/w-d4l.jsonl"]
+  },
+  "domains": {},
+  "case_domains": {},
+  "hardware_choices": [{"hardware.vector": 64, "hardware.sfu": 11}],
+  "seed": 7,
+  "max_designs": 6,
+  "target_score": 5000
+}

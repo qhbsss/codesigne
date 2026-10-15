@@ -1,0 +1,125 @@
+{
+  "status": "complete",
+  "host_seconds": 951.0049867829948,
+  "peak_jobs": 2,
+  "all_checked": true,
+  "all_feasible": true,
+  "jobs": {
+    "w-d1": {
+      "status": "complete",
+      "exit_code": 0,
+      "error": null,
+      "host_seconds": 168.70762404397829,
+      "peak_rss_bytes": 754159616,
+      "cpu_seconds": 165.61195600000002,
+      "checked": true,
+      "feasible": true,
+      "limits": {
+        "wall_seconds": 1200,
+        "reserved_gib": 4,
+        "threads": 1,
+        "address_space_enforced": true
+      },
+      "command": [
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/source/target/release/vnext-concurrent",
+        "evaluate",
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/runs/k4-rf-causal-rf-reuse-joint-grade-20261011/programs/w-d1.jsonl",
+        "7",
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/runs/k4-rf-causal-rf-reuse-joint-grade-20261011/workers/w-d1/evaluation"
+      ]
+    },
+    "w-d16": {
+      "status": "complete",
+      "exit_code": 0,
+      "error": null,
+      "host_seconds": 203.28476182901068,
+      "peak_rss_bytes": 758661120,
+      "cpu_seconds": 200.260257,
+      "checked": true,
+      "feasible": true,
+      "limits": {
+        "wall_seconds": 1200,
+        "reserved_gib": 4,
+        "threads": 1,
+        "address_space_enforced": true
+      },
+      "command": [
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/source/target/release/vnext-concurrent",
+        "evaluate",
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/runs/k4-rf-causal-rf-reuse-joint-grade-20261011/programs/w-d16.jsonl",
+        "7",
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/runs/k4-rf-causal-rf-reuse-joint-grade-20261011/workers/w-d16/evaluation"
+      ]
+    },
+    "a-p": {
+      "status": "complete",
+      "exit_code": 0,
+      "error": null,
+      "host_seconds": 585.8888384259772,
+      "peak_rss_bytes": 429740032,
+      "cpu_seconds": 576.785391,
+      "checked": true,
+      "feasible": true,
+      "limits": {
+        "wall_seconds": 1200,
+        "reserved_gib": 4,
+        "threads": 1,
+        "address_space_enforced": true
+      },
+      "command": [
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/source/target/release/vnext-concurrent",
+        "evaluate",
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/runs/k4-rf-causal-rf-reuse-joint-grade-20261011/programs/a-p.jsonl",
+        "7",
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/runs/k4-rf-causal-rf-reuse-joint-grade-20261011/workers/a-p/evaluation"
+      ]
+    },
+    "w-d4l": {
+      "status": "complete",
+      "exit_code": 0,
+      "error": null,
+      "host_seconds": 383.93498250000994,
+      "peak_rss_bytes": 1529503744,
+      "cpu_seconds": 382.56186299999996,
+      "checked": true,
+      "feasible": true,
+      "limits": {
+        "wall_seconds": 1200,
+        "reserved_gib": 4,
+        "threads": 1,
+        "address_space_enforced": true
+      },
+      "command": [
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/source/target/release/vnext-concurrent",
+        "evaluate",
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/runs/k4-rf-causal-rf-reuse-joint-grade-20261011/programs/w-d4l.jsonl",
+        "7",
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/runs/k4-rf-causal-rf-reuse-joint-grade-20261011/workers/w-d4l/evaluation"
+      ]
+    },
+    "w-p": {
+      "status": "complete",
+      "exit_code": 0,
+      "error": null,
+      "host_seconds": 364.66698246399756,
+      "peak_rss_bytes": 584118272,
+      "cpu_seconds": 363.378708,
+      "checked": true,
+      "feasible": true,
+      "limits": {
+        "wall_seconds": 1200,
+        "reserved_gib": 4,
+        "threads": 1,
+        "address_space_enforced": true
+      },
+      "command": [
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/source/target/release/vnext-concurrent",
+        "evaluate",
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/runs/k4-rf-causal-rf-reuse-joint-grade-20261011/programs/w-p.jsonl",
+        "7",
+        "/home/admin/workspace/codesign/codesigne/phase-two-starter/runs/k4-rf-causal-rf-reuse-joint-grade-20261011/workers/w-p/evaluation"
+      ]
+    }
+  },
+  "official_score": null
+}

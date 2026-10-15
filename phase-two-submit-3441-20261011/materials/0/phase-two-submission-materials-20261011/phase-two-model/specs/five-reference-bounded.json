@@ -1,0 +1,12 @@
+{
+  "cases": [
+    {"name":"w-p","config":"phase-two-starter/configs/reference/w-p.json","weight":0.25,"overrides":{"policy.sh_direct":false}},
+    {"name":"a-p","config":"phase-two-starter/configs/reference/a-p.json","weight":0.25,"overrides":{"policy.sh_direct":false}},
+    {"name":"w-d1","config":"phase-two-starter/configs/reference/w-d1.json","weight":0.16666666666666666},
+    {"name":"w-d16","config":"phase-two-starter/configs/reference/w-d16.json","weight":0.16666666666666666},
+    {"name":"w-d4l","config":"phase-two-starter/configs/reference/w-d4l.json","weight":0.16666666666666666}
+  ],
+  "hardware_base_program": "phase-two-starter/programs/reference/w-p.jsonl",
+  "domains": {"hardware.rf_kib":[64,128],"policy.split_k":[1,2]},
+  "seed":7,"max_designs":4
+}

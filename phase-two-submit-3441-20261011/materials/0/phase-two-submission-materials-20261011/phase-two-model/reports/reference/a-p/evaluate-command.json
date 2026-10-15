@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/workspace/codesigne/phase-two-starter/source/target/release/vnext-concurrent",
+    "evaluate",
+    "/workspace/codesigne/phase-two-starter/programs/reference/a-p.jsonl",
+    "7",
+    "runs/five-reference-comparison/a-p/official"
+  ],
+  "seconds": 279.27081096899974,
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

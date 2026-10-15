@@ -1,0 +1,18 @@
+{
+  "cases": [
+    {"name": "w-d1", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d1/option-0000/config.json", "weight": 0.3333333333333333},
+    {"name": "w-d16", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d16/option-0000/config.json", "weight": 0.3333333333333333},
+    {"name": "w-d4l", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d4l/option-0001/config.json", "weight": 0.3333333333333333}
+  ],
+  "hardware_base_program": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-p/option-0001/program.jsonl",
+  "domains": {},
+  "case_domains": {
+    "w-d1": {"policy.n": [32], "policy.k": [256]},
+    "w-d16": {"policy.n": [32], "policy.k": [256]},
+    "w-d4l": {"policy.n": [32], "policy.k": [256]}
+  },
+  "fusion_factors": {"w-d1": [64], "w-d16": [64], "w-d4l": [256]},
+  "fusion_modes": {"w-d1": ["concat"], "w-d16": ["concat"], "w-d4l": ["concat"]},
+  "seed": 7,
+  "max_designs": 1
+}

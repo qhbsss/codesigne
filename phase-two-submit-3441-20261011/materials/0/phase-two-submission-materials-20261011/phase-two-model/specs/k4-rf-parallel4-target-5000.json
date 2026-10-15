@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {"name": "w-p", "config": "phase-two-starter/configs/k4-rf/w-p.json", "weight": 0.25},
+    {"name": "a-p", "config": "phase-two-starter/configs/k4-rf/a-p.json", "weight": 0.25},
+    {"name": "w-d1", "config": "phase-two-starter/configs/k4-rf/w-d1.json", "weight": 0.16666666666666666},
+    {"name": "w-d16", "config": "phase-two-starter/configs/k4-rf/w-d16.json", "weight": 0.16666666666666666},
+    {"name": "w-d4l", "config": "phase-two-starter/configs/k4-rf/w-d4l.json", "weight": 0.16666666666666666}
+  ],
+  "domains": {},
+  "case_domains": {
+    "w-p": {"parallel_groups": [2, 4]},
+    "a-p": {"parallel_groups": [2, 4]},
+    "w-d1": {"parallel_groups": [2, 4]},
+    "w-d16": {"parallel_groups": [2, 4]},
+    "w-d4l": {"parallel_groups": [2, 4]}
+  },
+  "hardware_choices": [
+    {"hardware.dma_engines": 2, "hardware.sfu": 15,
+     "hardware.sm_noc": 64, "hardware.hbm_queue": 128,
+     "hardware.resident_groups": 4}
+  ],
+  "seed": 7,
+  "max_designs": 32,
+  "target_score": 5000
+}

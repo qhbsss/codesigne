@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {"name":"case-a","config":"phase-two-starter/examples/small-config.json","weight":0.5},
+    {"name":"case-b","config":"phase-two-starter/examples/small-config.json","weight":0.5}
+  ],
+  "domains": {"hardware.rf_tier":[1,2]},
+  "case_domains": {
+    "case-a":{"policy.m":[2,4]},
+    "case-b":{"policy.m":[2,4]}
+  },
+  "seed":7,
+  "max_designs":8,
+  "solver_seconds":30
+}

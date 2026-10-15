@@ -1,0 +1,20 @@
+{
+  "cases": [
+    {"name":"w-p","config":"phase-two-starter/configs/k4-rf/w-p.json","weight":0.25},
+    {"name":"a-p","config":"phase-two-starter/configs/k4-rf/a-p.json","weight":0.25},
+    {"name":"w-d1","config":"phase-two-starter/configs/k4-rf/w-d1.json","weight":0.16666666666666666},
+    {"name":"w-d16","config":"phase-two-starter/configs/k4-rf/w-d16.json","weight":0.16666666666666666},
+    {"name":"w-d4l","config":"phase-two-starter/configs/k4-rf/w-d4l.json","weight":0.16666666666666666}
+  ],
+  "domains": {},
+  "case_domains": {
+    "w-p":  {"policy.m":[32,64], "policy.k":[128,256], "policy.head_group":[1,12]},
+    "a-p":  {"policy.m":[32,64], "policy.k":[128,256], "policy.head_group":[1,8]},
+    "w-d1": {"policy.k":[112,256], "policy.vector_gemv":[false,true]},
+    "w-d16":{"policy.m":[16], "policy.k":[112,256], "policy.vector_gemv":[false,true]},
+    "w-d4l":{"policy.m":[4], "policy.k":[112,256], "policy.vector_gemv":[false,true]}
+  },
+  "seed": 7,
+  "max_designs": 10000000,
+  "target_score": 5000
+}

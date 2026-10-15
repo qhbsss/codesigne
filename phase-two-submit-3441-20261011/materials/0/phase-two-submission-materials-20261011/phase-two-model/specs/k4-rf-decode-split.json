@@ -1,0 +1,9 @@
+{
+  "cases": [
+    {"name":"w-d1","config":"phase-two-starter/configs/k4-rf/w-d1.json","weight":0.3333333333333333},
+    {"name":"w-d16","config":"phase-two-starter/configs/k4-rf/w-d16.json","weight":0.3333333333333333},
+    {"name":"w-d4l","config":"phase-two-starter/configs/k4-rf/w-d4l.json","weight":0.3333333333333333}
+  ],
+  "domains":{"policy.split_k":[1,2,4]},
+  "seed":7,"max_designs":3
+}

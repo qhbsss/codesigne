@@ -1,0 +1,50 @@
+{
+  "cases": [
+    {"name": "w-p", "config": "phase-two-starter/configs/k4-rf/w-p.json", "weight": 0.25},
+    {"name": "a-p", "config": "phase-two-starter/configs/k4-rf/a-p.json", "weight": 0.25},
+    {"name": "w-d1", "config": "phase-two-starter/configs/k4-rf/w-d1.json", "weight": 0.16666666666666666},
+    {"name": "w-d16", "config": "phase-two-starter/configs/k4-rf/w-d16.json", "weight": 0.16666666666666666},
+    {"name": "w-d4l", "config": "phase-two-starter/configs/k4-rf/w-d4l.json", "weight": 0.16666666666666666}
+  ],
+  "domains": {},
+  "case_domains": {},
+  "hardware_choices": [
+    {"hardware.rf_kib": 128, "hardware.sh_kib": 128,
+     "hardware.sh_banks": 16, "hardware.sh_tc_bw": 128,
+     "hardware.p": 16, "hardware.q": 16, "hardware.tc_k_parallel": 1,
+     "hardware.vector": 64, "hardware.sfu": 24,
+     "hardware.dma_engines": 2,
+     "hardware.sm_noc": 64, "hardware.hbm_queue": 128},
+    {"hardware.rf_kib": 128, "hardware.sh_kib": 128,
+     "hardware.sh_banks": 16, "hardware.sh_tc_bw": 128,
+     "hardware.p": 8, "hardware.q": 16, "hardware.tc_k_parallel": 2,
+     "hardware.vector": 64, "hardware.sfu": 23,
+     "hardware.dma_engines": 2,
+     "hardware.sm_noc": 64, "hardware.hbm_queue": 128}
+  ],
+  "case_choices": {
+    "w-p": [
+      {"policy.sh_rows": 2, "policy.sh_direct": true},
+      {"policy.sh_rows": 4, "policy.sh_direct": true}
+    ],
+    "a-p": [
+      {"policy.sh_rows": 2, "policy.sh_direct": true},
+      {"policy.sh_rows": 4, "policy.sh_direct": true}
+    ],
+    "w-d1": [
+      {"policy.sh_rows": 2, "policy.sh_direct": true},
+      {"parallel_groups": 1}
+    ],
+    "w-d16": [
+      {"policy.sh_rows": 2, "policy.sh_direct": true},
+      {"parallel_groups": 1}
+    ],
+    "w-d4l": [
+      {"policy.sh_rows": 2, "policy.sh_direct": true},
+      {"parallel_groups": 1}
+    ]
+  },
+  "seed": 7,
+  "max_designs": 64,
+  "target_score": 5000
+}

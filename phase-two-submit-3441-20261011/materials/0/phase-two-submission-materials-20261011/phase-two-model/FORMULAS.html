@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>阶段二作业｜完整数学模型、求解与真实数据代入</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, -apple-system, "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; color: #1b3447; background: #f3f6f8; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { max-width: 1190px; margin: 0 auto; padding: 24px 24px 80px; line-height: 1.72; }
+    h1, h2, h3 { line-height: 1.35; }
+    h1 { font-size: clamp(1.9rem, 4vw, 3rem); margin: 12px 0; }
+    h2 { font-size: 1.5rem; margin: 0 0 17px; }
+    h3 { font-size: 1.14rem; margin: 25px 0 8px; }
+    p { margin: 10px 0 16px; }
+    a { color: #14629b; }
+    a:hover { text-decoration-thickness: 2px; }
+    code, samp { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; background: #eaf0f5; padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    .hero { background: linear-gradient(120deg, #17314a, #164866); padding: 35px 38px; border-radius: 18px; color: #fff; }
+    .hero p { color: #e1ecf4; max-width: 900px; }
+    .label { font-size: .86rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #9fd8de; }
+    .nav { position: sticky; top: 0; z-index: 2; background: #f3f6f8ef; display: flex; gap: 7px; flex-wrap: wrap; padding: 12px 0; backdrop-filter: blur(8px); }
+    .nav a { display: inline-block; background: #fff; padding: 5px 10px; border: 1px solid #dbe6ed; border-radius: 7px; text-decoration: none; font-size: .88rem; }
+    section { scroll-margin-top: 95px; background: #fff; border: 1px solid #dce6ec; border-radius: 15px; margin: 18px 0; padding: 26px 32px; box-shadow: 0 2px 13px #1835490a; }
+    .lead { font-size: 1.06rem; color: #37536a; }
+    .equation { margin: 15px 0; padding: 17px 14px; background: #f5faff; border: 1px solid #d4e6f1; border-left: 4px solid #2a829e; border-radius: 7px; overflow-x: auto; text-align: center; }
+    .equation math { font-size: 1.13rem; white-space: nowrap; }
+    .caption { font-size: .89rem; color: #4b6478; margin: -9px 3px 16px; }
+    .callout { background: #fff7e9; border-left: 4px solid #cb7a30; padding: 13px 17px; border-radius: 5px; margin: 17px 0; }
+    .good { background: #eaf7f1; border-left: 4px solid #388b6c; padding: 13px 17px; border-radius: 5px; margin: 17px 0; }
+    .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 9px; margin: 22px 0; }
+    .flow > div { border: 1px solid #cadeeb; background: #edf5fb; border-radius: 10px; padding: 14px 12px; }
+    .flow b, .flow span { display: block; }
+    .flow span { font-size: .88rem; color: #496273; }
+    .twocol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+    .card { background: #f6f9fb; border: 1px solid #dce7ed; border-radius: 9px; padding: 13px 16px; }
+    .card h3 { margin: 0 0 7px; }
+    .table-scroll { overflow-x: auto; margin: 14px 0 20px; }
+    table { width: 100%; border-collapse: collapse; min-width: 680px; font-size: .93rem; }
+    th, td { border-bottom: 1px solid #e1eaf0; padding: 9px 11px; text-align: left; vertical-align: top; }
+    th { background: #eff5f8; white-space: nowrap; }
+    tbody tr:hover { background: #f8fbfd; }
+    .selected { background: #eaf7f1; }
+    .selected:hover { background: #e3f4ec; }
+    .number { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .small { font-size: .88rem; color: #4a6275; }
+    ul { padding-left: 22px; }
+    li { margin: 7px 0; }
+    footer { padding: 18px 8px; color: #496273; }
+    @media (max-width: 800px) { body { padding: 12px 12px 55px; } section, .hero { padding: 21px 17px; } .nav { position: static; } .flow { grid-template-columns: repeat(2, 1fr); } .twocol { grid-template-columns: 1fr; } }
+    @media print { :root { background: #fff; } body { max-width: none; padding: 0; } .nav { display: none; } section { break-inside: avoid; box-shadow: none; } .hero { color: #fff; print-color-adjust: exact; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="label">阶段二作业 · 可离线阅读的完整模型</div>
+    <h1>从程序设计变量，到整数规划、周期预测与正式验收</h1>
+    <p>不是一张简图：下面给出目标函数、23个硬件字段、软件变量、面积和正确性约束、计算/通信时间公式、可证明下界、整数规划，以及从真实运行文件提取的两场景八选项手算示例和五场景打分示例。</p>
+    <p class="small" style="color:#d4e4ef">公式使用浏览器原生 MathML；打开本文件无需联网、脚本、插件或 LaTeX 环境。依据仓库当前模型实现与已存档运行，模型不等于一份已求解的全空间精确MILP。</p>
+    <p class="small" style="color:#d4e4ef">本页五场景数据表是历史教学算例（1976.2252 分），不是当前最佳。最新联合 MIP 条件预测 3793.6507 分、真实评分未知；详见 <a style="color:#d4e4ef" href="reports/causal-triangular-20261011.md">近期运行报告</a>。</p>
+  </header>
+
+  <nav class="nav" aria-label="章节导航">
+    <a href="#map">总览</a><a href="#target">目标/分数</a><a href="#hardware">硬件设计</a><a href="#software">软件程序</a><a href="#feasibility">硬约束</a>
+    <a href="#exact">计算/精确运行</a><a href="#lower">可证下界</a><a href="#estimate">独立估计</a><a href="#milp">MILP</a>
+    <a href="#toy">真实小例</a><a href="#five">五场景代入</a><a href="#gaps">建模缺口</a><a href="#sources">来源</a>
+  </nav>
+
+  <main>
+    <section id="map">
+      <h2>01 · 先搞清楚：模型究竟有几层？</h2>
+      <p class="lead">数学优化对象是<strong>一套共享硬件 + 每个场景一份生成的静态程序</strong>；不是把一条拟合出来的“预测周期公式”直接交给求解器，就自动得到所有合法程序的全局最优。</p>
+      <div class="flow" aria-label="先建模、求解、验证的工作流">
+        <div><b>① 有限菜单</b><span>选择共享硬件 H、各场景策略 θ；固定工作负载、权重、种子。</span></div>
+        <div><b>② 生成程序</b><span>由官方生成器导出 P，再从实际付费指令取资源下界 L。</span></div>
+        <div><b>③ 解主问题</b><span>共享硬件 x 与逐场景软件 y 的 MILP；未验证项只使用安全下界。</span></div>
+        <div><b>④ 上界与预测</b><span>安全下界先证明某门槛是否不可能；否则用独立估计 Ť 筛查。</span></div>
+        <div><b>⑤ 真正验收</b><span>同一程序 SHA，精确时序/功耗、FP32 参考检查、五场景评分。</span></div>
+      </div>
+      <div class="twocol">
+        <div class="card"><h3>理想设计问题</h3><p>在所有合法硬件和所有合法程序中找最高正式得分；包括尚未参数化的布局、融合与任意指令序列。<strong>目前没有完整展开成独立可解的MILP。</strong></p></div>
+        <div class="card"><h3>真正落地的求解问题</h3><p>先声明有限硬件/软件菜单，再用生成器为每个选项产出程序；主问题对此有限域可求解，下界与官方验收可形成<strong>有条件的有限域证书</strong>。</p></div>
+      </div>
+    </section>
+
+    <section id="target">
+      <h2>02 · 目标函数：怎样从周期得到分数</h2>
+      <p>记场景集合为 𝒞，共享硬件 H、场景 c 的软件策略 θ<sub>c</sub>、生成器 G<sub>c</sub>，静态程序 P<sub>c</sub>＝G<sub>c</sub>(H, θ<sub>c</sub>)。设完整验收测得周期 T<sub>c</sub>、参考周期 R<sub>c</sub>、权重 w<sub>c</sub>。</p>
+      <div class="equation" aria-label="实际优化目标"><math display="block"><mrow><munder><mo>min</mo><mrow><mi>H</mi><mo>,</mo><msub><mi>θ</mi><mi>c</mi></msub></mrow></munder><mi>J</mi><mo>=</mo><munder><mo>∑</mo><mrow><mi>c</mi><mo>∈</mo><mi>𝒞</mi></mrow></munder><msub><mi>w</mi><mi>c</mi></msub><mi>ln</mi><mo>⁡</mo><msub><mi>T</mi><mi>c</mi></msub><mo>(</mo><mi>H</mi><mo>,</mo><msub><mi>G</mi><mi>c</mi></msub><mo>(</mo><mi>H</mi><mo>,</mo><msub><mi>θ</mi><mi>c</mi></msub><mo>)</mo><mo>)</mo></mrow></math></div>
+      <div class="equation" aria-label="正式得分公式"><math display="block"><mrow><mi>S</mi><mo>=</mo><mn>1000</mn><mo>·</mo><mi>exp</mi><mo>⁡</mo><mo>(</mo><munder><mo>∑</mo><mrow><mi>c</mi><mo>∈</mo><mi>𝒞</mi></mrow></munder><msub><mi>w</mi><mi>c</mi></msub><mo>·</mo><mi>ln</mi><mo>⁡</mo><mfrac><msub><mi>R</mi><mi>c</mi></msub><msub><mi>T</mi><mi>c</mi></msub></mfrac><mo>)</mo><mo>,</mo><mspace width="1em"/><munder><mo>∑</mo><mi>c</mi></munder><msub><mi>w</mi><mi>c</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>
+      <p>由于参考周期为常数，且前提是所有资格门槛都通过，最大化 S 等价于最小化 J。当前目标 5000 分等价于加权几何平均加速比至少 5，而<strong>不是</strong>每个场景分别至少快 5 倍。</p>
+      <div class="equation" aria-label="5000分等价条件"><math display="block"><mrow><mi>S</mi><mo>≥</mo><mn>5000</mn><mo>⇔</mo><mi>J</mi><mo>≤</mo><munder><mo>∑</mo><mi>c</mi></munder><msub><mi>w</mi><mi>c</mi></msub><mi>ln</mi><mo>⁡</mo><msub><mi>R</mi><mi>c</mi></msub><mo>−</mo><mi>ln</mi><mo>⁡</mo><mn>5</mn></mrow></math></div>
+      <div class="table-scroll"><table><thead><tr><th>正式场景 c</th><th>参考周期 R<sub>c</sub></th><th>权重 w<sub>c</sub></th><th>该列是否是优化变量？</th></tr></thead><tbody>
+        <tr><td><code>w-p</code></td><td class="number">187,689,274</td><td>1/4</td><td>否，官方常量</td></tr>
+        <tr><td><code>a-p</code></td><td class="number">374,856,358</td><td>1/4</td><td>否</td></tr>
+        <tr><td><code>w-d1</code></td><td class="number">27,068,433</td><td>1/6</td><td>否</td></tr>
+        <tr><td><code>w-d16</code></td><td class="number">42,358,913</td><td>1/6</td><td>否</td></tr>
+        <tr><td><code>w-d4l</code></td><td class="number">70,439,292</td><td>1/6</td><td>否</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section id="hardware">
+      <h2>03 · 硬件模型：选器件规格与数量，不选物理排布</h2>
+      <p>硬件 H 是<strong>芯片资源配置向量</strong>：SM 数、每个 SM 的计算引擎数量/宽度、RF/SH 容量与端口带宽，以及芯片层 HBM/NoC/Cache 容量和功能开关。23 个字段中，有些是数量，有些是尺寸、带宽或是否启用，不能笼统理解为“每种器件的数量和排布方式”。</p>
+      <div class="equation" aria-label="连续描述与离散选择对应关系"><math display="block"><mrow><mi>H</mi><mo>=</mo><mo>(</mo><msub><mi>H</mi><mn>1</mn></msub><mo>,</mo><mo>…</mo><mo>,</mo><msub><mi>H</mi><mn>23</mn></msub><mo>)</mo><mo>,</mo><mspace width="1em"/><msub><mi>P</mi><mi>c</mi></msub><mo>=</mo><msub><mi>G</mi><mi>c</mi></msub><mo>(</mo><mi>H</mi><mo>,</mo><msub><mi>θ</mi><mi>c</mi></msub><mo>)</mo></mrow></math></div>
+      <div class="twocol">
+        <div class="card"><h3>数量与规模</h3><p><code>sms</code>、<code>tc_count</code>、<code>dma_engines</code>、<code>hbm_channels</code> 是数量；<code>p/q</code>、<code>vector/sfu</code> 是计算形状或宽度；<code>rf_kib/sh_kib/cache_mib</code> 是容量；<code>rf_tier/sm_noc/global_noc/sh_tc_bw</code> 是访问或互联带宽。容量变大不意味着排布改变。</p></div>
+        <div class="card"><h3>排布与拓扑的边界</h3><p>每个 SM 被视为同构实例，硬件配置没有“TC 放在第几个 SM”“SM 间连线矩阵”“片上线路的物理坐标”这样的变量。<code>sm_noc/global_noc</code> 控制带宽，不是网络拓扑；<code>multicast</code> 是功能开关。工作组落到哪个 SM 是<strong>程序的静态归属</strong>，不是器件物理排布。</p></div>
+      </div>
+      <p>理论上 23 个字段可以从合法菜单选值；<strong>具体一次求解只改变事先声明的子集</strong>。小例里仅 <code>hardware.rf_tier∈{1,2}</code> 可选，其余 22 个字段均固定。同一 H 供所有场景共享，硬件面积与静态组合规则必须通过校验。</p>
+      <h3>23 个硬件字段（“小例”取最优档位时的实值）</h3>
+      <div class="table-scroll"><table><thead><tr><th>字段</th><th>小例值</th><th>作用：改变哪些资源或约束</th></tr></thead><tbody>
+        <tr><td><code>sms</code></td><td>8</td><td>SM 数量；wave 的分配、并行能力和总面积。</td></tr>
+        <tr><td><code>rf_kib</code></td><td>128</td><td>每 SM 寄存器容量 KiB；并驻上限及 RF 访问延迟。</td></tr>
+        <tr><td><code>rf_tier</code></td><td><strong>2</strong></td><td>每周期 RF 读/写字节带宽和面积/能耗档位；本例唯一硬件选择。</td></tr>
+        <tr><td><code>vector</code></td><td>32</td><td>向量运算每微步骤的宽度，决定拆分数量。</td></tr>
+        <tr><td><code>sfu</code></td><td>8</td><td>特殊函数宽度；不得超过 <code>vector</code>。</td></tr>
+        <tr><td><code>p</code> / <code>q</code></td><td>8 / 16</td><td>Tensor Core 物理矩阵块；决定 padding 与累计工作量。</td></tr>
+        <tr><td><code>tc_count</code></td><td>1</td><td>每 SM Tensor Core 实例数。</td></tr>
+        <tr><td><code>tc_k_parallel</code></td><td>1</td><td>K 方向 TC 并行粒度与 core 时长。</td></tr>
+        <tr><td><code>sh_kib</code></td><td>128</td><td>每 SM shared memory 容量 KiB。</td></tr>
+        <tr><td><code>sh_banks</code></td><td>16</td><td>shared memory bank 数，影响冲突服务周期。</td></tr>
+        <tr><td><code>sh_tc_bw</code></td><td>64</td><td>SH→TC 接口带宽；为 0 时不可使用相应路径。</td></tr>
+        <tr><td><code>shared_ports</code></td><td>1</td><td>SH 读端口数，影响 bank 读冲突。</td></tr>
+        <tr><td><code>reduction_units</code></td><td>0</td><td>专用 reduction 引擎数；0 时走向量引擎。</td></tr>
+        <tr><td><code>dma_depth</code></td><td>1</td><td>DMA 发射/队列相关容量与面积。</td></tr>
+        <tr><td><code>dma_engines</code></td><td>1</td><td>每 SM DMA 引擎数量与服务并发。</td></tr>
+        <tr><td><code>sm_noc</code></td><td>64</td><td>SM 网络接口带宽/面积。</td></tr>
+        <tr><td><code>global_noc</code></td><td>512</td><td>全局网络吞吐/面积。</td></tr>
+        <tr><td><code>hbm_channels</code></td><td>8</td><td>HBM 通道数；增加带宽、面积和基础功耗。</td></tr>
+        <tr><td><code>hbm_queue</code></td><td>256</td><td>每 HBM 通道请求队列容量。</td></tr>
+        <tr><td><code>cache_mib</code></td><td>0</td><td>Cache 容量 MiB；改变命中/失效状态及面积。</td></tr>
+        <tr><td><code>multicast</code></td><td>false</td><td>NoC 多播开关。</td></tr>
+        <tr><td><code>resident_groups</code></td><td>2</td><td>同一 SM 每 wave 的并驻组槽位上限。</td></tr>
+      </tbody></table></div>
+      <p class="small">上表有 23 个字段：其中 <code>p</code> 和 <code>q</code> 同行显示，但分别是两个字段。硬件菜单、TC/SH 组合规则以 <code>model/hardware.py</code> 的离散取值与校验为准。</p>
+    </section>
+
+    <section id="software">
+      <h2>04 · 软件模型：生成什么程序，而不是改写硬件仲裁器</h2>
+      <p>每个场景 c 有自己的策略 θ<sub>c</sub>。官方生成器把它和共享硬件 H 变成静态程序 P<sub>c</sub>：决定计算怎样分块、选择哪些算子实现、数据怎样打包或复用、有哪些 wave、每组绑哪个 SM、申请多少 RF/SH，以及指令、DMA 与 wait/token 的顺序。<strong>软件决策会改变调度的输入，但不是动态调度器本身。</strong></p>
+      <div class="twocol">
+        <div class="card"><h3>程序设计可表达的调度</h3><p>例如 <code>policy.m</code> 改变 GEMM 行分块；<code>split_k</code> 改变 K 维并行与合并；<code>parallel_groups</code>、<code>async_prefetch</code> 改变并行与异步指令安排。每个导出组有 <code>sm</code>、<code>rf_kib</code>、<code>sh_kib</code>、<code>commands</code> 字段。</p></div>
+        <div class="card"><h3>运行时调度仍由模拟器决定</h3><p>同一 SM 多组同时就绪时，谁先发射、DMA 队列何时空闲、端口何时释放、HBM/NoC 何时返回，由固定调度/内存状态转移规则按执行状态决定；<code>policy.m</code> 不是“直接指定第 812 个周期运行哪条指令”。当前 MILP 也没有把每条指令的 PC 和每周期发射作为决策变量。</p></div>
+      </div>
+      <h3>软件策略 θ<sub>c</sub>：每个场景可以单独选</h3>
+      <div class="table-scroll"><table><thead><tr><th>策略字段</th><th>作用</th><th>小例是否放入选解空间</th></tr></thead><tbody>
+        <tr><td><code>policy.m / n / k</code></td><td>生成器 GEMM 行、列、K 分块尺寸；改变程序 wave、工作组和付费访存/计算。</td><td>仅 <code>m∈{2,4}</code>，其余固定 <code>n=k=16</code>。</td></tr>
+        <tr><td><code>policy.vector_gemv</code></td><td>窄行 GEMV 的向量实现路径。</td><td>固定 false。</td></tr>
+        <tr><td><code>policy.pack_transpose</code></td><td>选择是否对跨列访问矩阵进行打包/转置。</td><td>固定 false。</td></tr>
+        <tr><td><code>policy.split_k</code></td><td>部分 GEMV 的 K 维拆分；增加并行也可能增加合并成本。</td><td>固定 1；五场景中三个 decode 场景选 {1,2}。</td></tr>
+        <tr><td><code>policy.head_group</code></td><td>attention head 分组。</td><td>固定 1。</td></tr>
+        <tr><td><code>policy.persistent_keys</code></td><td>决定是否维护供后续读取的转置 K 缓存。</td><td>固定 false。</td></tr>
+        <tr><td><code>policy.sh_rows / sh_direct</code></td><td>SH GEMM 按行复用与是否从 SH 直供 TC。</td><td>小例未启用/未作为变量。</td></tr>
+        <tr><td><code>parallel_groups / async_prefetch</code></td><td>生成器的并行组安排及异步预取开关。</td><td>固定 2 / false；还要逐 wave 验证真实容量。</td></tr>
+      </tbody></table></div>
+      <p><strong>实际能搜索的范围更窄：</strong>小例仅每场景 <code>policy.m∈{2,4}</code>，正式五场景有限域仅预填充场景的 <code>m∈{16,32}</code> 与三个解码场景的 <code>split_k∈{1,2}</code>。虽然程序本身包含 SM 归属和指令序列，当前主问题只从生成器参数中选择，<strong>并未把任意 SM 映射或任意指令排列作为独立搜索变量</strong>。</p>
+      <div class="callout"><strong>范围提醒：</strong><code>shape</code>、<code>batch</code>、<code>decode</code>、<code>seed</code>、参考周期和评分权重是作业输入/测试条件，不允许当作求解变量调分。生成器策略也不是所有合法静态程序的参数化。</div>
+    </section>
+
+    <section id="feasibility">
+      <h2>05 · 可行性约束：为什么不能只看“更快”</h2>
+      <h3>硬件离散菜单与组合规则</h3>
+      <div class="equation" aria-label="硬件字段单选条件"><math display="block"><mrow><msub><mi>x</mi><mrow><mi>j</mi><mo>,</mo><mi>k</mi></mrow></msub><mo>∈</mo><mo>{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>}</mo><mo>,</mo><mspace width="1em"/><munder><mo>∑</mo><mrow><mi>k</mi><mo>∈</mo><msub><mi>D</mi><mi>j</mi></msub></mrow></munder><msub><mi>x</mi><mrow><mi>j</mi><mo>,</mo><mi>k</mi></mrow></msub><mo>=</mo><mn>1</mn></mrow></math></div>
+      <p>这是 23 字段有限菜单的一种数学描述；<strong>当前代码的主 MILP 并不直接放入全部 23 组 one-hot</strong>，而是先枚举规格内合法的共享硬件 h 再用 <var>x<sub>h</sub></var> 选择。静态规则包括 SFU≤Vector、TC 开关与形状必须相容、SH 关闭则 bank/interface 关闭、SH→TC 必须有 TC、面积≤100 AU。</p>
+      <h3>面积的完整独立结构式</h3>
+      <p>令 N＝sms、R＝rf_kib、t＝rf_tier、V＝vector、U＝sfu、c＝tc_count、k<sub>p</sub>＝tc_k_parallel、S<sub>H</sub>＝sh_kib、b＝sh_banks、u＝shared_ports、B<sub>t</sub>＝sh_tc_bw、r＝reduction_units、z＝dma_depth、d＝dma_engines、G＝resident_groups、B<sub>s</sub>＝sm_noc、B<sub>n</sub>＝global_noc、h＝hbm_channels、Q＝hbm_queue、C＝cache_mib，m＝1 表示 multicast。RF 档位面积系数 f<sub>t</sub>∈{1,1.6,2.6}。</p>
+      <div class="equation" aria-label="每SM面积前半"><math display="block"><mrow><msub><mi>a</mi><mi>SM</mi></msub><mo>=</mo><mn>0.45</mn><mo>+</mo><mn>0.018</mn><mi>V</mi><mo>+</mo><mn>0.06</mn><mi>U</mi><mo>+</mo><mi>c</mi><mo>[</mo><mn>0.072</mn><mo>+</mo><mn>0.008</mn><mo>(</mo><mi>p</mi><mi>q</mi><mo>+</mo><mi>p</mi><mo>+</mo><mi>q</mi><mo>)</mo><msub><mi>k</mi><mi>p</mi></msub><mo>]</mo><mo>+</mo><mn>0.018</mn><mi>R</mi><msub><mi>f</mi><mi>t</mi></msub></mrow></math></div>
+      <div class="equation" aria-label="每SM面积后半"><math display="block"><mrow><mo>+</mo><mn>0.004</mn><msub><mi>S</mi><mi>H</mi></msub><mo>+</mo><mn>0.015</mn><mi>b</mi><mo>+</mo><mo>(</mo><mi>u</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>(</mo><mn>0.0015</mn><msub><mi>S</mi><mi>H</mi></msub><mo>+</mo><mn>0.008</mn><mi>b</mi><mo>)</mo><mo>+</mo><msub><mi>𝟙</mi><mrow><msub><mi>B</mi><mi>t</mi></msub><mo>&gt;</mo><mn>0</mn></mrow></msub><mo>(</mo><mn>0.28</mn><mo>+</mo><mn>0.004</mn><msub><mi>B</mi><mi>t</mi></msub><mo>)</mo></mrow></math></div>
+      <div class="equation" aria-label="每SM面积附加组件"><math display="block"><mrow><mo>+</mo><mi>r</mi><mo>(</mo><mn>0.10</mn><mo>+</mo><mn>0.012</mn><mi>V</mi><mo>)</mo><mo>+</mo><mn>0.514</mn><mo>+</mo><mi>d</mi><mo>[</mo><mn>0.10</mn><mo>+</mo><mn>0.006</mn><mo>(</mo><mn>4</mn><mo>+</mo><mn>2</mn><mi>z</mi><mo>)</mo><mo>]</mo><mo>+</mo><mn>0.256</mn><mo>+</mo><mn>0.08</mn><mo>(</mo><mi>G</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>+</mo><mn>0.002</mn><mi>z</mi><mi>G</mi><mo>+</mo><mn>0.15</mn><msup><mrow><mo>(</mo><msub><mi>B</mi><mi>s</mi></msub><mo>/</mo><mn>64</mn><mo>)</mo></mrow><mn>1.3</mn></msup><mo>+</mo><mn>0.04</mn><mi>m</mi></mrow></math></div>
+      <div class="equation" aria-label="全芯片面积公式"><math display="block"><mrow><mi>A</mi><mo>(</mo><mi>H</mi><mo>)</mo><mo>=</mo><mi>N</mi><msub><mi>a</mi><mi>SM</mi></msub><mo>+</mo><msub><mi>𝟙</mi><mrow><mi>C</mi><mo>&gt;</mo><mn>0</mn></mrow></msub><mo>(</mo><mn>3</mn><mi>C</mi><mo>+</mo><mn>0.6</mn><mo>+</mo><mn>0.012</mn><mo>·</mo><mn>256</mn><mo>+</mo><mn>0.006</mn><mo>·</mo><mn>64</mn><mo>)</mo><mo>+</mo><mn>0.65</mn><mi>h</mi><mo>+</mo><mn>0.0015</mn><mi>h</mi><mi>Q</mi><mo>+</mo><mn>1</mn><mo>+</mo><mn>0.035</mn><mi>N</mi><mo>+</mo><mn>0.8</mn><msup><mrow><mo>(</mo><msub><mi>B</mi><mi>n</mi></msub><mo>/</mo><mn>128</mn><mo>)</mo></mrow><mn>1.3</mn></msup><mo>+</mo><mn>0.2</mn><mi>m</mi><mo>+</mo><mn>2</mn><mo>≤</mo><mn>100</mn></mrow></math></div>
+      <p class="caption">面积单位 AU；绝大部分变量增大都会消耗面积预算，绝不能同时取各自的最大档位。靠近 100 AU 的浮点边界由官方 validate 作最终裁决。</p>
+      <h3>每个 wave / SM 的实际并驻容量</h3>
+      <div class="equation" aria-label="逐wave并驻容量"><math display="block"><mrow><munder><mo>∑</mo><mrow><mi>g</mi><mo>∈</mo><msub><mi>𝒢</mi><mrow><mi>w</mi><mo>,</mo><mi>s</mi></mrow></msub></mrow></munder><msub><mi>r</mi><mi>g</mi></msub><mo>≤</mo><msub><mi>R</mi><mi>KiB</mi></msub><mo>,</mo><mspace width="1em"/><munder><mo>∑</mo><mrow><mi>g</mi><mo>∈</mo><msub><mi>𝒢</mi><mrow><mi>w</mi><mo>,</mo><mi>s</mi></mrow></msub></mrow></munder><msub><mi>h</mi><mi>g</mi></msub><mo>≤</mo><msub><mi>S</mi><mi>H</mi></msub><mo>,</mo><mspace width="1em"/><mo>|</mo><msub><mi>𝒢</mi><mrow><mi>w</mi><mo>,</mo><mi>s</mi></mrow></msub><mo>|</mo><mo>≤</mo><mi>G</mi></mrow></math></div>
+      <p>𝒢<sub>w,s</sub> 是 wave w 固定到 SM s 的组；r<sub>g</sub>、h<sub>g</sub> 是导出程序实际申请的 RF/SH KiB。仅校验 <code>parallel_groups≤resident_groups</code> <strong>不够</strong>：实际导出的组会因为分块尺寸或布局超出 RF/SH 容量。</p>
+      <h3>整个程序还需通过的门槛</h3>
+      <div class="equation" aria-label="功耗内存周期约束"><math display="block"><mrow><msub><mi>M</mi><mi>peak</mi></msub><mo>≤</mo><mn>2</mn><mtext> GiB</mtext><mo>,</mo><mspace width="1em"/><msub><mi>M</mi><mi>cumulative</mi></msub><mo>≤</mo><mn>64</mn><mtext> GiB</mtext><mo>,</mo><mspace width="1em"/><msub><mi>P</mi><mn>100</mn></msub><mo>≤</mo><mn>34</mn><mtext> W</mtext><mo>,</mo><mspace width="1em"/><msub><mi>P</mi><mn>10000</mn></msub><mo>≤</mo><mn>26</mn><mtext> W</mtext><mo>,</mo><mspace width="1em"/><msub><mi>T</mi><mi>c</mi></msub><mo>≤</mo><mn>8</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup></mrow></math></div>
+      <div class="equation" aria-label="逐元素数值正确性"><math display="block"><mrow><mo>∀</mo><mi>c</mi><mo>,</mo><mi>σ</mi><mo>,</mo><mi>j</mi><mo>:</mo><mspace width=".5em"/><mo>|</mo><msubsup><mi>y</mi><mrow><mi>c</mi><mo>,</mo><mi>j</mi></mrow><mi>σ</mi></msubsup><mo>−</mo><msubsup><mover><mi>y</mi><mo>^</mo></mover><mrow><mi>c</mi><mo>,</mo><mi>j</mi></mrow><mi>σ</mi></msubsup><mo>|</mo><mo>≤</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>3</mn></mrow></msup><mo>(</mo><mn>1</mn><mo>+</mo><mo>|</mo><msubsup><mover><mi>y</mi><mo>^</mo></mover><mrow><mi>c</mi><mo>,</mo><mi>j</mi></mrow><mi>σ</mi></msubsup><mo>|</mo><mo>)</mo></mrow></math></div>
+      <p class="caption">ŷ 是独立 FP64 参考再舍入成 FP32 的最终 hidden / 逐层新 K、V；j 遍历要求写出的每个元素。此外还检查有限值、全元素写入、静态语法/数据依赖/HBM 竞态、每 wave 和宿主时间/工作量等。当前 MILP 没有把这些数值与全部事件状态改写为线性不等式，需正式 <code>evaluate</code>。</p>
+    </section>
+
+    <section id="exact">
+      <h2>06 · 时间与功耗：计算子集的独立公式 ≠ 完整程序的独立精确模型</h2>
+      <h3>计算微步骤（无 DMA 时独立建模）</h3>
+      <p>一条指令展开为若干微步骤；每步依次经历 read → core → write。RF 档位 t＝1/2/3 对应读带宽 B<sub>R</sub>＝128/256/512 B/周期、写带宽 B<sub>W</sub>＝64/128/256 B/周期。SH 的 bank 服务时间还依赖<strong>具体地址和冲突</strong>，不能只用“总字节÷总带宽”。</p>
+      <div class="equation" aria-label="RF与SH访问延迟"><math display="block"><mrow><msub><mi>ℓ</mi><mi>RF</mi></msub><mo>=</mo><mn>2</mn><mo>+</mo><mo>⌊</mo><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mo>(</mo><mi>max</mi><mo>(</mo><mi>R</mi><mo>/</mo><mn>32</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>)</mo><mo>⌋</mo><mo>,</mo><mspace width="1em"/><msub><mi>ℓ</mi><mi>SH</mi></msub><mo>=</mo><mn>6</mn><mo>+</mo><mo>⌊</mo><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mo>(</mo><mi>max</mi><mo>(</mo><msub><mi>S</mi><mi>H</mi></msub><mo>/</mo><mn>4</mn><mi>b</mi><mo>,</mo><mn>1</mn><mo>)</mo><mo>)</mo><mo>⌋</mo></mrow></math></div>
+      <div class="equation" aria-label="微步骤时长"><math display="block"><mrow><msub><mi>D</mi><mi>RFread</mi></msub><mo>=</mo><msub><mi>𝟙</mi><mrow><mi>v</mi><mo>&gt;</mo><mn>0</mn></mrow></msub><mo>(</mo><mo>⌈</mo><mi>v</mi><mo>/</mo><msub><mi>B</mi><mi>R</mi></msub><mo>⌉</mo><mo>+</mo><msub><mi>ℓ</mi><mi>RF</mi></msub><mo>)</mo><mo>,</mo><mspace width="1em"/><msub><mi>D</mi><mi>SHread</mi></msub><mo>=</mo><msub><mi>𝟙</mi><mrow><mi>v</mi><mo>&gt;</mo><mn>0</mn></mrow></msub><mo>(</mo><msub><mi>ν</mi><mi>read</mi></msub><mo>+</mo><msub><mi>ℓ</mi><mi>SH</mi></msub><mo>)</mo></mrow></math></div>
+      <div class="equation" aria-label="共享至TC时长及步骤聚合"><math display="block"><mrow><msub><mi>D</mi><mi>TC←SH</mi></msub><mo>=</mo><msub><mi>𝟙</mi><mrow><mi>v</mi><mo>&gt;</mo><mn>0</mn></mrow></msub><mo>(</mo><msub><mi>ν</mi><mi>read</mi></msub><mo>+</mo><msub><mi>ℓ</mi><mi>SH</mi></msub><mo>+</mo><mo>⌈</mo><mi>v</mi><mo>/</mo><msub><mi>B</mi><mi>t</mi></msub><mo>⌉</mo><mo>+</mo><mn>2</mn><mo>)</mo><mo>,</mo><mspace width="1em"/><msub><mi>D</mi><mi>step</mi></msub><mo>=</mo><mi>max</mi><mo>{</mo><msub><mi>D</mi><mi>RFread</mi></msub><mo>,</mo><msub><mi>D</mi><mi>SHread</mi></msub><mo>,</mo><msub><mi>D</mi><mi>TC←SH</mi></msub><mo>}</mo><mo>+</mo><msub><mi>D</mi><mi>core</mi></msub><mo>+</mo><mi>max</mi><mo>{</mo><msub><mi>D</mi><mi>RFwrite</mi></msub><mo>,</mo><msub><mi>D</mi><mi>SHwrite</mi></msub><mo>}</mo></mrow></math></div>
+      <div class="equation" aria-label="无争用单组wave时长"><math display="block"><mrow><msub><mi>T</mi><mi>serial-wave</mi></msub><mo>=</mo><mn>1</mn><mo>+</mo><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><mi>instructions</mi></mrow></munder><mo>(</mo><mn>1</mn><mo>+</mo><munder><mo>∑</mo><mrow><mi>s</mi><mo>∈</mo><mi>steps</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow></munder><msub><mi>D</mi><mrow><mi>step</mi><mo>,</mo><mi>s</mi></mrow></msub><mo>)</mo></mrow></math></div>
+      <p>ν<sub>read/write</sub> 是按实际 bank 地址求出的服务周期；写路径使用对应写带宽/写冲突。Fill、Vector/SFU、Reduce、MMA 和 SH Copy 的微步骤已独立实现；MMA 按 p×q 物理块与 K 并行粒度计 padding、读取与 drain。上面的串行式只对<strong>单组、无 DMA、无其他组资源竞争</strong>的受限场景是独立精确式。</p>
+      <h3>完整程序的真实运行可表示为“状态转移”，不是当前 MILP 的显式约束</h3>
+      <div class="equation" aria-label="完整程序隐式状态模型"><math display="block"><mrow><mo>(</mo><msub><mi>z</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>,</mo><mi>Δ</mi><msub><mi>t</mi><mi>k</mi></msub><mo>,</mo><msub><mi>𝔈</mi><mi>k</mi></msub><mo>)</mo><mo>=</mo><msub><mi>F</mi><mi>H</mi></msub><mo>(</mo><msub><mi>z</mi><mi>k</mi></msub><mo>,</mo><msub><mi>P</mi><mi>c</mi></msub><mo>)</mo><mo>,</mo><mspace width="1em"/><msub><mi>T</mi><mi>c</mi></msub><mo>=</mo><munder><mo>∑</mo><mi>k</mi></munder><mi>Δ</mi><msub><mi>t</mi><mi>k</mi></msub></mrow></math></div>
+      <div class="equation" aria-label="基础功耗与滑窗检查"><math display="block"><mrow><msub><mi>P</mi><mn>0</mn></msub><mo>=</mo><mn>0.025</mn><mi>A</mi><mo>(</mo><mi>H</mi><mo>)</mo><mo>+</mo><mn>0.15</mn><mi>h</mi><mo>,</mo><mspace width="1em"/><msub><mi>P</mi><mi>W</mi></msub><mo>=</mo><msub><mi>P</mi><mn>0</mn></msub><mo>+</mo><munder><mo>max</mo><mi>τ</mi></munder><munder><mo>∑</mo><mi>e</mi></munder><mfrac><msub><mi>E</mi><mi>e</mi></msub><msub><mi>d</mi><mi>e</mi></msub></mfrac><mfrac><mrow><mo>|</mo><mo>[</mo><msub><mi>s</mi><mi>e</mi></msub><mo>,</mo><msub><mi>s</mi><mi>e</mi></msub><mo>+</mo><msub><mi>d</mi><mi>e</mi></msub><mo>)</mo><mo>∩</mo><mo>[</mo><mi>τ</mi><mo>−</mo><mi>W</mi><mo>,</mo><mi>τ</mi><mo>)</mo><mo>|</mo></mrow><mrow><mn>2000</mn><mi>W</mi></mrow></mfrac></mrow></math></div>
+      <p class="caption">上式 P<sub>W</sub> 中 E<sub>e</sub> 使用 pJ、时间使用 500 MHz 的周期；e 遍历服务区间能量事件，W 分别取 100/10,000。z<sub>k</sub> 包含组 PC/token、SM 端口和引擎、DMA 队列、64B HBM 请求/250 周期就绪、通道 credit、Cache 标签/LRU/MSHR、NoC 与功耗事件。</p>
+      <div class="callout"><strong>关键区别：</strong>完整时序 <code>runtime</code> 与官方评估<strong>共享</strong>同一个调度/内存/功耗状态转移内核；两者同周期不意味着“另写的完整独立数学公式”零误差。独立微步骤与计算子集已有对照，完整通信预测另见下节。数值正确性只由完整 <code>evaluate</code> 判断。</div>
+      <h3>这样抽象，能不能“完全模拟真实运行”？要分三个问题</h3>
+      <div class="twocol">
+        <div class="card"><h3>已选 H、已生成 P：教学模拟器的时序</h3><p>可以。给定确定的程序和输入配置，使用包含全部队列、端口、Cache、HBM、NoC、功耗事件的官方状态转移内核 F<sub>H</sub>，就能按其规则得到该教学模拟器的精确周期/功耗；但这属于<strong>运行仿真</strong>，与官方评估共享核心，并非独立公式从少量变量直接算出了结果。数值与参考比较还必须单独运行完整评估。</p></div>
+        <div class="card"><h3>只给 H、θ：独立数学模型直接预测或优化</h3><p>目前不能保证完整复现。H、θ 先通过生成器变成程序，程序内具体地址、资源请求顺序和历史状态决定后续命中、排队与竞争；主 MILP 没把 F<sub>H</sub> 的全部状态与逐周期转移变成可求解约束。独立 Ť 是近似，安全下界 L 只用于定界，不是完整执行时间。</p></div>
+      </div>
+      <p>理论上可以把教学模拟器的有限状态和程序指令逐项写成庞大的混合整数/离散事件约束；<strong>“可数学表达”不代表“已展开且能高效求全局最优”</strong>。如果“真实运行”指物理芯片，教学模拟器还缺实际工艺、时钟漂移、温度与真实内存系统校准数据，连运行仿真也不等于硅上实测。</p>
+    </section>
+
+    <section id="lower">
+      <h2>07 · 保守时间下界 L：用来证明，不是用来预测</h2>
+      <p>每个候选先导出<strong>实际付费程序</strong>并展开 wave；计算出资源占用下界 L<sub>resource</sub>，以及组内前序/异步 token/wait 的依赖路径下界 L<sub>dep</sub>。不同资源可能相互重叠，因此每个 wave <strong>取最大值</strong>；不同 wave 不重叠，因此跨 wave <strong>求和</strong>。</p>
+      <div class="equation" aria-label="资源下界"><math display="block"><mrow><msub><mi>L</mi><mi>resource</mi></msub><mo>=</mo><mi>max</mi><mo>{</mo><mn>1</mn><mo>,</mo><msub><mi>n</mi><mi>commit</mi></msub><mo>+</mo><munder><mo>∑</mo><mi>w</mi></munder><mo>[</mo><mn>1</mn><mo>+</mo><munder><mo>max</mo><mi>s</mi></munder><mo>{</mo><msub><mi>I</mi><mrow><mi>w</mi><mo>,</mo><mi>s</mi></mrow></msub><mo>,</mo><mo>⌈</mo><msub><mi>W</mi><mrow><mi>w</mi><mo>,</mo><mi>s</mi><mo>,</mo><mi>e</mi></mrow></msub><mo>/</mo><msub><mi>C</mi><mi>e</mi></msub><mo>⌉</mo><mo>,</mo><mo>⌈</mo><msub><mi>R</mi><mrow><mi>w</mi><mo>,</mo><mi>s</mi></mrow></msub><mo>/</mo><msub><mi>B</mi><mi>R</mi></msub><mo>⌉</mo><mo>,</mo><mo>⌈</mo><msub><mi>D</mi><mrow><mi>w</mi><mo>,</mo><mi>s</mi></mrow></msub><mo>/</mo><msub><mi>B</mi><mi>W</mi></msub><mo>⌉</mo><mo>}</mo><mo>]</mo><mo>}</mo></mrow></math></div>
+      <p class="caption">I：该 SM 的命令发射数（含 wait）；W/C：计算引擎核心总占用/该 SM 上引擎实例数；R、D：非 DMA 计算指令 RF 必付读/写字节。末尾 +1 是 wave fence。这里故意不把可能命中 Cache 或重叠的 DMA 流量硬塞进“可证界”。</p>
+      <p>第二项沿每组程序顺序传播最早完成时间：对于非 DMA 计算指令，微步骤的 core 和 RF 读写最小 service 周期相加；没有 Cache 且确实读 HBM 的 load 至少有 250 周期 ready；异步只创建 token，wait 与组 PC 取最大。每个 wave 取组内最长必经链。</p>
+      <div class="equation" aria-label="组内依赖与组合下界"><math display="block"><mrow><msub><mi>d</mi><mi>compute</mi></msub><mo>=</mo><munder><mo>∑</mo><mi>step</mi></munder><mo>(</mo><msub><mi>D</mi><mi>core</mi></msub><mo>+</mo><mo>⌈</mo><msub><mi>v</mi><mi>read</mi></msub><mo>/</mo><msub><mi>B</mi><mi>R</mi></msub><mo>⌉</mo><mo>+</mo><mo>⌈</mo><msub><mi>v</mi><mi>write</mi></msub><mo>/</mo><msub><mi>B</mi><mi>W</mi></msub><mo>⌉</mo><mo>)</mo><mo>,</mo><mspace width="1em"/><msub><mi>L</mi><mrow><mi>h</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>a</mi></mrow></msub><mo>=</mo><mi>max</mi><mo>{</mo><msub><mi>L</mi><mi>resource</mi></msub><mo>,</mo><msub><mi>L</mi><mi>dep</mi></msub><mo>}</mo><mo>≤</mo><msub><mi>T</mi><mrow><mi>h</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>a</mi></mrow></msub></mrow></math></div>
+      <p>这个不等式才可以用于数学最优性证书，但通常很松。小例最优候选 L＝11,446 周期、T＝23,616 周期，T/L≈2.063；原纯资源下界只有 597 周期。<strong>“下界差 2 倍”绝不是“预测值误差 2 倍”</strong>：预测值是另一套独立估计 Ť。</p>
+    </section>
+
+    <section id="estimate">
+      <h2>08 · 独立完整周期估计 Ť：给候选排序，不给最优性证书</h2>
+      <p><code>model/estimate.py</code> 流式展开 compact 的 repeat/template/仿射地址表达式，按组 PC、SM 发射端口、计算及 DMA 引擎、异步 token/wait 排列事件。计算单指令时长来自上面的独立微步骤；DMA 近似加入 HBM 250-cycle 就绪、行到通道的映射和带宽。</p>
+      <p>DMA 指令 d 的地址按 16 个 word 批处理；N<sub>d</sub> 是去重的 64B 行数，N<sub>d,h</sub> 是通道 h 上的行数，E<sub>d</sub> 为元素数。F<sub>h</sub> 是该通道的预留完成时刻；t<sub>d</sub> 是已满足发射/引擎约束后的开始时刻。</p>
+      <div class="equation" aria-label="DMA地址到通道的估计"><math display="block"><mrow><msub><mi>A</mi><mi>d</mi></msub><mo>=</mo><msub><mi>t</mi><mi>d</mi></msub><mo>+</mo><mn>1</mn><mo>+</mo><mn>6</mn><mo>+</mo><mn>250</mn><mo>+</mo><msub><mi>𝟙</mi><mi>store</mi></msub><mo>(</mo><msub><mi>ℓ</mi><mi>local</mi></msub><mo>+</mo><mn>1</mn><mo>)</mo><mo>,</mo><mspace width="1em"/><msub><mi>F</mi><mi>h</mi></msub><mo>←</mo><mi>max</mi><mo>(</mo><msub><mi>F</mi><mi>h</mi></msub><mo>,</mo><msub><mi>A</mi><mi>d</mi></msub><mo>)</mo><mo>+</mo><mn>2</mn><msub><mi>N</mi><mrow><mi>d</mi><mo>,</mo><mi>h</mi></mrow></msub></mrow></math></div>
+      <div class="equation" aria-label="DMA资源服务近似"><math display="block"><mrow><msub><mi>R</mi><mi>d</mi></msub><mo>=</mo><mi>max</mi><mo>{</mo><mo>⌈</mo><msub><mi>E</mi><mi>d</mi></msub><mo>/</mo><mn>16</mn><mo>⌉</mo><mo>,</mo><mo>⌈</mo><msub><mi>N</mi><mi>d</mi></msub><mo>/</mo><mn>2</mn><mo>⌉</mo><mo>,</mo><mo>⌈</mo><mo>(</mo><mn>72</mn><mo>+</mo><mn>8</mn><msub><mi>𝟙</mi><mi>store</mi></msub><mo>)</mo><msub><mi>N</mi><mi>d</mi></msub><mo>/</mo><msub><mi>B</mi><mi>sm</mi></msub><mo>⌉</mo><mo>,</mo><mo>⌈</mo><mo>(</mo><mn>72</mn><mo>+</mo><mn>8</mn><msub><mi>𝟙</mi><mi>store</mi></msub><mo>)</mo><msub><mi>N</mi><mi>d</mi></msub><mo>/</mo><msub><mi>B</mi><mi>global</mi></msub><mo>⌉</mo><mo>,</mo><mo>⌈</mo><mn>4</mn><msub><mi>E</mi><mi>d</mi></msub><mo>/</mo><msub><mi>B</mi><mi>local</mi></msub><mo>⌉</mo><mo>}</mo></mrow></math></div>
+      <div class="equation" aria-label="DMA完成与wave合成"><math display="block"><mrow><msub><mover><mi>C</mi><mo>^</mo></mover><mi>d</mi></msub><mo>=</mo><mi>max</mi><mo>{</mo><munder><mo>max</mo><mi>h</mi></munder><msub><mi>F</mi><mi>h</mi></msub><mo>+</mo><mn>7</mn><mo>+</mo><msub><mi>ℓ</mi><mi>local</mi></msub><mo>,</mo><msub><mi>A</mi><mi>d</mi></msub><mo>+</mo><msub><mi>R</mi><mi>d</mi></msub><mo>}</mo><mo>+</mo><mn>270</mn><msub><mi>b</mi><mi>d</mi></msub><msub><mi>𝟙</mi><mi>store</mi></msub><mo>,</mo><mspace width="1em"/><msub><mover><mi>T</mi><mo>^</mo></mover><mi>c</mi></msub><mo>=</mo><msub><mi>n</mi><mi>commit</mi></msub><mo>+</mo><munder><mo>∑</mo><mi>w</mi></munder><mo>[</mo><msub><mover><mi>C</mi><mo>^</mo></mover><mi>w</mi></msub><mo>+</mo><msub><mi>K</mi><mi>w</mi></msub><mo>+</mo><mn>1</mn><mo>+</mo><mn>20</mn><msub><mi>𝟙</mi><mi>DMA(w)</mi></msub><mo>]</mo></mrow></math></div>
+      <p>b<sub>d</sub> 是同一写指令相邻 16-word 批重复触碰尚未 ack 的行数。对不同组同写一行，模型构造冲突图：最大写者数 m<sub>w</sub>、相邻写者去重边数 e<sub>w</sub>、每 SM 最多并驻组数 g<sub>w</sub>，增加经验等待项：</p>
+      <div class="equation" aria-label="跨组写冲突修正"><math display="block"><mrow><msub><mi>K</mi><mi>w</mi></msub><mo>=</mo><mi>min</mi><mo>{</mo><mi>d</mi><mo>,</mo><msub><mi>g</mi><mi>w</mi></msub><mo>}</mo><mi>max</mi><mo>{</mo><mn>260</mn><mo>(</mo><msub><mi>m</mi><mi>w</mi></msub><mo>−</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>⌈</mo><mn>260</mn><msub><mi>e</mi><mi>w</mi></msub><mo>/</mo><mn>4</mn><mo>⌉</mo><mo>}</mo></mrow></math></div>
+      <p>当一个 wave 有 ≥128 条 DMA、且没有相邻批重复写行，还会用通道总量和每 SM 计算尾部对原逐指令时长作流体吞吐修正：</p>
+      <div class="equation" aria-label="长DMA wave流体吞吐修正"><math display="block"><mrow><msub><mover><mi>C</mi><mo>^</mo></mover><mi>w</mi></msub><mo>=</mo><mi>min</mi><mo>{</mo><msub><mi>C</mi><mi>w</mi></msub><mo>,</mo><mi>max</mi><mo>{</mo><mn>2</mn><munder><mo>max</mo><mi>h</mi></munder><munder><mo>∑</mo><mrow><mi>d</mi><mo>∈</mo><mi>w</mi></mrow></munder><msub><mi>N</mi><mrow><mi>d</mi><mo>,</mo><mi>h</mi></mrow></msub><mo>+</mo><mn>310</mn><mo>⌈</mo><msub><mi>D</mi><mi>w</mi></msub><mo>/</mo><mi>N</mi><mo>⌉</mo><mo>,</mo><munder><mo>max</mo><mi>s</mi></munder><msubsup><mi>C</mi><mrow><mi>w</mi><mo>,</mo><mi>s</mi></mrow><mi>compute</mi></msubsup><mo>}</mo><mo>}</mo></mrow></math></div>
+      <div class="callout"><strong>预测值不能充当约束：</strong>270/260/310/20 是有限样本校正量，不是可证明物理常数；长 DMA 的 HBM FIFO/credit、Cache 命中与 MSHR、多播、NoC 双向拥塞、功耗与 FP32 数值都没被完整展开。即使 Ť 接近某个实测 T，也不意味着对未见候选的误差被保证。</div>
+    </section>
+
+    <section id="milp">
+      <h2>09 · 整数规划主问题：变量、约束、提案、证书</h2>
+      <p>把规格事先声明的合法硬件集合记为 ℋ；硬件 h 与场景 c 对应的生成器策略菜单记为 𝒜<sub>c</sub>(h)。<var>x<sub>h</sub></var>＝1 表示只选该共享硬件；<var>y<sub>h,c,a</sub></var>＝1 表示场景 c 采用该硬件下的策略 a/生成程序 P<sub>hca</sub>。<strong>不是</strong>两个场景各有独立硬件。</p>
+      <div class="equation" aria-label="MILP整数可行域"><math display="block"><mrow><msub><mi>x</mi><mi>h</mi></msub><mo>,</mo><msub><mi>y</mi><mrow><mi>h</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>a</mi></mrow></msub><mo>∈</mo><mo>{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>}</mo><mo>,</mo><mspace width="1em"/><munder><mo>∑</mo><mi>h</mi></munder><msub><mi>x</mi><mi>h</mi></msub><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="1em"/><munder><mo>∑</mo><mrow><mi>a</mi><mo>∈</mo><msub><mi>𝒜</mi><mi>c</mi></msub><mo>(</mo><mi>h</mi><mo>)</mo></mrow></munder><msub><mi>y</mi><mrow><mi>h</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>a</mi></mrow></msub><mo>=</mo><msub><mi>x</mi><mi>h</mi></msub><mtext> (每个 h,c)</mtext></mrow></math></div>
+      <div class="equation" aria-label="MILP面积与违规约束"><math display="block"><mrow><munder><mo>∑</mo><mi>h</mi></munder><mi>A</mi><mo>(</mo><mi>h</mi><mo>)</mo><msub><mi>x</mi><mi>h</mi></msub><mo>≤</mo><mn>100</mn><mo>,</mo><mspace width="1em"/><msub><mi>y</mi><mrow><mi>h</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>a</mi></mrow></msub><mo>=</mo><mn>0</mn><mtext> 若已证实该选项违规</mtext></mrow></math></div>
+      <p>没有时序验证之前，从静态程序计算常数 L<sub>hca</sub>；选中并完成官方数值/功耗验收后，该项改用真实周期 T<sub>hca</sub>。模型不以一个连续变量线性拟合 <code>ln(T)</code>：它预先把每个离散选项的系数算好，然后一次次解线性整数规划。</p>
+      <div class="equation" aria-label="带真实反馈的主问题"><math display="block"><mrow><munder><mo>min</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><munder><mo>∑</mo><mrow><mi>h</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>a</mi></mrow></munder><msub><mi>w</mi><mi>c</mi></msub><msubsup><mi>b</mi><mrow><mi>h</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>a</mi></mrow><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msubsup><msub><mi>y</mi><mrow><mi>h</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>a</mi></mrow></msub><mo>,</mo><mspace width="1em"/><msubsup><mi>b</mi><mrow><mi>h</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>a</mi></mrow><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msubsup><mo>=</mo><mo>{</mo><mi>ln</mi><mo>⁡</mo><msub><mi>L</mi><mi>hca</mi></msub><mtext> (未验证)</mtext><mo>；</mo><mi>ln</mi><mo>⁡</mo><msub><mi>T</mi><mi>hca</mi></msub><mtext> (已验合格)</mtext><mo>}</mo></mrow></math></div>
+      <p>确认数值、功耗、静态规则失败才能将对应 y 禁用；超时/异常不等于数学意义上的不可行。主问题由 SciPy/HiGHS 求解，其对偶下界 B<sub>k</sub> 与已经完整验收合格的最好成本 U<sub>k</sub> 构成可验证区间：</p>
+      <div class="equation" aria-label="有限域最优性证书"><math display="block"><mrow><msub><mi>B</mi><mi>k</mi></msub><mo>≤</mo><msubsup><mi>J</mi><mi>𝒟</mi><mo>★</mo></msubsup><mo>≤</mo><msub><mi>U</mi><mi>k</mi></msub><mo>,</mo><mspace width="1em"/><msub><mi>gap</mi><mi>log</mi></msub><mo>=</mo><msub><mi>U</mi><mi>k</mi></msub><mo>−</mo><msub><mi>B</mi><mi>k</mi></msub></mrow></math></div>
+      <p>若各场景互不共享运行状态，固定 h 后可逐场景最小化预测周期而不丢弃该有限域内的预测最优组合：枚举规模由 ∏<sub>c</sub>|𝒜<sub>c</sub>| 的完整组合减少为 Σ<sub>c</sub>|𝒜<sub>c</sub>| 的单场景预测。</p>
+      <div class="equation" aria-label="共享硬件下软件选择目标分解"><math display="block"><mrow><munder><mo>min</mo><mrow><mi>h</mi><mo>,</mo><msub><mi>a</mi><mi>c</mi></msub></mrow></munder><munder><mo>∑</mo><mi>c</mi></munder><msub><mi>w</mi><mi>c</mi></msub><mi>ln</mi><mo>⁡</mo><msub><mover><mi>T</mi><mo>^</mo></mover><mi>c</mi></msub><mo>(</mo><mi>h</mi><mo>,</mo><msub><mi>a</mi><mi>c</mi></msub><mo>)</mo><mo>=</mo><munder><mo>min</mo><mi>h</mi></munder><munder><mo>∑</mo><mi>c</mi></munder><msub><mi>w</mi><mi>c</mi></msub><mi>ln</mi><mo>⁡</mo><mo>(</mo><munder><mo>min</mo><msub><mi>a</mi><mi>c</mi></msub></munder><msub><mover><mi>T</mi><mo>^</mo></mover><mi>c</mi></msub><mo>(</mo><mi>h</mi><mo>,</mo><msub><mi>a</mi><mi>c</mi></msub><mo>)</mo><mo>)</mo></mrow></math></div>
+      <div class="callout"><strong>先证明，后估计：</strong>对于正目标 K，主 MILP 的安全成本下界 B 给出分数上界 S<sub>upper</sub>＝1000×exp(Σw<sub>c</sub> ln R<sub>c</sub>−B)。若 S<sub>upper</sub>&lt;K，整个<strong>声明的有限程序域</strong>都不可能达到 K，无须调用独立估计或评分器；这不排除域外程序。否则才用所有选项的 Ť 再解“条件预测最优” MILP：预测低于 K 时停止、不评分，但不能据此证明目标不可能。</div>
+    </section>
+
+    <section id="toy">
+      <h2>10 · 真实小型实例：每个变量和约束怎样落在数据上</h2>
+      <p>这不是虚构的玩具数字：规格是 <a href="specs/small-two-case-model-first.json"><code>specs/small-two-case-model-first.json</code></a>，数据来自对应 <a href="runs/small-two-case-model-first-20261010/preparation.json"><code>preparation.json</code></a> 和 <a href="runs/small-two-case-model-first-20261010/solution.json"><code>solution.json</code></a>。两个场景 <code>case-a</code> / <code>case-b</code> 使用同一小型 workload，各占 1/2，固定公开种子 7。它们只是解释 MILP 的测试场景，<strong>不是五案例正式打分输入</strong>。</p>
+      <h3>步骤 A · 将离散硬件与软件菜单展开成变量</h3>
+      <p>硬件 h<sub>1</sub> 的 <code>rf_tier=1</code>、面积 76.61029301283328 AU；h<sub>2</sub> 的 <code>rf_tier=2</code>、面积 87.66949301283327 AU，其余 22 字段共用基础配置。每场景 a∈{m=2,m=4}，因此只有 2 个 x 与 8 个 y，共 10 个二元变量，程序层面 2×2×2＝8 个联合组合。</p>
+      <div class="equation" aria-label="小例面积代入"><math display="block"><mrow><mi>A</mi><mo>(</mo><msub><mi>h</mi><mn>2</mn></msub><mo>)</mo><mo>−</mo><mi>A</mi><mo>(</mo><msub><mi>h</mi><mn>1</mn></msub><mo>)</mo><mo>=</mo><mn>8</mn><mo>·</mo><mn>0.018</mn><mo>·</mo><mn>128</mn><mo>·</mo><mo>(</mo><mn>1.6</mn><mo>−</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>11.0592</mn><mtext> AU</mtext></mrow></math></div>
+      <p>两种面积都≤100 AU。因为硬件必须共享，这个小实例中 MILP 的<strong>全部</strong>链接/面积条件可具体写成：</p>
+      <div class="equation" aria-label="小例所有链接条件"><math display="block"><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>=</mo><mn>1</mn><mo>;</mo><mspace width="1em"/><msub><mi>y</mi><mrow><mi>h</mi><mo>,</mo><mi>c</mi><mo>,</mo><mn>2</mn></mrow></msub><mo>+</mo><msub><mi>y</mi><mrow><mi>h</mi><mo>,</mo><mi>c</mi><mo>,</mo><mn>4</mn></mrow></msub><mo>=</mo><msub><mi>x</mi><mi>h</mi></msub><mtext> (h=1,2；c=A,B)</mtext><mo>;</mo><mspace width="1em"/><mn>76.610293</mn><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>87.669493</mn><msub><mi>x</mi><mn>2</mn></msub><mo>≤</mo><mn>100</mn></mrow></math></div>
+      <p class="small">对应 HiGHS 实例一共有 6 行约束：1 行硬件 one-hot + 4 行场景链接 + 1 行面积；所有变量上下界在 [0,1] 且整数。</p>
+      <p>再看实际程序与验收：选中的 <a href="runs/small-two-case-model-first-20261010/best/programs/case-a.jsonl"><code>case-a.jsonl</code></a> 展开后第 1 个 wave 有 4 组，分别落在 SM 0～3，每个占 RF 1 KiB、SH 0 KiB；例如 SM 0 上的 (RF,SH,组数)＝(1,0,1)，逐项满足 (128,128,2) 的容量界。官方同一程序结果给出面积 87.669493 AU、HBM 峰值分配 13,632 B、100 周期窗口峰值 5.798385 W、10,000 周期窗口峰值 3.502480 W、总周期 23,616，均小于相应门槛；192 个被比较元素的最大绝对误差 4.7684×10<sup>−7</sup>，数值检查通过。<strong>这些动态值来自正式验收，不是 MILP 预先推得的可行性保证。</strong></p>
+      <h3>步骤 B · 每个真实选项的系数从程序而来</h3>
+      <div class="table-scroll"><table><thead><tr><th>硬件 h</th><th>场景 c</th><th>策略 a</th><th>资源界</th><th>依赖界＝L</th><th>官方实测 T</th><th>本次运行状态</th></tr></thead><tbody>
+        <tr><td>h<sub>1</sub>，tier 1</td><td>A</td><td>m=2</td><td class="number">597</td><td class="number">11,461</td><td class="number">24,152</td><td>已验证</td></tr>
+        <tr><td>h<sub>1</sub>，tier 1</td><td>A</td><td>m=4</td><td class="number">597</td><td class="number">11,488</td><td class="number">23,658</td><td>已验证</td></tr>
+        <tr><td>h<sub>1</sub>，tier 1</td><td>B</td><td>m=2</td><td class="number">597</td><td class="number">11,461</td><td class="number">24,152</td><td>已验证</td></tr>
+        <tr><td>h<sub>1</sub>，tier 1</td><td>B</td><td>m=4</td><td class="number">597</td><td class="number">11,488</td><td class="number">23,658</td><td>已验证</td></tr>
+        <tr><td>h<sub>2</sub>，tier 2</td><td>A</td><td>m=2</td><td class="number">597</td><td class="number">11,437</td><td class="number">24,130</td><td>已验证</td></tr>
+        <tr class="selected"><td>h<sub>2</sub>，tier 2</td><td>A</td><td><strong>m=4</strong></td><td class="number">597</td><td class="number">11,446</td><td class="number"><strong>23,616</strong></td><td>已验证，最终选中</td></tr>
+        <tr><td>h<sub>2</sub>，tier 2</td><td>B</td><td>m=2</td><td class="number">597</td><td class="number">11,437</td><td class="number">24,130</td><td>已验证</td></tr>
+        <tr class="selected"><td>h<sub>2</sub>，tier 2</td><td>B</td><td><strong>m=4</strong></td><td class="number">597</td><td class="number">11,446</td><td class="number"><strong>23,616</strong></td><td>已验证，最终选中</td></tr>
+      </tbody></table></div>
+      <p>例如 <code>h₂,A,m=4</code> 的程序中资源界＝597、依赖界＝11,446，因此 L<sub>2,A,4</sub>＝max(597,11,446)＝11,446；完整版 <a href="runs/small-two-case-model-first-20261010/hardware-0001/case-a/option-0001/verification/result.json"><code>evaluate/result.json</code></a> 实测 23,616。A/B 是同一个输入配置，故这里周期重复；可共享硬件但每个场景各选软件，不能将小例的 A/B 当成真实五场景的两项。</p>
+      <h3>步骤 C · 主问题为什么会修正起初的错误排序</h3>
+      <div class="equation" aria-label="首次求解的乐观提案"><math display="block"><mrow><msub><mi>x</mi><mn>2</mn></msub><mo>=</mo><msub><mi>y</mi><mrow><mn>2</mn><mo>,</mo><mi>A</mi><mo>,</mo><mn>2</mn></mrow></msub><mo>=</mo><msub><mi>y</mi><mrow><mn>2</mn><mo>,</mo><mi>B</mi><mo>,</mo><mn>2</mn></mrow></msub><mo>=</mo><mn>1</mn><mo>;</mo><mspace width="1em"/><msub><mi>B</mi><mn>0</mn></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mn>11437</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mn>11437</mn><mo>=</mo><mn>9.344609</mn></mrow></math></div>
+      <p>首次提案的真实周期是 24,130，不是 11,437。把已验证 m=2 的系数换成 ln(24,130) 后重新求解，MIP 转而尝试 h₂ 两场景 <code>m=4</code>，真实周期降到 23,616。再验证 h₁ 的所有余下选项，才能在声明域内把下界推至已验上界。</p>
+      <div class="equation" aria-label="小例最终选择与成本"><math display="block"><mrow><msub><mi>x</mi><mn>2</mn></msub><mo>=</mo><msub><mi>y</mi><mrow><mn>2</mn><mo>,</mo><mi>A</mi><mo>,</mo><mn>4</mn></mrow></msub><mo>=</mo><msub><mi>y</mi><mrow><mn>2</mn><mo>,</mo><mi>B</mi><mo>,</mo><mn>4</mn></mrow></msub><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="1em"/><mi>J</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mn>23616</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mn>23616</mn><mo>=</mo><mn>10.0696797274</mn></mrow></math></div>
+      <div class="good"><strong>已证实：</strong>最终 B＝U＝10.0696797274，log gap＝0；8/8 个单场景选项均被完整验证，两个选中场景的官方实测均为 23,616 周期、功耗与数值验收通过。这只证明<strong>该两场景、该种子、该有限生成器菜单</strong>的最优解；小例没有正式五场景分数，<code>official_score=null</code>。</div>
+    </section>
+
+    <section id="five">
+      <h2>11 · 正式五场景：把预测周期代入真实评分公式</h2>
+      <p>正式运行规格 <a href="specs/k4-rf-casewise.json"><code>specs/k4-rf-casewise.json</code></a> 固定一套共享硬件，每个场景两个软件策略：2⁵＝32 种五程序组合，只需导出/估计 5×2＝10 个单场景选项。最高<strong>条件预测</strong>方案来自 <a href="runs/k4-rf-model-first-cached-20261010/screen.json"><code>screen.json</code></a>；选中的软件是 prefill 两项 <code>policy.m=32</code>、decode 三项 <code>policy.split_k=1</code>。</p>
+      <div class="table-scroll"><table><thead><tr><th>场景 c</th><th>参考 R<sub>c</sub></th><th>所选策略</th><th>可证下界 L</th><th>独立预测 Ť</th><th>R/Ť（条件比值）</th><th>w<sub>c</sub></th></tr></thead><tbody>
+        <tr><td><code>w-p</code></td><td class="number">187,689,274</td><td><code>m=32</code></td><td class="number">15,263,915</td><td class="number">49,001,345</td><td class="number">3.830288</td><td>1/4</td></tr>
+        <tr><td><code>a-p</code></td><td class="number">374,856,358</td><td><code>m=32</code></td><td class="number">31,858,483</td><td class="number">188,988,181</td><td class="number">1.983491</td><td>1/4</td></tr>
+        <tr><td><code>w-d1</code></td><td class="number">27,068,433</td><td><code>split_k=1</code></td><td class="number">4,548,668</td><td class="number">18,677,500</td><td class="number">1.449254</td><td>1/6</td></tr>
+        <tr><td><code>w-d16</code></td><td class="number">42,358,913</td><td><code>split_k=1</code></td><td class="number">7,201,284</td><td class="number">27,347,116</td><td class="number">1.548935</td><td>1/6</td></tr>
+        <tr><td><code>w-d4l</code></td><td class="number">70,439,292</td><td><code>split_k=1</code></td><td class="number">10,800,612</td><td class="number">55,586,140</td><td class="number">1.267210</td><td>1/6</td></tr>
+      </tbody></table></div>
+      <div class="equation" aria-label="条件预测得分逐项代入"><math display="block"><mrow><mover><mi>S</mi><mo>^</mo></mover><mo>=</mo><mn>1000</mn><mo>·</mo><msup><mrow><mo>(</mo><mn>187689274</mn><mo>/</mo><mn>49001345</mn><mo>)</mo></mrow><mfrac><mn>1</mn><mn>4</mn></mfrac></msup><msup><mrow><mo>(</mo><mn>374856358</mn><mo>/</mo><mn>188988181</mn><mo>)</mo></mrow><mfrac><mn>1</mn><mn>4</mn></mfrac></msup><msup><mrow><mo>(</mo><mn>27068433</mn><mo>/</mo><mn>18677500</mn><mo>)</mo></mrow><mfrac><mn>1</mn><mn>6</mn></mfrac></msup><msup><mrow><mo>(</mo><mn>42358913</mn><mo>/</mo><mn>27347116</mn><mo>)</mo></mrow><mfrac><mn>1</mn><mn>6</mn></mfrac></msup><msup><mrow><mo>(</mo><mn>70439292</mn><mo>/</mo><mn>55586140</mn><mo>)</mo></mrow><mfrac><mn>1</mn><mn>6</mn></mfrac></msup><mo>=</mo><mn>1976.225235386681</mn></mrow></math></div>
+      <p>等价地，预测 J＝17.807871，5000 分要求 J≤16.879622；这份<strong>有限菜单内最高预测</strong>仍高出门槛 0.928249 个 log 单位。安全下界给出的乐观最高分约 8731.98，说明当前下界还不能排除 5000；另一方面预测低于 5000 也不能证明“真实五场景的最优值只有 1976”。</p>
+      <div class="callout"><strong>这次实际发生的事：</strong><a href="runs/k4-rf-model-first-cached-20261010/solution.json"><code>solution.json</code></a> 记录 <code>termination=below_prediction_target_unverified</code>、<code>verified_options=0</code>、<code>model_optimum_proven=false</code>、<code>official_score=null</code>。本轮<strong>没有运行完整五场景评分器</strong>，1976.2252 不是新实测得分，更不是任意合法程序的上限。</div>
+    </section>
+
+    <section id="gaps">
+      <h2>12 · 与真实运行的 gap：哪些已经被表达、哪些还没有</h2>
+      <div class="table-scroll"><table><thead><tr><th>层次</th><th>当前可以做什么</th><th>尚不能从模型推出什么</th></tr></thead><tbody>
+        <tr><td>硬件</td><td>23 字段合法菜单、面积与基础功耗独立计算。</td><td>面积边界最后几 bit 与全部硬件组合的穷尽证明；未声明的硬件配置不会进入该次有限域。</td></tr>
+        <tr><td>静态程序/算法</td><td>按声明策略生成真实 JSONL，抽取程序级资源和依赖约束。</td><td>任意指令重排、在线 attention 归约、布局与融合、跨 wave 缓存等尚未作为可生成且可约束的变量。</td></tr>
+        <tr><td>计算与通信</td><td>无 DMA 计算子集有独立微步骤；完整程序有独立 DMA/HBM/NoC 近似。</td><td>完整程序的独立逐请求精确 Cache/LRU/MSHR、credit、FIFO、NoC、多播竞争状态方程和全域误差上界。</td></tr>
+        <tr><td>功耗/内存/正确性</td><td>逐 wave 静态容量必要条件可检，完整验收给出功耗、HBM 峰值和公开种子数值检查。</td><td>MILP 中的普适滑窗功耗、动态峰值、FP32 误差与任意未见输入可行性证书。</td></tr>
+        <tr><td>最优性</td><td>有限域中以安全 L 为下界、已验合格 T 为上界；小例可得到零 gap。</td><td>五场景真实最优证明、5000 的不可能性证明、任意合法程序的全局最优和真实芯片性能预测。</td></tr>
+      </tbody></table></div>
+      <div class="good"><strong>下一步才真正可能提高目标分：</strong>扩大可生成的策略变量/程序族并保持每项可被静态约束；改进仍然保守的通信/依赖下界以缩小 L 与 T；对过 5000 条件预测门槛的同 SHA 程序做完整评分。仅仅把 597 周期下界改写成“597 周期预测”，或把小例零 gap 套到五场景，都会误导。</div>
+    </section>
+
+    <section id="sources">
+      <h2>13 · 公式/数据从哪里来、如何本地核对</h2>
+      <ul>
+        <li><a href="MODEL.md"><code>MODEL.md</code></a>：模型范围、已证明和未证明的性质、全部推导背景。</li>
+        <li><a href="model/hardware.py"><code>model/hardware.py</code></a>、<a href="model/profiles.py"><code>model/profiles.py</code></a>、<a href="model/estimate.py"><code>model/estimate.py</code></a>：面积、微步骤/资源界与完整周期独立估计的实现。</li>
+        <li><a href="model/structured.py"><code>model/structured.py</code></a>：下界、共享硬件/逐场景整数规划、5000 分预测门槛及验证反馈。</li>
+        <li><a href="runs/small-two-case-model-first-20261010/preparation.json"><code>小例 preparation.json</code></a>、<a href="runs/small-two-case-model-first-20261010/solution.json"><code>小例 solution.json</code></a>：8 个程序选项的系数与逐轮证书；实测细节见各候选 <code>verification/result.json</code>。</li>
+        <li><a href="runs/k4-rf-model-first-cached-20261010/preparation.json"><code>五场景 preparation.json</code></a>、<a href="runs/k4-rf-model-first-cached-20261010/screen.json"><code>screen.json</code></a>、<a href="reports/model-first-20261010.md"><code>运行说明</code></a>：32 种组合/10 项选项与条件预测。</li>
+      </ul>
+      <p class="small">建议用当前 Chrome、Firefox 或 Safari 直接打开本地 <code>phase-two-model/FORMULAS.html</code>；MathML 依赖浏览器的原生排版支持。无需运行服务；页面中的源文件链接是相对路径，要求保留仓库原有目录结构。</p>
+    </section>
+  </main>
+  <footer>阶段二 · 先建模 → 求解 → 按同一程序正式验证。小例实测值和正式五场景条件预测不可互换。</footer>
+</body>
+</html>

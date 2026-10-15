@@ -1,0 +1,57 @@
+{
+  "status": "complete",
+  "contract": "phase-two-static-v1",
+  "model": "phase-two-compact-v2",
+  "source_sha256": "e636eb550dfb9f326f252010f9667778e7bb5c00ce9060ea2fbf3a28b9cf4d19",
+  "seed": 7,
+  "score": 3441.4747199414096,
+  "cases": {
+    "a-p": {
+      "cycles": 63471357,
+      "program_sha256": "834ad9cca56bd92cce120dc2dbd7b56998f568890f434462ee7ad94d369f44f4"
+    },
+    "w-d1": {
+      "cycles": 14916761,
+      "program_sha256": "331074644b5157d279842bf47a3058b689c2d8677f3eae9da09e77fc6ce6cce5"
+    },
+    "w-d16": {
+      "cycles": 18503744,
+      "program_sha256": "3552b82503d5cea16474ba87cc276aac04804da3014d3ea2d92b35d947227a3f"
+    },
+    "w-d4l": {
+      "cycles": 36230524,
+      "program_sha256": "d9f70b6ea5a34a69a1f09bf5a5e216bb582d3d20b7070725d4f840310ffad630"
+    },
+    "w-p": {
+      "cycles": 31809559,
+      "program_sha256": "75c842c776bd6828c982136bc3887d2acac65f1ca3c70fdd3e503c32910c8ae2"
+    }
+  },
+  "hardware": {
+    "sms": 8,
+    "rf_kib": 128,
+    "rf_tier": 1,
+    "vector": 64,
+    "sfu": 11,
+    "p": 16,
+    "q": 32,
+    "hbm_channels": 8,
+    "hbm_queue": 256,
+    "sm_noc": 64,
+    "global_noc": 512,
+    "sh_kib": 0,
+    "sh_banks": 0,
+    "sh_tc_bw": 0,
+    "tc_count": 1,
+    "tc_k_parallel": 1,
+    "reduction_units": 0,
+    "shared_ports": 1,
+    "dma_depth": 1,
+    "dma_engines": 2,
+    "multicast": false,
+    "cache_mib": 0,
+    "resident_groups": 2
+  },
+  "host_seconds": 951.0049867829948,
+  "note": "Local reproducible result, not a signed server receipt. Organizer reruns the same program hashes with private seeds."
+}

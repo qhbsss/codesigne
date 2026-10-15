@@ -1,0 +1,70 @@
+{
+  "cases": {
+    "w-p": {
+      "cycles": 87966137,
+      "waves": 1648,
+      "independent": true,
+      "confidence": "empirical contention correction",
+      "model": "command dependency / SM engines / HBM channel / DMA contention",
+      "program_sha256": "38a0fd11460a6eca17630b3352e2632a8d782958c5b33b8ada506ce37febaa3d",
+      "reference_cycles": 187689274,
+      "weight": 0.25,
+      "official_cycles": 91208716,
+      "cycle_error_percent": -3.5551196664143414
+    },
+    "a-p": {
+      "cycles": 245330677,
+      "waves": 9280,
+      "independent": true,
+      "confidence": "empirical contention correction",
+      "model": "command dependency / SM engines / HBM channel / DMA contention",
+      "program_sha256": "086a57b5957387dcfcaf4b387e0fd094e778cda6809e8d9e88e46880f3196fbb",
+      "reference_cycles": 374856358,
+      "weight": 0.25,
+      "official_cycles": 249709295,
+      "cycle_error_percent": -1.7534861888100717
+    },
+    "w-d1": {
+      "cycles": 18880252,
+      "waves": 3752,
+      "independent": true,
+      "confidence": "empirical contention correction",
+      "model": "command dependency / SM engines / HBM channel / DMA contention",
+      "program_sha256": "29a4a4e83394172a71dc24b9afe8d1feb948125ab6a6810b84c87f28dffd814e",
+      "reference_cycles": 27068433,
+      "weight": 0.16666666666666666,
+      "official_cycles": 19698605,
+      "cycle_error_percent": -4.1543703221624035
+    },
+    "w-d16": {
+      "cycles": 27797676,
+      "waves": 5232,
+      "independent": true,
+      "confidence": "empirical contention correction",
+      "model": "command dependency / SM engines / HBM channel / DMA contention",
+      "program_sha256": "165bf070404871b6521a6e3ff748d61cf820eb51cedc02c764d84a01a21eaea8",
+      "reference_cycles": 42358913,
+      "weight": 0.16666666666666666,
+      "official_cycles": 28034378,
+      "cycle_error_percent": -0.8443276323091609
+    },
+    "w-d4l": {
+      "cycles": 56374620,
+      "waves": 14416,
+      "independent": true,
+      "confidence": "empirical contention correction",
+      "model": "command dependency / SM engines / HBM channel / DMA contention",
+      "program_sha256": "4a9bf21ceecd14962ecd07cd3a7b97322a4475f3a1fbd9c3c9bc4a295d6415ea",
+      "reference_cycles": 70439292,
+      "weight": 0.16666666666666666,
+      "official_cycles": 57484249,
+      "cycle_error_percent": -1.9303183381590316
+    }
+  },
+  "score_if_all_eligible": 1588.5336040473703,
+  "independent": true,
+  "optimality_bound": false,
+  "numerical_correctness": "not_checked",
+  "official_score": 1548.9935009026813,
+  "score_error_percent": 2.5526319588588864
+}

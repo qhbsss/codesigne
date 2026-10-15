@@ -1,0 +1,12 @@
+{
+  "cases": [
+    {"name": "w-d16", "config": "phase-two-model/runs/k4-rf-tc-pipeline-hybrid-20261011/hardware-0000/w-d16/option-0000/config.json", "weight": 1.0}
+  ],
+  "domains": {},
+  "case_domains": {},
+  "case_choices": {
+    "w-d16": [{"policy.m": 4}]
+  },
+  "seed": 7,
+  "max_designs": 1
+}
